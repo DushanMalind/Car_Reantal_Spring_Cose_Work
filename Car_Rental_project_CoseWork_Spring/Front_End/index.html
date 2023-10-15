@@ -182,6 +182,55 @@
 
   <!-- Login Page End -->
 
+  <!--Forgot Password Page-->
+  <section id="ForgotPasswordPage">
+
+    <div class="border border-3 border-white rounded-1 shadow" style="position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;width: 500px;height: 500px;background-image: radial-gradient(circle at top,white,darkgreen);">
+
+      <div class="text-center" style="position: relative;top: 20px">
+        <h1 class="mt-3 text-black fw-bold fst-italic" style="font-family: 'PT Serif', serif;">RESET PASSWORD</h1>
+      </div>
+
+      <form class="ms-5 me-5" style="position: relative; top: 50px;">
+        <!-- username input -->
+        <div class="form-outline mb-4 ms-5 me-5">
+          <input type="text" id="enterusername" class="form-control  border border-2 border-white bg-light rounded-3" />
+          <label class="form-label text-black fw-light" for="enterusername" style="font-size: 18px;">Username</label>
+        </div>
+
+        <!-- Password input -->
+        <div class="form-outline mb-4 ms-5 me-5">
+          <input type="password" id="newpassword" class="form-control  border border-2 border-white bg-light" />
+          <label class="form-label text-black fw-light" for="newpassword" style="font-size: 18px">New password</label>
+          <p><small id="errorNewPW" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
+        </div>
+
+        <!-- Password input -->
+        <div class="form-outline mb-4 ms-5 me-5">
+          <input type="password" id="confirmPassword" class="form-control  border border-2 border-white bg-light" />
+          <label class="form-label text-black fw-light" for="confirmpassword" style="font-size: 18px">Confirm password</label>
+          <p><small id="errorConfirmPW" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
+        </div>
+
+        <div class="mb-5  me-5 ms-5">
+          <!-- Submit button -->
+          <button id="btnResetPW" type="button" class="btn btn-block text-center text-white btn-warning shadow" style="display: inline;position: relative;left: 0;right: 0; margin: auto;">Reset</button>
+          <button type="button" class="btn btn-danger text-end btnReset">Cancel</button>
+        </div>
+
+
+
+        <hr class="divider-horizontal-blurry" />
+
+
+
+      </form>
+
+    </div>
+
+  </section>
+
+  <!--Forgot Password Page End -->
 
   <!-- Register Page Sing page -->
 
