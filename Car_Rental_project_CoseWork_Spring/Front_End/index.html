@@ -4,38 +4,77 @@
 <head>
   <meta charset="utf-8">
   <title></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="keywords" content="IJSE,GDSE,Sri lanka">
+  <meta name="description" content="ok.your log.Test my Car web page">
+  <meta name="author" content="Dushan Malinda">
+  <meta name="owner" content="Dushan Malinda">
+  <meta name="robots" content="index">
+  <meta name="theme-color" content="blue">
+  <meta name="viewport" content="width=device-width initial-scale=1 minimum-scale=1 maximum-scale=10">
 
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
 
   <link rel="manifest" href="site.webmanifest">
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
 
   <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="assets/css/bootstrap.css">
 
-  <meta name="theme-color" content="#fafafa">
+  <!--<link rel="stylesheet" href="css/main.css">-->
+
+
 </head>
 
 <body>
+<header>
+  <nav class="navbar navbar-expand-lg navbar bg-dark d-flex flex-row ">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+              aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand text-white" href="#">Car Rental System</a>
+        <ul class="navbar-nav me-auto ms-2 mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active text-white" aria-current="page" href=#" id="customers">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#" id="service">Service</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#" id="car">Car</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#" id="about">About</a>
+          </li>
 
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
-  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
+        </ul>
+        <form class="d-flex me-lg-5" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
 
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
-  </script>
-  <script src="https://www.google-analytics.com/analytics.js" async></script>
+      <div class="d-flex align-items-center loginBar">
+        <button type="button" class="btn btn-link px-3 me-2 text-white" id="btnLogin" style="text-decoration: none">
+          Login
+        </button>
+        <button type="button" class="btn px-3 me-2 text-white border border-1 border-light" id="btnOpenRegisterForm" style="text-decoration: none;">
+          Sign Up
+        </button>
+      </div>
+
+    </div>
+  </nav>
+</header>
+
+<!-- Add your site or application content here -->
+
+
+<script src="assets/js/jquery-3.6.1.min.js"></script>
+<script src="assets/js/bootstrap.js"></script>
 </body>
 
 </html>
