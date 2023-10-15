@@ -24,6 +24,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"
         integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
 
+
+
   <!--<link rel="stylesheet" href="css/main.css">-->
 
 
@@ -31,7 +33,7 @@
 
 <body>
 
-<main>
+<main style="width: 100%; height: 100vh;">
   <header>
     <nav class="navbar navbar-expand-lg navbar bg-dark d-flex flex-row ">
       <div class="container-fluid">
@@ -144,7 +146,7 @@
 
                     <!--submit btn-->
                     <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit">Login</button>
+                      <button class="btn btn-primary w-100" type="button" id="btnLogToSystem">Login</button>
                     </div>
 
                     <div class="text-center">
@@ -154,7 +156,6 @@
                       <button type="button" class="btn btn-dark btn-floating mx-1">
                         <i class="fab fa-google"></i>
                       </button>
-
                     </div>
 
 
@@ -207,7 +208,7 @@
 
         <!-- Password input -->
         <div class="form-outline mb-4 ms-5 me-5">
-          <input type="password" id="confirmPassword" class="form-control  border border-2 border-white bg-light" />
+          <input type="password" id="confirmpassword" class="form-control  border border-2 border-white bg-light" />
           <label class="form-label text-black fw-light" for="confirmpassword" style="font-size: 18px">Confirm password</label>
           <p><small id="errorConfirmPW" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
         </div>
@@ -215,10 +216,8 @@
         <div class="mb-5  me-5 ms-5">
           <!-- Submit button -->
           <button id="btnResetPW" type="button" class="btn btn-block text-center text-white btn-warning shadow" style="display: inline;position: relative;left: 0;right: 0; margin: auto;">Reset</button>
-          <button type="button" class="btn btn-danger text-end btnReset">Cancel</button>
+          <button type="button" class="btn btn-danger text-end btnReset" id="btnCancelForgotPW">Cancel</button>
         </div>
-
-
 
         <hr class="divider-horizontal-blurry" />
 
@@ -232,6 +231,7 @@
 
   <!--Forgot Password Page End -->
 
+
   <!-- Register Page Sing page -->
 
 
@@ -243,6 +243,30 @@
 
 <script src="assets/js/jquery-3.6.1.min.js"></script>
 <script src="assets/js/bootstrap.js"></script>
+<script src="controller/DashBoardController.js"></script>
+<!--<script>
+  $(document).ready(function () {
+    $("#btnLogin").click(function () {
+      $("#login_page_container").show();
+    });
+    $("#btnCancelLogin").click(function () {
+      $("#login_page_container").hide();
+    });
+    $("#btnForgotPW").click(function () {
+      $("#login_page_container").hide();
+    });
+    $(".btnReset").click(function () {
+      $("#login_page_container").show();
+    });
+    $("#btnOpenRegisterForm").click(function () {
+      $("#login_page_container").hide();
+    });
+    $("#btnRegisterInLoginPage").click(function () {
+      $("#login_page_container").hide();
+    });
+  });
+</script>-->
+
 </body>
 
 </html>
