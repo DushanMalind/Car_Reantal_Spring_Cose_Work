@@ -101,7 +101,7 @@ $("#btnLogin").click(function () {
 
 $("#btnCancelLogin").click(function () {
   $("#login_page_container").css("display","none");
-
+  setView($("#hero"));
 });
 
 $("#btnForgotPW").click(function () {
