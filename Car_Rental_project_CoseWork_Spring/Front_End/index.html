@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"
         integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
-
+  <link rel="stylesheet" href="assets/css/main.css">
 
 
   <!--<link rel="stylesheet" href="css/main.css">-->
@@ -33,7 +33,7 @@
 
 <body>
 
-<main style="width: 100%; height: 100vh;">
+<main>
   <header>
     <nav class="navbar navbar-expand-lg navbar bg-dark d-flex flex-row ">
       <div class="container-fluid">
@@ -45,7 +45,7 @@
           <a class="navbar-brand text-white" href="#">Car Rental System</a>
           <ul class="navbar-nav me-auto ms-2 mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active text-white" aria-current="page" href=#" id="customers">Home</a>
+              <a class="nav-link active text-white" aria-current="page" href=#" id="home">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-white" href="#" id="service">Service</a>
@@ -54,7 +54,7 @@
               <a class="nav-link text-white" href="#" id="car">Car</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="#" id="about">About</a>
+              <a class="nav-link text-white" href="#" id="about">login</a>
             </li>
 
           </ul>
@@ -78,7 +78,47 @@
   </header>
 
 
-  <!-- Add your site or application content here -->
+<!--Home page Start-->
+
+  <section class="hero" id="hero">
+
+    <div class="info d-flex align-items-center">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6 text-center">
+            <h2 data-aos="fade-down">Welcome to <span>Easy Car Rental</span></h2>
+            <p data-aos="fade-up">"Easy Car Rental" is a car rental service providing convenient and affordable
+              vehicle options for customers. With a wide range of vehicles to choose from, customers are able
+              to find the perfect car for their transportation needs.</p>
+            <!--<a class="btn-get-started" data-aos="fade-up" data-aos-delay="200" href="#carStore">Book Now</a>-->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel slide" data-bs-interval="5000" data-bs-ride="carousel" id="hero-carousel">
+
+      <div class="carousel-item active" style="background-image: url(assets/img/carWithKey.jpg)"></div>
+      <div class="carousel-item" style="background-image: url(assets/img/34664326.jpg)"></div>
+      <div class="carousel-item" style="background-image: url(assets/img/couple-car-road-trip.jpg)"></div>
+
+
+      <a class="carousel-control-prev" data-bs-slide="prev" href="#hero-carousel" role="button">
+        <span aria-hidden="true" class="carousel-control-prev-icon bi bi-chevron-left"></span>
+      </a>
+
+      <a class="carousel-control-next" data-bs-slide="next" href="#hero-carousel" role="button">
+        <span aria-hidden="true" class="carousel-control-next-icon bi bi-chevron-right"></span>
+      </a>
+
+    </div>
+
+  </section>
+
+<!--Home page end-->
+
+ <!-- Add your site or application content here -->
+
 
 <!-- Login Page -->
 

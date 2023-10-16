@@ -40,6 +40,7 @@ initiateUI();
 
 function initiateUI(){
   clearAll();
+  $("#hero").css("display","block");
   $("#login_page_container").css("display","block");
   $("#ForgotPasswordPage").css("display","block");
 
@@ -48,6 +49,9 @@ function initiateUI(){
 
 function saveLastView(clickedID){
   switch (clickedID){
+    case "hero":
+      localStorage.setItem("view","HERO");
+      break;
     case "login_page_container":
       localStorage.setItem("view","LOGIN");
       break;
@@ -60,6 +64,9 @@ function saveLastView(clickedID){
 function setTheLastView(){
   let view=localStorage.getItem("view");
   switch (view){
+    case "HERO":
+      setView($("#hero"));
+      break;
     case "LOGIN":
       setView($("#login_page_container"));
       break;
@@ -72,6 +79,7 @@ function setTheLastView(){
 }
 
 function clearAll(){
+  $("#hero").css("display","none");
   $("#login_page_container").css("display","none");
   $("#ForgotPasswordPage").css("display","none");
 }
@@ -83,10 +91,13 @@ function setView(viewOb){
   console.log(viewOb.get(0).id);
 }
 
+
+
 $("#btnLogin").click(function () {
   setView($("#login_page_container"));
 
 });
+
 
 $("#btnCancelLogin").click(function () {
   $("#login_page_container").css("display","none");
@@ -100,3 +111,14 @@ $("#btnForgotPW").click(function () {
 $("#btnCancelForgotPW").click(function () {
   setView($("#login_page_container"));
 });
+
+$("#btnResetPW").click(function () {
+  setView($("#login_page_container"));
+});
+
+$("#home").click(function () {
+  setView($("#hero"));
+
+});
+
+
