@@ -207,38 +207,68 @@
 
                   <!--vehicle Type-->
                   <div class="form-group col-md-6 mb-3">
-                    <label class="text-center text-primary fw-bold pb-0 fs-4" for="carAddVehicleType">Vehicle Type</label>
+                    <label class="text-center text-primary fw-bold pb-2 fs-4" for="carAddVehicleType">Vehicle Type</label>
                     <input type="text" placeholder="Enter Type" name="carAddVehicleType" class="form-control" id="carAddVehicleType" required>
                   </div>
 
                   <!--Brand-->
                   <div class="form-group col-md-6 mb-3">
-                    <label class="text-center text-primary fw-bold pb-0 fs-4" for="carAddVehicleBrand">Car Brand</label>
-                    <input type="text" placeholder="Enter Brand" name="carAddVehicleBrand" class="form-control" id="carAddVehicleBrand" required>
+                    <!--<label class="text-center text-primary fw-bold pb-0 fs-4" for="carAddVehicleBrand">Car Brand</label>
+                    <input type="text" placeholder="Enter Brand" name="carAddVehicleBrand" class="form-control" id="carAddVehicleBrand" required>-->
+                    <label class="form-label text-center text-primary fw-bold pb-0 fs-4" for="carAddVehicleBrand">Car Brand</label>
+                    <select aria-label="Default select example" class="form-select fs-5" style="height: 38px" id="carAddVehicleBrand">
+                      <option selected value="0">None</option>
+                      <option value="1">Suzuki Alto - Premium - Manual * 7</option>
+                      <option value="2">Suzuki Alto K10 - Auto * 8</option>
+                      <option value="3">Perodua (Daihatsu) Axia - Auto * 2</option>
+                      <option value="4">Toyota Prius C/ Aqua - Auto * 8</option>
+                      <option value="5">Suzuki Celerio - Auto * 5</option>
+                      <option value="6">Toyota Corolla Axio/ NZE141 * 4</option>
+                      <option value="7">Perodua Bezza Prime Sedan - Auto (2017) * 5</option>
+                      <option value="8">Toyota Allion NZT 260 * 3</option>
+                      <option value="9">Toyota Axio NKR 165 * 2</option>
+                      <option value="10">Toyota Axio NKR 165 * 2</option>
+                      <option value="11">Mercedes * 2</option>
+                      <option value="12">BMW i8 * 2</option>
+
+                    </select>
                   </div>
 
                   <!--vehicle Modal-->
                   <div class="form-group col-md-6 mb-3">
-                    <label class="text-center text-primary fw-bold pb-0 fs-4" for="carAddVehicleModel">Vehicle Model</label>
+                    <label class="text-center text-primary fw-bold pb-2 fs-4" for="carAddVehicleModel">Vehicle Model</label>
                     <input type="text" placeholder="Enter Model" class="form-control" name="carAddVehicleModel" id="carAddVehicleModel" required>
                   </div>
 
 
                   <!--Transmission-->
                   <div class="form-group col-md-6 mb-3">
-                    <label class="text-center text-primary fw-bold pb-0 fs-4" for="carAddVehicleTransmission">Transmission</label>
-                    <input type="text" placeholder="Enter Transmission" name="carAddVehicleTransmission" class="form-control" id="carAddVehicleTransmission" required>
+                    <!--<label class="text-center text-primary fw-bold pb-0 fs-4" for="carAddVehicleTransmission">Transmission</label>
+                    <input type="text" placeholder="Enter Transmission" name="carAddVehicleTransmission" class="form-control" id="carAddVehicleTransmission" required>-->
+                    <label class="form-label text-center text-primary fw-bold pb-0 fs-4" for="carAddVehicleTransmission">Transmission</label>
+                    <select aria-label="Default select example" class="form-select fs-5" style="height: 38px" id="carAddVehicleTransmission">
+                      <option value="1">Manual</option>
+                      <option value="2">Auto</option>
+                      <!-- <option value="3"></option>-->
+                    </select>
                   </div>
 
                   <!--Fuel-->
                   <div class="form-group col-md-6 mb-3">
-                    <label class="text-center text-primary fw-bold pb-0 fs-4" for="carAddVehicleFuel">Fuel Type</label>
-                    <input type="text" placeholder="Fuel Type" name="carAddVehicleFuel" class="form-control" id="carAddVehicleFuel" required>
+                    <!--<label class="text-center text-primary fw-bold pb-0 fs-4" for="carAddVehicleFuel">Fuel Type</label>-->
+                   <!-- <input type="text" placeholder="Fuel Type" name="carAddVehicleFuel" class="form-control" id="carAddVehicleFuel" required>-->
+                    <label class="form-label text-center text-primary fw-bold pb-0 fs-4" for="carAddVehicleFuel">Fuel Type</label>
+                    <select aria-label="Default select example" class="form-select fs-5" style="height: 38px" id="carAddVehicleFuel">
+                      <option selected value="0">None</option>
+                      <option value="1">Diesel</option>
+                      <option value="2">Petrol</option>
+                     <!-- <option value="3"></option>-->
+                    </select>
                   </div>
 
                   <!--Daily Rate-->
                   <div class="form-group col-md-6 mb-3">
-                    <label class="text-center text-primary fw-bold pb-0 fs-4" for="carAddVehicleDailyRate">Daily Rate</label>
+                    <label class="text-center text-primary fw-bold pb-2 fs-4" for="carAddVehicleDailyRate">Daily Rate</label>
                     <input type="text" placeholder="Daily Rate" name="carAddVehicleDailyRate" class="form-control" id="carAddVehicleDailyRate" required>
                   </div>
 
@@ -278,6 +308,18 @@
                     <input type="text" placeholder="Vehicle Colour" name="carAddVehicleColour" class="form-control" id="carAddVehicleColour" required>
                   </div>
 
+                  <!--Passenger-->
+                  <div class="form-group col-md-6 mb-3">
+                    <label class="text-center text-primary fw-bold pb-0 fs-4" for="carAddVehiclePassenger">Vehicle Passenger</label>
+                    <input type="text" placeholder="Vehicle Colour" name="carAddVehicleColour" class="form-control" id="carAddVehiclePassenger" required>
+                  </div>
+
+                  <!--Loss damage-->
+                  <div class="form-group col-md-6 mb-3">
+                    <label class="text-center text-primary fw-bold pb-0 fs-4" for="carAddVehicleLossDamage">Loss Damage Waiver payment</label>
+                    <input type="text" placeholder="Vehicle Lose" name="carAddVehicleLossDamage" class="form-control" id="carAddVehicleLossDamage" required>
+                  </div>
+
                   <!--Front-->
                   <div class="form-group col-md-6 mb-3">
                     <label for="register-form-Front-image" class="form-label text-center text-primary fw-bold pb-0 fs-4">Front</label>
@@ -299,14 +341,24 @@
                     <input style="border: 1px solid gray" class="form-control  " type="file" id="register-form-Interior-image">
                   </div>
 
+                  <!--Available Or Not-->
                   <div class="form-group col-md-6 mb-3">
-                    <label class="text-center text-primary fw-bold pb-0 fs-4" for="carAddVehicleColour">Loss Damage Waiver payment</label>
-                    <input type="text" placeholder="Vehicle Lose" name="carAddVehicleLose" class="form-control" id="carAddVehicleLose" required>
+                    <!--<label class="text-center text-primary fw-bold pb-0 fs-4" for="carAddVehicleAvailable">Available Or Not</label>
+                    <input type="text" placeholder="Vehicle Available" name="carAddVehicleAvailable" class="form-control" id="carAddVehicleAvailable" required>-->
+                    <label class="form-label text-center text-primary fw-bold pb-0 fs-4" for="carAddVehicleAvailable">Available Or Not</label>
+                    <select aria-label="Default select example" class="form-select fs-5" style="height: 38px" id="carAddVehicleAvailable">
+                      <option value="1">Available</option>
+                      <option value="2">Not Available</option>
+                    </select>
                   </div>
 
                   <!--Add btn-->
                   <div class="col-12">
                     <button class="btn btn-primary w-100" id="btnSignIn" type="button">Add Vehicle</button>
+                  </div>
+
+                  <div class="col-12">
+                    <button class="btn btn-success w-100" id="btnUpdate" type="button">Update Vehicle</button>
                   </div>
 
                 </form>
