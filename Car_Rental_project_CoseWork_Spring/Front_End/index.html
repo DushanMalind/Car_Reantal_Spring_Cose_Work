@@ -68,7 +68,8 @@
           <button type="button" class="btn btn-link px-3 me-2 text-white" id="btnLogin" style="text-decoration: none">
             Login
           </button>
-          <button type="button" class="btn px-3 me-2 text-white border border-1 border-light" id="btnOpenRegisterForm" style="text-decoration: none;">
+          <button type="button" class="btn px-3 me-2 text-white border border-1 border-light" id="btnOpenRegisterForm"
+                  style="text-decoration: none;">
             Sign Up
           </button>
         </div>
@@ -78,7 +79,7 @@
   </header>
 
 
-<!--Home page Start-->
+  <!--Home page Start-->
 
   <section class="hero" id="hero">
 
@@ -117,118 +118,126 @@
 
   </section>
 
-<!--Home page end-->
+  <!--Home page end-->
 
- <!-- Add your site or application content here -->
+  <!-- Add your site or application content here -->
 
 
-<!-- Login Page -->
+  <!-- Login Page -->
 
-    <div class="container" id="login_page_container">
-      <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+  <div class="container" id="login_page_container">
+    <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
-              <div class="d-flex justify-content-center py-4">
+            <div class="d-flex justify-content-center py-4">
 
-              </div><!-- End Logo -->
+            </div><!-- End Logo -->
 
-              <div class="card mb-3">
+            <div class="card mb-3">
 
-                <div class="card-body" style="background-image: radial-gradient(circle at top,white,green)">
+              <div class="card-body" style="background-image: radial-gradient(circle at top,white,green)">
 
-                  <div class="pt-4 pb-2">
-                    <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
-                    <p class="text-center small">Enter your username & password to login</p>
+                <div class="pt-4 pb-2">
+                  <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
+                  <p class="text-center small">Enter your username & password to login</p>
+                </div>
+
+                <form class="row g-3 needs-validation" id="loginPageFrom" novalidate>
+
+                  <div class="col-12">
+                    <label class="form-label" for="yourUsername">Username</label>
+                    <div class="input-group has-validation">
+                      <span class="input-group-text" id="inputGroupPrepend">@</span>
+                      <input class="form-control" id="yourUsername" name="username" required
+                             type="text">
+                      <div class="invalid-feedback">Please enter your username.</div>
+                    </div>
                   </div>
 
-                  <form class="row g-3 needs-validation" id="loginPageFrom" novalidate>
+                  <div class="col-12">
+                    <label class="form-label" for="yourPassword">Password</label>
+                    <input class="form-control" id="yourPassword" name="password" required
+                           type="password">
+                    <div class="invalid-feedback">Please enter your password!</div>
+                  </div>
 
-                    <div class="col-12">
-                      <label class="form-label" for="yourUsername">Username</label>
-                      <div class="input-group has-validation">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input class="form-control" id="yourUsername" name="username" required
-                               type="text">
-                        <div class="invalid-feedback">Please enter your username.</div>
-                      </div>
-                    </div>
+                  <!-- <div class="col-12">
+                     <div class="form-check">
+                       <input class="form-check-input" id="rememberMe" name="remember" type="checkbox"
+                              value="true">
+                       <label class="form-check-label" for="rememberMe">Remember me</label>
+                     </div>
+                   </div>-->
 
-                    <div class="col-12">
-                      <label class="form-label" for="yourPassword">Password</label>
-                      <input class="form-control" id="yourPassword" name="password" required
-                             type="password">
-                      <div class="invalid-feedback">Please enter your password!</div>
-                    </div>
-
-                   <!-- <div class="col-12">
+                  <div class="row mt-3">
+                    <div class="col d-flex justify-content-center">
+                      <!-- Checkbox -->
                       <div class="form-check">
-                        <input class="form-check-input" id="rememberMe" name="remember" type="checkbox"
-                               value="true">
-                        <label class="form-check-label" for="rememberMe">Remember me</label>
-                      </div>
-                    </div>-->
-
-                    <div class="row mt-3">
-                      <div class="col d-flex justify-content-center">
-                        <!-- Checkbox -->
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                          <label class="form-check-label text-black" for="flexCheckDefault" style="font-size: 18px">Remember Me</label>
-                        </div>
-                      </div>
-
-                      <div class="col">
-                        <!-- Simple link -->
-                        <a href="#ForgotPasswordPage"  id="btnForgotPW"  style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;color: #6f42c1;text-decoration: none">Forgot password?</a>
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                        <label class="form-check-label text-black" for="flexCheckDefault" style="font-size: 18px">Remember
+                          Me</label>
                       </div>
                     </div>
 
-
-                    <!--submit btn-->
-                    <div class="col-12">
-                      <button class="btn btn-primary w-100" type="button" id="btnLogToSystem">Login</button>
+                    <div class="col">
+                      <!-- Simple link -->
+                      <a href="#ForgotPasswordPage" id="btnForgotPW"
+                         style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;color: #6f42c1;text-decoration: none">Forgot
+                        password?</a>
                     </div>
-
-                    <div class="text-center">
-                      <p class="text-black" style="font-size: 18px">Not a member? <a href="#RegisterPage" id="btnRegisterInLoginPage" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;color: #6f42c1;text-decoration: none"> Register</a></p>
-                      <p class="text-black" style="font-size: 18px">or sign up with:</p>
-
-                      <button type="button" class="btn btn-dark btn-floating mx-1">
-                        <i class="fab fa-google"></i>
-                      </button>
-                    </div>
+                  </div>
 
 
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end" >
-                      <button type="button" class="btn btn-danger text-end" id="btnCancelLogin">Cancel</button>
-                    </div>
+                  <!--submit btn-->
+                  <div class="col-12">
+                    <button class="btn btn-primary w-100" type="button" id="btnLogToSystem">Login</button>
+                  </div>
+
+                  <div class="text-center">
+                    <p class="text-black" style="font-size: 18px">Not a member? <a href="#RegisterPage"
+                                                                                   id="btnRegisterInLoginPage"
+                                                                                   style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;color: #6f42c1;text-decoration: none">
+                      Register</a></p>
+                    <p class="text-black" style="font-size: 18px">or sign up with:</p>
+
+                    <button type="button" class="btn btn-dark btn-floating mx-1">
+                      <i class="fab fa-google"></i>
+                    </button>
+                  </div>
 
 
-                  </form>
+                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button type="button" class="btn btn-danger text-end" id="btnCancelLogin">Cancel</button>
+                  </div>
 
-                </div>
+
+                </form>
+
               </div>
-
-             <!-- <div class="credits">
-                Designed by <a href=""></a>
-              </div>-->
-
             </div>
+
+            <!-- <div class="credits">
+               Designed by <a href=""></a>
+             </div>-->
+
           </div>
         </div>
+      </div>
 
-      </section>
+    </section>
 
-    </div>
+  </div>
 
   <!-- Login Page End -->
 
   <!--Forgot Password Page-->
+
   <section id="ForgotPasswordPage">
 
-    <div class="border border-3 border-white rounded-1 shadow" style="position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;width: 500px;height: 500px;background-image: radial-gradient(circle at top,white,darkgreen);">
+    <div class="border border-3 border-white rounded-1 shadow"
+         style="position: relative;top: 50px;bottom: 0;right: 0;left: 0;margin: auto;width: 500px;height: 500px;background-image: radial-gradient(circle at top,white,darkgreen);">
 
       <div class="text-center" style="position: relative;top: 20px">
         <h1 class="mt-3 text-black fw-bold fst-italic" style="font-family: 'PT Serif', serif;">RESET PASSWORD</h1>
@@ -237,32 +246,34 @@
       <form class="ms-5 me-5" id="forgotFromIdPage" style="position: relative; top: 50px;">
         <!-- username input -->
         <div class="form-outline mb-4 ms-5 me-5">
-          <input type="text" id="enterusername" class="form-control  border border-2 border-white bg-light rounded-3" />
+          <input type="text" id="enterusername" class="form-control  border border-2 border-white bg-light rounded-3"/>
           <label class="form-label text-black fw-light" for="enterusername" style="font-size: 18px;">Username</label>
         </div>
 
         <!-- Password input -->
         <div class="form-outline mb-4 ms-5 me-5">
-          <input type="password" id="newpassword" class="form-control  border border-2 border-white bg-light" />
+          <input type="password" id="newpassword" class="form-control  border border-2 border-white bg-light"/>
           <label class="form-label text-black fw-light" for="newpassword" style="font-size: 18px">New password</label>
           <p><small id="errorNewPW" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
         </div>
 
         <!-- Password input -->
         <div class="form-outline mb-4 ms-5 me-5">
-          <input type="password" id="confirmpassword" class="form-control  border border-2 border-white bg-light" />
-          <label class="form-label text-black fw-light" for="confirmpassword" style="font-size: 18px">Confirm password</label>
+          <input type="password" id="confirmpassword" class="form-control  border border-2 border-white bg-light"/>
+          <label class="form-label text-black fw-light" for="confirmpassword" style="font-size: 18px">Confirm
+            password</label>
           <p><small id="errorConfirmPW" class="text-danger fs-5 pl-1 mt-0 mb-0"></small></p>
         </div>
 
         <div class="mb-5  me-5 ms-5">
           <!-- Submit button -->
-          <button id="btnResetPW" type="button" class="btn btn-block text-center text-white btn-warning shadow" style="display: inline;position: relative;left: 0;right: 0; margin: auto;">Reset</button>
+          <button id="btnResetPW" type="button" class="btn btn-block text-center text-white btn-warning shadow"
+                  style="display: inline;position: relative;left: 0;right: 0; margin: auto;">Reset
+          </button>
           <button type="button" class="btn btn-danger text-end btnReset" id="btnCancelForgotPW">Cancel</button>
         </div>
 
-        <hr class="divider-horizontal-blurry" />
-
+        <hr class="divider-horizontal-blurry"/>
 
 
       </form>
@@ -276,17 +287,17 @@
 
   <!-- Register Page Sing page -->
 
-  <div class="container" id="registerPage" >
+  <div class="container" id="registerPage">
     <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
       <div class="container">
-        <div class="row justify-content-center" >
+        <div class="row justify-content-center">
           <div class="col-lg-8 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
             <div class="card mb-3">
 
-              <div class="card-body"  style="background-image: radial-gradient(circle at top,white,darkgreen);">
+              <div class="card-body" style="background-image: radial-gradient(circle at top,white,darkgreen);">
 
-                <div class="pt-4 pb-2"  style="background-image: radial-gradient(circle at top,white,darkgreen);">
+                <div class="pt-4 pb-2" style="background-image: radial-gradient(circle at top,white,darkgreen);">
                   <h5 class="card-title text-center pb-0 fs-4">Sign In</h5>
                   <p class="text-center small">Enter your details to Register</p>
                 </div>
@@ -298,12 +309,13 @@
                   <div class="form-group col-md-6 mb-3">
 
                     <label for="nameSignIn"></label>
-                    <input type="text" placeholder="Your Name" name="name" class="form-control" id="nameSignIn" required>
+                    <input type="text" placeholder="Your Name" name="name" class="form-control" id="nameSignIn"
+                           required>
                   </div>
 
                   <!--email-->
                   <div class="form-group col-md-6 mb-3">
-                     <label for="emailSignIn"></label>
+                    <label for="emailSignIn"></label>
                     <input type="email" placeholder="Email" class="form-control" name="email" id="emailSignIn" required>
                   </div>
 
@@ -316,24 +328,32 @@
                   <!--Address-->
                   <div class="form-group col-md-6">
                     <label for="addressSignIn"></label>
-                    <input type="text" placeholder="Address" name="name" class="form-control" id="addressSignIn" required>
+                    <input type="text" placeholder="Address" name="name" class="form-control" id="addressSignIn"
+                           required>
                   </div>
 
                   <!--Contact-->
                   <div class="form-group col-md-6">
                     <label for="contactSignIn"></label>
-                    <input type="text" placeholder="Contact" name="name" class="form-control" id="contactSignIn" required>
+                    <input type="text" placeholder="Contact" name="name" class="form-control" id="contactSignIn"
+                           required>
                   </div>
 
                   <!--Driving License-->
                   <div class="form-group col-md-6">
                     <label for="drivingLicenseSignIn"></label>
-                    <input type="text" placeholder="Driving License" name="name" class="form-control" id="drivingLicenseSignIn" required>
+                    <input type="text" placeholder="Driving License" name="name" class="form-control"
+                           id="drivingLicenseSignIn" required>
                   </div>
 
                   <div class="w-100">
-                    <label for="register-form-NIC-image" class="form-label ">NIC Image or Driving Licence Image</label>
+                    <label for="register-form-NIC-image" class="form-label ">NIC Image or Driving Licence Image Front</label>
                     <input style="border: 1px solid gray" class="form-control" type="file" id="register-form-NIC-image">
+                  </div>
+
+                  <div class="w-100">
+                    <label for="register-form-NIC-image" class="form-label ">NIC Image or Driving Licence Image Back</label>
+                    <input style="border: 1px solid gray" class="form-control" type="file" id="register-form-NIC-image-back">
                   </div>
 
                   <!--username-->
@@ -383,11 +403,25 @@
 
   </div>
 
-
   <!-- Register Page Sing page End -->
 
-</main>
 
+  <!-- Update Customer Page -->
+
+
+
+  <!-- Update Customer Page End -->
+
+
+  <!--Add Car Page-->
+
+
+
+  <!--Add Car Page End -->
+
+
+
+</main>
 
 
 <script src="assets/js/jquery-3.6.1.min.js"></script>

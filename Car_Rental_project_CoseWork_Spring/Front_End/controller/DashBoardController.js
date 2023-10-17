@@ -43,6 +43,7 @@ function initiateUI(){
   $("#hero").css("display","block");
   $("#login_page_container").css("display","block");
   $("#ForgotPasswordPage").css("display","block");
+  $("#registerPage").css("display","block");
 
   setTheLastView();
 }
@@ -57,6 +58,9 @@ function saveLastView(clickedID){
       break;
     case "ForgotPasswordPage":
       localStorage.setItem("view","FORGOTPASSWORD");
+      break;
+      case "registerPage":
+      localStorage.setItem("view","REGISTER");
       break;
   }
 }
@@ -73,6 +77,8 @@ function setTheLastView(){
     case "FORGOTPASSWORD":
       setView($("#ForgotPasswordPage"));
       break;
+      case "REGISTER":
+      setView($("#registerPage"));
     /*default:
       setView($("#login_page_container"));*/
   }
@@ -82,6 +88,7 @@ function clearAll(){
   $("#hero").css("display","none");
   $("#login_page_container").css("display","none");
   $("#ForgotPasswordPage").css("display","none");
+  $("#registerPage").css("display","none");
 }
 
 function setView(viewOb){
@@ -118,7 +125,10 @@ $("#btnResetPW").click(function () {
 
 $("#home").click(function () {
   setView($("#hero"));
+});
 
+$("#btnOpenRegisterForm").click(function () {
+  setView($("#registerPage"));
 });
 
 
