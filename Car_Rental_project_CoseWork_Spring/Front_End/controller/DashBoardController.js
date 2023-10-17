@@ -44,6 +44,8 @@ function initiateUI(){
   $("#login_page_container").css("display","block");
   $("#ForgotPasswordPage").css("display","block");
   $("#registerPage").css("display","block");
+  $("#services").css("display","block");
+
 
   setTheLastView();
 }
@@ -62,6 +64,9 @@ function saveLastView(clickedID){
       case "registerPage":
       localStorage.setItem("view","REGISTER");
       break;
+      case "services":
+      localStorage.setItem("view","SERVICES");
+      break;
   }
 }
 
@@ -79,6 +84,10 @@ function setTheLastView(){
       break;
       case "REGISTER":
       setView($("#registerPage"));
+      break;
+      case "SERVICES":
+      setView($("#services"));
+      break;
     /*default:
       setView($("#login_page_container"));*/
   }
@@ -89,6 +98,7 @@ function clearAll(){
   $("#login_page_container").css("display","none");
   $("#ForgotPasswordPage").css("display","none");
   $("#registerPage").css("display","none");
+ /* $("#services").css("display","none");*/
 }
 
 function setView(viewOb){
@@ -127,8 +137,16 @@ $("#home").click(function () {
   setView($("#hero"));
 });
 
+$("#car").click(function () {
+  setView($("#services"));
+});
+
 $("#btnOpenRegisterForm").click(function () {
   setView($("#registerPage"));
+});
+
+$("#btn_RentItem").click(function () {
+  setView($("#login_page_container"));
 });
 
 

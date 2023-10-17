@@ -18,6 +18,12 @@
   <title>Car Mange Store</title>
   <link rel="stylesheet" href="../assets/css/bootstrap.css">
 
+  <style>
+
+
+  </style>
+
+
 </head>
 <body>
 <!--Header Add-->
@@ -32,13 +38,13 @@
         <a class="navbar-brand text-white" href="#">Car Rental System</a>
         <ul class="navbar-nav me-auto ms-2 mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active text-white" aria-current="page" href=#" id="home">Home</a>
+            <a class="nav-link active text-white" aria-current="page" href=../index.html id="home">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="#" id="service">Service</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#" id="car">Car</a>
+            <a class="nav-link text-white" href="carMangeStore.html" id="car">Car</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="#" id="about">login</a>
@@ -67,14 +73,13 @@
 <!--Header End-->
 
 
-
 <div class="breadcrumbs d-flex align-items-center" style="background-image: url(../assets/img/three.jpg)">
   <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
 
     <h2>Car Store</h2>
     <ol>
       <li><a href="../index.html">Home</a></li>
-      <li>Car Store</li>
+
     </ol>
   </div>
 </div>
@@ -100,11 +105,17 @@
               <!--Title/V Name-->
               <div class="row">
                 <div class="d-flex justify-content-center">
-                  <div class="icon"><img alt=""
-                                         src="../assets/img/one.jpg "
-                                         style="width: 250px;height: 175px"></i></div>
+                  <div class="icon"><img alt="" src="../assets/img/one.jpg " style="width: 250px;height: 175px"></div>
                 </div>
               </div>
+
+              <a class="carousel-control-prev" data-bs-slide="prev" href="#hero-carousel" role="button">
+                <span aria-hidden="true" class="carousel-control-prev-icon bi bi-chevron-left"></span>
+              </a>
+
+              <a class="carousel-control-next" data-bs-slide="next" href="#hero-carousel" role="button">
+                <span aria-hidden="true" class="carousel-control-next-icon bi bi-chevron-right"></span>
+              </a>
 
 
               <!--Title/V Name-->
@@ -161,11 +172,7 @@
               <!--Button-->
               <div class="row mt-3">
                 <div class="d-flex align-items-sm-stretch col-xl-8 justify-content-around">
-                  <a href="#login_page_container">
-                  <button class="btn_RentIt">RENT IT</button></a>
-                </div>
-                <div class="d-flex align-items-sm-stretch col-xl-4 justify-content-center">
-                  <img alt="" height="35" src="../assets/img/five.jpg" width="35">
+                  <button class="btn_RentIt">RENT</button>
                 </div>
               </div>
 
@@ -186,7 +193,9 @@
 
 <script src="../assets/js/bootstrap.js"></script>
 <script src="../assets/js/jquery-3.6.1.min.js"></script>
-<script src="../controller/DashBoardController.js"></script>
+<script>
 
+
+</script>
 </body>
 </html>
