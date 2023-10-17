@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="../assets/css/adminDashBoard.css">
 
 
+
 </head>
 <body>
 <header class="header d-flex align-items-center" id="header" >
@@ -92,7 +93,7 @@
 
   <ul class="sidebar-nav" id="sidebar-nav">
     <li class="nav-item">
-      <a class="nav-link " href="#">
+      <a class="nav-link " href="addMinDashBoard.html">
         <i class="bi bi-grid"></i>
         <span>Dashboard</span>
       </a>
@@ -106,7 +107,8 @@
         <i class="fa-solid fa-book"></i>
         <span>Reservation</span>
       </a>
-    </li><!-- End Reser Page Nav -->
+    </li>
+    <!-- End Reser Page Nav -->
 
 
     <li class="nav-item">
@@ -116,8 +118,8 @@
       </a>
       <ul class="nav-content collapse " data-bs-parent="#sidebar-nav" id="car-nav">
         <li>
-          <a href="#">
-            <i class="bi bi-circle"></i><span>View Car</span>
+          <a href="addMinCarAdd.html">
+            <i class="bi bi-circle"></i><span>Car Add</span>
           </a>
         </li>
         <li>
@@ -175,8 +177,141 @@
   </ul>
 </aside>
 
-<script src="../controller/DashBoardController.js"></script>
+
+<main class="main" id="main">
+
+  <div class="container">
+    <section
+      class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-12 col-md-6 d-flex flex-column align-items-center justify-content-center">
+
+            <div class="card mb-3">
+
+              <div class="card-body">
+
+                <div class="pt-4 pb-2">
+                  <h5 class="card-title text-center pb-0 fs-4">ADD Vehicle</h5>
+                </div>
+
+                <div class="d-flex align-items-end flex-column bd-highlight pb-4">
+                  <!--Add btn-->
+                  <div>
+                    <button class="btn btn-primary w-100" id="carAddVehicleAddButton" type="submit">View Vehicles</button>
+                  </div>
+                </div>
+
+                <form class="row g-3">
+
+                  <!--vehicle Type-->
+                  <div class="form-group col-md-6 mb-3">
+                    <label class="text-center fw-bold pb-0 fs-4" for="carAddVehicleType">Vehicle Type</label>
+                    <input type="text" placeholder="Enter Type" name="carAddVehicleType" class="form-control" id="carAddVehicleType" required>
+                  </div>
+
+                  <!--Brand-->
+                  <div class="form-group col-md-6 mb-3">
+                    <label class="text-center fw-bold pb-0 fs-4" for="carAddVehicleBrand">Car Brand</label>
+                    <input type="text" placeholder="Enter Brand" name="carAddVehicleBrand" class="form-control" id="carAddVehicleBrand" required>
+                  </div>
+
+                  <!--vehicle Modal-->
+                  <div class="form-group col-md-6 mb-3">
+                    <input type="text" placeholder="Enter Model" class="form-control" name="carAddVehicleModel" id="carAddVehicleModel" required>
+                  </div>
+
+
+                  <!--Transmission-->
+                  <div class="form-group col-md-6 mb-3">
+                    <input type="text" placeholder="Enter Transmission" name="carAddVehicleTransmission" class="form-control" id="carAddVehicleTransmission" required>
+                  </div>
+
+                  <!--Fuel-->
+                  <div class="form-group col-md-6 mb-3">
+                    <input type="text" placeholder="Fuel Type" name="carAddVehicleFuel" class="form-control" id="carAddVehicleFuel" required>
+                  </div>
+
+                  <!--Daily Rate-->
+                  <div class="form-group col-md-6 mb-3">
+                    <input type="text" placeholder="Daily Rate" name="carAddVehicleDailyRate" class="form-control" id="carAddVehicleDailyRate" required>
+                  </div>
+
+                  <!--Monthly Rate-->
+                  <div class="form-group col-md-6 mb-3">
+                    <input type="text" placeholder="Monthly Rate" name="carAddVehicleMonthlyRate" class="form-control" id="carAddVehicleMonthlyRate" required>
+                  </div>
+
+                  <!--Extra Km Price-->
+                  <div class="form-group col-md-6 mb-3">
+                    <input type="text" placeholder="Price For Extra Km" name="carAddVehiclePriceForExtraKm" class="form-control" id="carAddVehiclePriceForExtraKm" required>
+                  </div>
+
+                  <!--Free Mileage-->
+                  <div class="form-group col-md-6 mb-3">
+                    <input type="text" placeholder="Free Mileage" name="carAddVehicleFreeMileage" class="form-control" id="carAddVehicleFreeMileage" required>
+                  </div>
+
+                  <!--Last Service Mileage-->
+                  <div class="form-group col-md-6 mb-3">
+                    <input type="text" placeholder="Last Service Mileage" name="carAddVehicleLastServiceMileage" class="form-control" id="carAddVehicleLastServiceMileage" required>
+                  </div>
+
+                  <!--RegID-->
+                  <div class="form-group col-md-6 mb-3">
+                    <input type="text" placeholder="Registration Id" name="carAddVehicleRegistrationId" class="form-control" id="carAddVehicleRegistrationId" required>
+                  </div>
+
+                  <!--Colour-->
+                  <div class="form-group col-md-6 mb-3">
+                    <input type="text" placeholder="Vehicle Colour" name="carAddVehicleColour" class="form-control" id="carAddVehicleColour" required>
+                  </div>
+
+                  <!--Front-->
+                  <div class="form-group col-md-6 mb-3">
+                    <label for="register-form-Front-image" class="form-label ">Front</label>
+                    <input style="border: 1px solid gray" class="form-control  " type="file" id="register-form-Front-image">
+                  </div>
+                  <!--Back-->
+                  <div class="form-group col-md-6 mb-3">
+                    <label for="register-form-Back-image" class="form-label ">Back</label>
+                    <input style="border: 1px solid gray" class="form-control  " type="file" id="register-form-Back-image">
+                  </div>
+                  <!--Side-->
+                  <div class="form-group col-md-6 mb-3">
+                    <label for="register-form-Side-image" class="form-label ">Side</label>
+                    <input style="border: 1px solid gray" class="form-control  " type="file" id="register-form-Side-image">
+                  </div>
+                  <!--Interior-->
+                  <div class="form-group col-md-6 mb-3">
+                    <label for="register-form-Interior-image" class="form-label ">Interior</label>
+                    <input style="border: 1px solid gray" class="form-control  " type="file" id="register-form-Interior-image">
+                  </div>
+
+
+                  <!--Add btn-->
+                  <div class="col-12">
+                    <button class="btn btn-primary w-100" id="btnSignIn" type="submit">Add Vehicle</button>
+                  </div>
+
+                </form>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+</main>
+
 <script src="../assets/js/bootstrap.js"></script>
 <script src="../assets/js/jquery-3.6.1.min.js"></script>
+
 </body>
 </html>
