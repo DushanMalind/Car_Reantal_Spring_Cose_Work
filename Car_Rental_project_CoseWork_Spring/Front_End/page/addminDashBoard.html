@@ -89,6 +89,291 @@
 </header>
 <!-- End Header -->
 
+<aside class="sidebar" id="sidebar">
+
+  <ul class="sidebar-nav" id="sidebar-nav">
+    <li class="nav-item">
+      <a class="nav-link " href="#">
+        <i class="bi bi-grid"></i>
+        <span>Dashboard</span>
+      </a>
+    </li><!-- End Dashboard Nav -->
+
+
+    <li class="nav-heading">Pages</li>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="#">
+        <i class="fa-solid fa-book"></i>
+        <span>Reservation</span>
+      </a>
+    </li><!-- End Reser Page Nav -->
+
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#car-nav" data-bs-toggle="collapse" href="#">
+        <i class="fa-solid fa-car-rear"></i><span>Car</span><i
+        class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul class="nav-content collapse " data-bs-parent="#sidebar-nav" id="car-nav">
+        <li>
+          <a href="#">
+            <i class="bi bi-circle"></i><span>View Car</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bi bi-circle"></i><span>Car Schedule</span>
+          </a>
+        </li>
+      </ul>
+    </li><!-- End Driver Nav -->
+
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="#">
+        <i class="fa-regular fa-user"></i>
+        <span>Customer</span>
+      </a>
+    </li><!-- End Customer Page Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+        <i class="fa-solid fa-user-group"></i><span>Driver</span><i
+        class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul class="nav-content collapse " data-bs-parent="#sidebar-nav" id="tables-nav">
+        <li>
+          <a href="#">
+            <i class="bi bi-circle"></i><span>View Driver</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bi bi-circle"></i><span>Driver Schedule</span>
+          </a>
+        </li>
+      </ul>
+    </li><!-- End Driver Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="#">
+        <i class="fa-solid fa-money-check-dollar"></i></i>
+        <span>Payment</span>
+      </a>
+    </li><!-- End Login Page Nav -->
+  </ul>
+</aside>
+
+
+<main class="main" id="main">
+
+  <div class="pagetitle">
+    <h1>Dashboard</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active">Dashboard</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+
+  <section class="section dashboard">
+    <div class="row">
+
+      <!-- Left side columns -->
+      <div class="col-lg-12">
+        <div class="row">
+
+
+          <!-- Booking Card -->
+          <div class="col-xxl-4 col-md-6">
+            <div class="card info-card sales-card">
+
+              <div class="filter">
+                <a class="icon" data-bs-toggle="dropdown" href="#"><i class="bi bi-three-dots"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                  <li class="dropdown-header text-start">
+                    <h6>Filter</h6>
+                  </li>
+
+                  <li><a class="dropdown-item" href="#">Today</a></li>
+                  <li><a class="dropdown-item" href="#">This Month</a></li>
+                  <li><a class="dropdown-item" href="#">This Year</a></li>
+                </ul>
+              </div>
+
+              <div class="card-body">
+                <h5 class="card-title">Booking <span>| Today</span></h5>
+
+                <div class="d-flex align-items-center">
+                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="fa-solid fa-book-bookmark"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>40</h6>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div><!-- End Sales Card -->
+
+          <!-- Income Card -->
+          <div class="col-xxl-4 col-md-6">
+            <div class="card info-card revenue-card">
+
+              <div class="filter">
+                <a class="icon" data-bs-toggle="dropdown" href="#"><i class="bi bi-three-dots"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                  <li class="dropdown-header text-start">
+                    <h6>Filter</h6>
+                  </li>
+
+                  <li><a class="dropdown-item" href="#">Today</a></li>
+                  <li><a class="dropdown-item" href="#">This Month</a></li>
+                  <li><a class="dropdown-item" href="#">This Year</a></li>
+                </ul>
+              </div>
+
+              <div class="card-body">
+                <h5 class="card-title">Income <span>| This Month</span></h5>
+
+                <div class="d-flex align-items-center">
+                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="fa-solid fa-money-check"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>LKR 10,100</h6>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div><!-- End Income Card -->
+
+          <!-- Customers Card -->
+          <div class="col-xxl-4 col-xl-12">
+
+            <div class="card info-card customers-card">
+
+              <div class="card-body">
+                <h5 class="card-title">Total Customers</h5>
+
+                <div class="d-flex align-items-center">
+                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="bi bi-people"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>2006</h6>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- End Customers Card -->
+
+
+          <!-- Driver Card -->
+          <div class="col-xxl-4 col-md-6">
+            <div class="card info-card revenue-card">
+
+              <div class="filter">
+                <a class="icon" data-bs-toggle="dropdown" href="#"><i class="bi bi-three-dots"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                  <li class="dropdown-header text-start">
+                    <h6>Filter</h6>
+                  </li>
+
+                  <li><a class="dropdown-item" href="#">All Drivers</a></li>
+                  <li><a class="dropdown-item" href="#">Occupied Drivers</a></li>
+                </ul>
+              </div>
+
+              <div class="card-body">
+                <h5 class="card-title">Total Driver <span>| All Drivers</span></h5>
+
+                <div class="d-flex align-items-center">
+                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="fa-solid fa-people-group"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>20</h6>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div><!-- End Driver Card -->
+
+
+          <!-- Car Card -->
+          <div class="col-xxl-4 col-md-6">
+            <div class="card info-card revenue-card">
+
+              <div class="filter">
+                <a class="icon" data-bs-toggle="dropdown" href="#"><i class="bi bi-three-dots"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                  <li class="dropdown-header text-start">
+                    <h6>Filter</h6>
+                  </li>
+
+                  <li><a class="dropdown-item" href="#">All Cars</a></li>
+                  <li><a class="dropdown-item" href="#">Occupied Cars</a></li>
+                </ul>
+              </div>
+
+              <div class="card-body">
+                <h5 class="card-title">Total Car <span>| All Cars</span></h5>
+
+                <div class="d-flex align-items-center">
+                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="fa-solid fa-car-rear"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>100</h6>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div><!-- End Car Card -->
+
+
+          <!-- Maintenance Card -->
+          <div class="col-xxl-4 col-md-6">
+            <div class="card info-card revenue-card">
+
+
+              <div class="card-body">
+                <h5 class="card-title">Under Maintenance </h5>
+
+                <div class="d-flex align-items-center">
+                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="fa-solid fa-car-burst"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>10</h6>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Maintenance Card -->
+
+        </div>
+      </div><!-- End Left side columns -->
+    </div>
+  </section>
+
+</main><!-- End #main -->
+
 <script src="../assets/js/bootstrap.js"></script>
 <script src="../assets/js/jquery-3.6.1.min.js"></script>
 </body>
