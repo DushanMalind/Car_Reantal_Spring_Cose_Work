@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+:root {
+  --font-1: "Roboto", sans-serif;
+}
+/*
+
+body {
+  height: 100vh;
+  background: linear-gradient(to bottom right, white, #ccc);
+  background-size: 100%;
+}
+*/
+
+h1 {
+  text-align: center;
+  font-family: var(--font-1);
+  font-size: 35px;
+  text-decoration: underline;
+}
+
+.slider-container {
+  display: block;
+  min-height: 250px;
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  border-radius: 10px;
+  padding: 20px 10px 40px 10px;
+  overflow: hidden;
+}
+
+.slider-container .slide {
+  display: none;
+  height: 100%;
+  width: 100%;
+  margin: 0px auto;
+  background: white;
+  font-size: 40px;
+  font-family: var(--font-1);
+  text-align: center;
+  align-items: center;
+}
+
+.slider-container .slide img {
+  height: auto;
+  width: 100%;
+}
+
+.slider-container .active {
+  display: block;
+}
+
+.control-container {
+  display: inline-flex;
+  width: 100%;
+}
+
+.control-container button {
+  border: none;
+  border-radius: 50%;
+  background: white;
+  font-size: 20px;
+  height: 35px;
+  width: 35px;
+  outline: none;
+}
+
+.control-container button:hover {
+  background: #ccc;
+}
+
+.slide-indicator {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.slide-indicator .indicator {
+  height: 20px;
+  width: 20px;
+  transition: background 0.5s ease;
+  background: #ccc;
+  margin: 5px;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.slide-indicator .indicator:hover {
+  background: darkgrey;
+}
+
+.slide-indicator .active {
+  background: grey;
+}

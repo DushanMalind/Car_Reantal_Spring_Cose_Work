@@ -125,6 +125,11 @@ $("#btnForgotPW").click(function () {
   setView($("#ForgotPasswordPage"));
 });
 
+
+$("#btnRegisterInLoginPage").click(function () {
+  setView($("#registerPage"));
+});
+
 $("#btnCancelForgotPW").click(function () {
   setView($("#login_page_container"));
 });
