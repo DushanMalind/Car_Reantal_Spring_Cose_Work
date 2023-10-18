@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="keywords" content="IJSE,GDSE,Sri lanka">
+  <meta name="description" content="ok.your log.Test my Car web page">
+  <meta name="author" content="Dushan Malinda">
+  <meta name="owner" content="Dushan Malinda">
+  <meta name="robots" content="index">
+  <meta name="theme-color" content="blue">
+  <meta name="viewport" content="width=device-width initial-scale=1 minimum-scale=1 maximum-scale=10">
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"
+        integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
+
+  <title>AddMin Drive DashBoard</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.css">
+
+  <link rel="stylesheet" href="../assets/css/adminDashBoard.css">
+</head>
+<body>
+<header class="header d-flex align-items-center" id="header" >
+
+  <!--========================-->
+  <div class="d-flex align-items-center justify-content-between">
+    <a href="../index.html" class="logo d-flex align-items-center">
+      <img src="../assets/img/three.jpg" alt="">
+      <span class="d-none d-lg-block">ECar Rental</span>
+    </a>
+    <i class="bi bi-list toggle-sidebar-btn"></i>
+  </div><!-- End Logo -->
+
+  <!--<nav class="header-nav ms-auto">
+    <ul class="d-flex align-items-center">
+
+      <li class="nav-item dropdown pe-3">
+
+        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+          <img src="../assets/img/five.jpg" alt="Profile" class="rounded-circle">
+          <span class="d-none d-md-block dropdown-toggle ps-2">Dushan Malinda</span>
+        </a>
+        &lt;!&ndash; End Profile Image Icon &ndash;&gt;
+
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+          <li class="dropdown-header">
+            <h6>Dushan Malinda</h6>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="../index.html">
+              <i class="bi bi-house"></i>
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="../index.html">
+              <i class="bi bi-minecart"></i>
+              <span>Car Rental</span>
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+
+
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="../index.html">
+              <i class="bi bi-box-arrow-right"></i>
+              <span>Sign Out</span>
+            </a>
+          </li>
+
+        </ul>&lt;!&ndash; End Profile Dropdown Items &ndash;&gt;
+      </li>&lt;!&ndash; End Profile Nav &ndash;&gt;
+
+    </ul>
+  </nav>&lt;!&ndash; End Icons Navigation &ndash;&gt;-->
+</header>
+<!-- End Header -->
+
+<aside class="sidebar" id="sidebar">
+
+  <ul class="sidebar-nav" id="sidebar-nav">
+    <li class="nav-item">
+      <a class="nav-link " href="driveDashBoard.html">
+        <i class="bi bi-grid"></i>
+        <span>Dashboard</span>
+      </a>
+    </li><!-- End Dashboard Nav -->
+
+
+
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+        <i class="fa-solid fa-user-group"></i><span>Driver</span><i
+        class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul class="nav-content collapse " data-bs-parent="#sidebar-nav" id="tables-nav">
+        <li>
+          <a href="#">
+            <i class="bi bi-circle"></i><span>Driver Schedule</span>
+          </a>
+        </li>
+      </ul>
+    </li><!-- End Driver Nav -->
+
+
+    <hr class="dropdown-divider">
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="../index.html">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <span>LogOut</span>
+      </a>
+    </li>
+
+    <!-- End Login Page Nav -->
+  </ul>
+</aside>
+
+<main id="main" class="main">
+
+  <div class="pageTitle">
+    <h1>Driver Dashboard</h1>
+    <section class="container-fluid mt-3" id="driverShedule">
+    <!--  <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item" href="driverDashboard.html">Home</li>
+          <li class="breadcrumb-item active">Manage / Drivers</li>
+        </ol>
+      </nav>-->
+
+      <div class="row mt-3">
+        <div class="card info-card">
+          <!-- start content-->
+          <div class="row">
+            <div class="col-12">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-xl-12">
+                    <div class="row">
+                      <div class="table-responsive-xxl flex-grow-0 gap-3 col-xl-8 mt-4 sectionBorder"
+                           style="height: 400px; background: white;">
+                        <div class="table-responsive customerTableDiv overflow-auto "
+                             style="height: 420px;">
+                          <table class="text-nowrap table table-light table-striped table-bordered table-hover">
+                            <thead class="text-dark table-danger text-center  table-bordered">
+                            <tr>
+                              <th scope="col">Rent ID</th>
+                              <th scope="col">Car ID</th>
+                              <th scope="col">Pick-Up Date</th>
+                              <th scope="col">Pick-Up Time</th>
+                              <th scope="col">Return Date</th>
+                              <th scope="col">Return Time</th>
+                              <th scope="col">Location</th>
+                            </tr>
+                            </thead>
+                            <tbody id="driverSheduleTable"></tbody>
+                          </table>
+                        </div>
+                      </div>
+                     <!-- <div class="col-xl-4 mt-4 mt-xl-3 p-0 p-xl-2">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63397.34482830807!2d79.89441649307884!3d6.729034954627545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae24616c169e7c3%3A0xd21e80c970651d56!2sPanadura!5e0!3m2!1sen!2slk!4v1676916771183!5m2!1sen!2slk"
+                                height="400" style="border:0;" allowfullscreen=""
+                                loading="lazy" class="col-12 col-xl-12 rounded-3"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                      </div>-->
+                    </div>
+                  </div>
+                  <!-- end col-->
+                </div>
+                <!-- end row -->
+              </div>
+              <!-- end card-->
+            </div>
+            <!-- end col-->
+          </div>
+          <!-- end content-->
+        </div>
+      </div>
+    </section>
+  </div>
+
+</main>
+
+<script src="../assets/js/bootstrap.js"></script>
+<script src="../assets/js/jquery-3.6.1.min.js"></script>
+</body>
+</html>
