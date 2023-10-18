@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="keywords" content="IJSE,GDSE,Sri lanka">
+  <meta name="description" content="ok.your log.Test my Car web page">
+  <meta name="author" content="Dushan Malinda">
+  <meta name="owner" content="Dushan Malinda">
+  <meta name="robots" content="index">
+  <meta name="theme-color" content="blue">
+  <meta name="viewport" content="width=device-width initial-scale=1 minimum-scale=1 maximum-scale=10">
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"
+        integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
+
+  <title>Customer Rent car</title>
+
+  <link rel="stylesheet" href="../assets/css/bootstrap.css">
+  <link rel="stylesheet" href="../assets/css/adminDashBoard.css">
+
+</head>
+<body>
+
+<header class="header d-flex align-items-center" id="header" >
+
+  <!--========================-->
+  <div class="d-flex align-items-center justify-content-between">
+    <a href="../index.html" class="logo d-flex align-items-center">
+      <img src="../assets/img/three.jpg" alt="">
+      <span class="d-none d-lg-block">ECar Rental</span>
+    </a>
+    <i class="bi bi-list toggle-sidebar-btn"></i>
+  </div><!-- End Logo -->
+
+  <!--<nav class="header-nav ms-auto">
+    <ul class="d-flex align-items-center">
+
+      <li class="nav-item dropdown pe-3">
+
+        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+          <img src="../assets/img/five.jpg" alt="Profile" class="rounded-circle">
+          <span class="d-none d-md-block dropdown-toggle ps-2">Dushan Malinda</span>
+        </a>
+        &lt;!&ndash; End Profile Image Icon &ndash;&gt;
+
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+          <li class="dropdown-header">
+            <h6>Dushan Malinda</h6>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="../index.html">
+              <i class="bi bi-house"></i>
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="../index.html">
+              <i class="bi bi-minecart"></i>
+              <span>Car Rental</span>
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+
+
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="../index.html">
+              <i class="bi bi-box-arrow-right"></i>
+              <span>Sign Out</span>
+            </a>
+          </li>
+
+        </ul>&lt;!&ndash; End Profile Dropdown Items &ndash;&gt;
+      </li>&lt;!&ndash; End Profile Nav &ndash;&gt;
+
+    </ul>
+  </nav>&lt;!&ndash; End Icons Navigation &ndash;&gt;-->
+</header>
+<!-- End Header -->
+
+<aside class="sidebar" id="sidebar">
+
+  <ul class="sidebar-nav" id="sidebar-nav">
+    <li class="nav-item">
+      <a class="nav-link " href="#">
+        <i class="bi bi-grid"></i>
+        <span>Dashboard</span>
+      </a>
+    </li><!-- End Dashboard Nav -->
+
+
+    <li class="nav-heading">Pages</li>
+
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#car-nav" data-bs-toggle="collapse" href="#">
+        <i class="fa-solid fa-car-rear"></i><span>Customer</span><i
+        class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul class="nav-content collapse " data-bs-parent="#sidebar-nav" id="car-nav">
+        <li>
+          <a href="customerDashBoard.html">
+            <i class="bi bi-circle"></i><span>customer Update</span>
+          </a>
+        </li>
+        <li>
+          <!-- <a href="#">
+             <i class="bi bi-circle"></i><span>Car Schedule</span>
+           </a>-->
+        </li>
+      </ul>
+    </li><!-- End Driver Nav -->
+
+
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="customerRentCar.html">
+        <i class="fa-solid fa-money-check-dollar"></i>
+        <span>Car Schedule</span>
+      </a>
+    </li>
+
+    <hr class="dropdown-divider">
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="../index.html">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <span>LogOut</span>
+      </a>
+    </li>
+
+    <!-- End Login Page Nav -->
+  </ul>
+</aside>
+
+<main class="main" id="main">
+
+  <div class="container">
+    <section
+      class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-12 col-md-6 d-flex flex-column align-items-center justify-content-center">
+
+            <div class="card mb-3">
+
+              <div class="card-body">
+
+                <div class="pt-4 pb-2">
+                  <h5 class="card-title text-center pb-0 fs-4">ADD Rent</h5>
+                </div>
+
+                <div class="d-flex align-items-end flex-column bd-highlight pb-4">
+                  <!--Add btn-->
+                  <div>
+                    <a href="../index.html">
+                      <button class="btn btn-primary w-100" id="carAddVehicleAddButton" type="submit">View Shedule</button></a>
+                  </div>
+                </div>
+
+                <form class="row g-3" id="addMinCarAdd">
+
+                  <!--vehicle Type-->
+                  <div class="form-group col-md-6 mb-3">
+                    <label class="text-center text-primary fw-bold pb-2 fs-4" for="customerRentId">Rent ID</label>
+                    <input type="text" placeholder="Rent ID" name="customerRentId" class="form-control" id="customerRentId" required>
+                  </div>
+
+
+                  <!--Driver Modal-->
+                  <div class="form-group col-md-6 mb-3">
+                    <label class="text-center text-primary fw-bold pb-2 fs-4" for="customerUserId">User Id</label>
+                    <input type="text" placeholder="User Id" class="form-control" name="customerUserId" id="customerUserId" required>
+                  </div>
+
+                  <div class="form-group col-md-6 mb-3">
+                    <!--<label class="text-center text-primary fw-bold pb-0 fs-4" for="carAddVehicleAvailable">Available Or Not</label>
+                    <input type="text" placeholder="Vehicle Available" name="carAddVehicleAvailable" class="form-control" id="carAddVehicleAvailable" required>-->
+                    <label class="form-label text-center text-primary fw-bold pb-0 fs-4" for="customerCategory">Category</label>
+                    <select aria-label="Default select example" class="form-select fs-5" style="height: 38px" id="customerCategory">
+                      <option value="GENERAL">GENERAL</option>
+                      <option value="LUXURY">LUXURY</option>
+                      <option value="PREMIUM">PREMIUM</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group col-md-6 mb-3">
+                    <!--<label class="text-center text-primary fw-bold pb-0 fs-4" for="carAddVehicleAvailable">Available Or Not</label>
+                    <input type="text" placeholder="Vehicle Available" name="carAddVehicleAvailable" class="form-control" id="carAddVehicleAvailable" required>-->
+                    <label class="form-label text-center text-primary fw-bold pb-0 fs-4" for="customerFuelType">Fuel Type</label>
+                    <select aria-label="Default select example" class="form-select fs-5" style="height: 38px" id="customerFuelType">
+                      <option value="DIESEL">DIESEL</option>
+                      <option value="PETROL">PETROL</option>
+                    </select>
+                  </div>
+
+                  <div class="col-lg-6 p-2">
+                    <div class="row mt-1 m-2 p-1">
+                      <div class="col-12 col-md-6 col-lg-6">
+                        <label class="text-center text-primary fw-bold pb-2 fs-4" for="car_Id">Car ID :</label>
+                        <select aria-label="Default select example" class="form-select border-dark"
+                                id="car_Id" name="car_Id"></select>
+                      </div>
+                      <div class="col-12 col-md-6 col-lg-6">
+                        <label class="text-center text-primary fw-bold pb-2 fs-4" for="name">Brand :</label>
+                        <input class="form-control " id="name" readonly type="text">
+                      </div>
+                    </div>
+                    <div class="row mt-1 m-2 p-1">
+                      <div class="col-12 col-md-6 col-lg-6">
+                        <label class="text-center text-primary fw-bold pb-2 fs-4" for="brand">Model :</label>
+                        <input class="form-control " id="brand" readonly type="text">
+                      </div>
+                      <div class="col-12 col-md-6 col-lg-6">
+                        <label class="text-center text-primary fw-bold pb-2 fs-4" for="number_Of_Passengers">No of Passengers :</label>
+                        <input class="form-control " id="number_Of_Passengers" readonly type="text">
+                      </div>
+                    </div>
+                    <div class="row mt-1 m-2 p-1">
+                      <div class="col-12 col-md-6 col-lg-6">
+                        <label class="text-center text-primary fw-bold pb-2 fs-4" for="pickUpDate">PickUp Date :</label>
+                        <input class="form-control " id="pickUpDate" type="date">
+                      </div>
+                      <div class="col-12 col-md-6 col-lg-6">
+                        <label class="text-center text-primary fw-bold pb-2 fs-4" for="pickUpTime">PickUp Time :</label>
+                        <input class="form-control " id="pickUpTime" type="time">
+                      </div>
+                    </div>
+                    <div class="row mt-1 m-2 p-1">
+                      <div class="col-12 col-md-6 col-lg-6">
+                        <label class="text-center text-primary fw-bold pb-2 fs-4" for="returnDate">Return Date :</label>
+                        <input class="form-control " id="returnDate" type="date">
+                      </div>
+                      <div class="col-12 col-md-6 col-lg-6">
+                        <label class="text-center text-primary fw-bold pb-2 fs-4" for="returnTime">Return Time :</label>
+                        <input class="form-control " id="returnTime" type="time">
+                      </div>
+                    </div>
+                    <div class="row mt-1 m-2 p-1">
+                      <div class="col-12 col-md-6 col-lg-6">
+                        <label class="text-center text-primary fw-bold pb-2 fs-4" for="requestType">Driver or not :</label>
+                        <select class="form-control " id="requestType">
+                          <option value="YES">YES</option>
+                          <option value="NO">NO</option>
+                        </select>
+                      </div>
+                      <div class="col-12 col-md-6 col-lg-6">
+                        <label class="text-center text-primary fw-bold pb-2 fs-4" for="location">Location :</label>
+                        <input class="form-control " id="location" type="text">
+                      </div>
+                    </div>
+                    <div class="mt-4 mb-3 d-grid gap-2 d-sm-flex justify-content-md-center">
+                      <button class="btn btn-warning me-md-1" id="btnAddCart" type="button">Add Cart
+                      </button>
+                      <button type="button" class="btn btn-success me-md-1" id="btnReservation">
+                        Reservation
+                      </button>
+                    </div>
+                  </div>
+
+                </form>
+
+                <div class="card info-card">
+                  <!-- View Driver Details Table Start -->
+                  <div class="row mt-1 mt-md-2 mt-lg-4 justify-content-around" style="height: 320px;">
+                    <div class="col-11 justify-content-around sectionBorder"
+                         style="height: 290px; background: white">
+                      <div class="table-responsive customerTableDiv overflow-auto " style="height: 300px;">
+                        <table class="table text-nowrap table-light table-striped table-bordered table-hover">
+                          <thead class="text-dark table-danger text-center  table-bordered sticky-top">
+                          <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Contact No</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">NIC Number</th>
+                            <th scope="col">Driving License ID</th>
+                            <th scope="col">User Name</th>
+                            <th scope="col">Password</th>
+                            <th scope="col">Availability Type</th>
+
+                          </tr>
+                          </thead>
+                          <tbody id="driverTable"></tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- View Driver Details Table End -->
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+</main>
+
+<script src="../assets/js/bootstrap.js"></script>
+<script src="../assets/js/jquery-3.6.1.min.js"></script>
+
+</body>
+</html>
