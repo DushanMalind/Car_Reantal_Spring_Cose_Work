@@ -157,4 +157,31 @@ function generateCustomerId() {
   });
 }
 
+function genarateUserId(){
+  $("#generateUserId").text("U00-0001");
+  var test = "id";
+
+  $.ajax({
+    url: basUrl + "user?test=" + test,
+    method: "GET",
+    success: function (response) {
+      var id = response.data;
+      var newId = id.split("-")[1];
+      var incId = parseInt(newId) + 1;
+      if (incId < 10) {
+        $("#generateUserId").text("U00-000" + incId);
+      } else if (incId < 100) {
+        $("#generateUserId").text("U00-00" + incId);
+      } else if (incId < 1000) {
+        $("#generateUserId").text("U00-0" + incId);
+      } else {
+        $("#generateUserId").text("U00-" + incId);
+      }
+    },
+    error: function (ob,statusText,error) {
+      console.log(error);
+
+    }
+  });
+}
 
