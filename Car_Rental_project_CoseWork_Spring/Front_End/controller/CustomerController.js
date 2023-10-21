@@ -243,11 +243,40 @@ function register(){
     data: JSON.stringify(cusDetails),
     success:function (resp) {
       alert($("#nameSignIn").val()+""+resp.message);
+      registerUser(user);
       clearTextFields();
       generateCustomerId();
       genarateUserId();
 
+    },
+    error:function (ob,statusText,error) {
+      alert(error.responseJSON.message)
     }
   });
 
 }
+
+function registerUser(users){
+  var user={
+    userId:users.userId,
+    username:users.username,
+    password:users.password,
+  }
+
+  $.ajax({
+    url:basUrl+"user",
+    method:"POST",
+    contentType:"application/json",
+    data: JSON.stringify(user),
+    success:function (resp) {
+      alert(resp.message);
+      clearTextFields();
+
+    },
+    error:function (ob,statusText,error) {
+      alert(error.responseJSON.message);
+    }
+  });
+}
+
+
