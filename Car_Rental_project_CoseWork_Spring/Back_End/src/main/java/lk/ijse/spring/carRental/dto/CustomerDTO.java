@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.time.LocalDate;
+
 /**
  * `@authority` DUSHAN MALINDA
  * 10:53
@@ -24,6 +26,7 @@ public class CustomerDTO {
     private UserDTO users;
 
     private String customerName;
+    private LocalDate registeredDate;
     private String customerEmail;
     private String customerNIC;
     private String customerAddress;

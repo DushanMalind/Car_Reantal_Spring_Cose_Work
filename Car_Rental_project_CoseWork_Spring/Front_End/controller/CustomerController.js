@@ -210,3 +210,44 @@ function upLoadImage(){
   });
 }
 
+var now = new Date();
+
+var day = ("0" + now.getDate()).slice(-2);
+var month = ("0" + (now.getMonth() + 1)).slice(-2);
+var today = now.getFullYear() + "-" + (month) + "-" + (day);
+
+function register(){
+  var user={
+    userId:$("#generateUserId").text(),
+    username:$("#username").val(),
+    password:$("#password").val(),
+  }
+
+  var cusDetails={
+    customerId:$("#customerId").val(),
+    users:user,
+    customerName:$("#nameSignIn").val(),
+    registeredDate:today.toString(),
+    customerEmail:$("#emailSignIn").val(),
+    customerNIC:$("#nicSignIn").val(),
+    customerAddress:$("#addressSignIn").val(),
+    customerContact:$("#contactSignIn").val(),
+    customerDrivingLicense:$("#drivingLicenseSignIn").val(),
+    customerImage:$("#upLoadImage")[0].files[0].name
+  }
+
+  $.ajax({
+    url:basUrl+"customer",
+    method:"POST",
+    contentType:"application/json",
+    data: JSON.stringify(cusDetails),
+    success:function (resp) {
+      alert($("#nameSignIn").val()+""+resp.message);
+      clearTextFields();
+      generateCustomerId();
+      genarateUserId();
+
+    }
+  });
+
+}

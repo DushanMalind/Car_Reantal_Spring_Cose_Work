@@ -9,6 +9,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import java.time.LocalDate;
 
 /**
  * `@authority` DUSHAN MALINDA
@@ -27,6 +28,7 @@ public class Customer {
     @Id
     private String customerId;
     private String customerName;
+    private LocalDate registeredDate;
     private String customerEmail;
     private String customerNIC;
     private String customerAddress;
