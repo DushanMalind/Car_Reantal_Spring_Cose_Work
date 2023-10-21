@@ -128,6 +128,33 @@ let password = $(this).val();
   }
 });
 
+function generateCustomerId() {
+  $("#customerId").val("C00-0001");
+  var test = "id";
 
+  $.ajax({
+    url: basUrl + "customer?test=" + test,
+    method: "GET",
+    success: function (response) {
+      var id = response.data;
+      var newId = id.split("-")[1];
+      var incId = parseInt(newId) + 1;
+      if (incId < 10) {
+        $("#customerId").val("C00-000" + incId);
+      } else if (incId < 100) {
+        $("#customerId").val("C00-00" + incId);
+      } else if (incId < 1000) {
+        $("#customerId").val("C00-0" + incId);
+      } else {
+        $("#customerId").val("C00-" + incId);
+      }
+    },
+    error: function (ob,statusText,error) {
+      console.log(error);
+
+    }
+
+  });
+}
 
 
