@@ -279,6 +279,30 @@ function registerUser(users){
   });
 }
 
+
+$("#btnSignIn").click(function () {
+  if ($("#nameSignIn").val()=="" || $("#emailSignIn").val()=="" || $("#nicSignIn").val()=="" ||
+    $("#addressSignIn").val()=="" || $("#contactSignIn").val()=="" || $("#drivingLicenseSignIn").val()=="" ||
+    $("#username").val()=="" || $("#password").val()=="" || $("#upLoadImage").val()=="") {
+    alert("Please Fill All Fields");
+
+  }else {
+    if ($("#upLoadImage").get(0).file.length===0){
+      alert("Please Input Fields Image Upload");
+    }else {
+      if ($("#errorUserName").text()=="" && $("#errorEmail").text()=="" && $("#errorNIC").text()=="" &&
+        $("#errorAddress").text()=="" && $("#errorContact").text()=="" && $("#errorDriven").text()=="" &&
+        $("#errorUsername").text()=="" && $("#errorPassword").text()=="") {
+        alert("Check All Input Fields");
+      }else {
+        $("#btnSignIn").prop("disabled",false);
+        register();
+        upLoadImage();
+      }
+    }
+  }
+});
+
 function clearTextFields(){
   generateCustomerId();
   $("#nameSignIn").val("");
