@@ -45,13 +45,13 @@ $("#nicSignIn").keyup(function (event) {
   let nic = $(this).val();
   if (regExNIC.test(nic)) {
       $(this).css('border', '2px solid green');
-      $("#errorNIC").text("");
+      $("#errorNic").text("");
       if (event.key == "Enter") {
           $("#addressSignIn").focus();
       }
   }else {
     $(this).css('border', '2px solid red');
-    $("#errorNIC").text("Invalid NIC Format:");
+    $("#errorNic").text("Invalid NIC Format:");
   }
 });
 
@@ -113,6 +113,7 @@ let username = $(this).val();
   }
 });
 
+generateCustomerId();
 
 $("#registerPassword").keyup(function (event) {
 let password = $(this).val();
@@ -281,7 +282,7 @@ function registerUser(users){
 
 
 $("#btnSignIn").click(function () {
-  if ($("#nameSignIn").val()=="" || $("#emailSignIn").val()=="" || $("#nicSignIn").val()=="" ||
+  if ($("#customerId").val()=="" ||$("#nameSignIn").val()=="" || $("#emailSignIn").val()=="" || $("#nicSignIn").val()=="" ||
     $("#addressSignIn").val()=="" || $("#contactSignIn").val()=="" || $("#drivingLicenseSignIn").val()=="" ||
     $("#username").val()=="" || $("#password").val()=="" || $("#upLoadImage").val()=="") {
     alert("Please Fill All Fields");
@@ -298,6 +299,7 @@ $("#btnSignIn").click(function () {
         $("#btnSignIn").prop("disabled",false);
         register();
         upLoadImage();
+        alert("Successfully Register Customer")
       }
     }
   }

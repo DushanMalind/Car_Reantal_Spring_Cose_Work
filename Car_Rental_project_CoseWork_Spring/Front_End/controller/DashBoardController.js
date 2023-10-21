@@ -154,4 +154,7 @@ $("#btn_RentItem").click(function () {
   setView($("#login_page_container"));
 });
 
+$("#btnCancel").click(function (){
+  setView($("#login_page_container"));
+});
 
