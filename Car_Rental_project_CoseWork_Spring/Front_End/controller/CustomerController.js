@@ -279,4 +279,15 @@ function registerUser(users){
   });
 }
 
-
+function clearTextFields(){
+  generateCustomerId();
+  $("#nameSignIn").val("");
+  $("#emailSignIn").val("");
+  $("#nicSignIn").val("");
+  $("#addressSignIn").val("");
+  $("#contactSignIn").val("");
+  $("#drivingLicenseSignIn").val("");
+  $("#username").val("");
+  $("#password").val("");
+  $("#upLoadImage").val("");
+}
