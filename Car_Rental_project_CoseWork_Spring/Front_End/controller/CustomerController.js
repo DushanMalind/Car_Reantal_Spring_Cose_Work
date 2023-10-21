@@ -185,3 +185,28 @@ function genarateUserId(){
   });
 }
 
+
+function upLoadImage(){
+  var data=new FormData();
+  let file=$("#upLoadImage")[0].files[0];
+  let fileName=$("#upLoadImage")[0].files[0].name;
+
+  data.append("myFile",file,fileName);
+
+  $.ajax({
+    url:basUrl+"api/v1/upload",
+    method:"POST",
+    data:data,
+    contentType:false,
+    processData:false,
+    async:true,
+    success:function(resp){
+      alert(resp.message);
+    },
+    error:function(ob,statusText,error){
+      console.log(error);
+    }
+
+  });
+}
+
