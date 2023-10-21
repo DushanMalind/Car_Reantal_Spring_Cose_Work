@@ -20,6 +20,9 @@ import lombok.ToString;
 @ToString
 public class AdminDTO {
     private String adminId;
+
+    private UserDTO users;
+
     private String adminName;
     private String adminAddress;
     private String adminContact;

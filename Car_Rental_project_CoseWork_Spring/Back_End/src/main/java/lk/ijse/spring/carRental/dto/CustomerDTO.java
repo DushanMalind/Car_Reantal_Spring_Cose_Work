@@ -20,6 +20,9 @@ import lombok.ToString;
 @ToString
 public class CustomerDTO {
     private String customerId;
+
+    private UserDTO users;
+
     private String customerName;
     private String customerEmail;
     private String customerNIC;
