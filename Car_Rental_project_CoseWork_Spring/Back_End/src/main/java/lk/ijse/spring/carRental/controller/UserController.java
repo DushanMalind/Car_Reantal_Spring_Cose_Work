@@ -23,7 +23,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    public ResponseUtil saveUser(UserDTO userDTO){
+    public ResponseUtil saveUser(@RequestBody UserDTO userDTO){
         userService.saveUser(userDTO);
         return new ResponseUtil("Ok","Successfully Registered",userDTO);
     }
@@ -56,5 +56,13 @@ public class UserController {
     public ResponseUtil generateUserIds(@RequestParam String test) {
         return new ResponseUtil("Ok","Successfully Searched",userService.generateUserIds());
     }
+
+    @GetMapping(path ="/{password}/{username}")
+    public ResponseUtil findByPasswordAndUsername(@PathVariable("password") String password, @PathVariable("username") String username){
+        return new ResponseUtil("Ok","Successfully Searched",userService.findByPasswordAndUsername(password,username));
+    }
+
+
+
 
 }
