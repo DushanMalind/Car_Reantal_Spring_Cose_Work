@@ -72,7 +72,7 @@ public class CustomerServiceImpl implements CustomerService {
         return mapper.map(all, new TypeToken<List<CustomerDTO>>() {}.getType());
     }
 
-   /* @Override
+    @Override
     public String generateCustomerIds() {
         return repo.generateCustomerId();
     }
@@ -97,5 +97,5 @@ public class CustomerServiceImpl implements CustomerService {
     public CustomerDTO findCustomerToReserve(String nic) {
         Customer customer = repo.findCustomerToReserve(nic);
         return mapper.map(customer, CustomerDTO.class);
-    }*/
+    }
 }
