@@ -1,8 +1,10 @@
 package lk.ijse.spring.carRental.controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lk.ijse.spring.carRental.dto.UserDTO;
+import lk.ijse.spring.carRental.service.UserService;
+import lk.ijse.spring.carRental.util.ResponseUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * `@authority` DUSHAN MALINDA
@@ -16,5 +18,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/user")
 @CrossOrigin
 public class UserController {
+
+    @Autowired
+    private UserService userService;
+
+    @PostMapping
+    public ResponseUtil saveUser(UserDTO userDTO){
+        userService.saveUser(userDTO);
+        return new ResponseUtil("Ok","Successfully Registered",userDTO);
+    }
+
 
 }
