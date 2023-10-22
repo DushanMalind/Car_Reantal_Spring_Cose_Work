@@ -113,7 +113,6 @@ let username = $(this).val();
   }
 });
 
-generateCustomerId();
 
 $("#registerPassword").keyup(function (event) {
 let password = $(this).val();
@@ -130,15 +129,15 @@ let password = $(this).val();
 });
 
 function generateCustomerId() {
-  $("#customerId").val("C00-0001");
+  $("#customerId").text("C00-0001");
   var test = "id";
 
   $.ajax({
     url: basUrl + "customer?test=" + test,
     method: "GET",
     success: function (response) {
-      var customerId = response.data;
-      var tempId = parseInt(customerId.split("-")[1]);
+      var customerIds = response.data;
+      var tempId = parseInt(customerIds.split("-")[1]);
       tempId = tempId + 1;
       if (tempId <= 9) {
         $("#customerId").text("C00-000" + tempId);
@@ -225,7 +224,7 @@ function register(){
   }
 
   var cusDetails={
-    customerId:$("#customerId").val(),
+    customerId:$("#customerId").text(),
     users:user,
     customerName:$("#nameSignIn").val(),
     registeredDate:today.toString(),
@@ -243,15 +242,14 @@ function register(){
     contentType:"application/json",
     data: JSON.stringify(cusDetails),
     success:function (resp) {
-      alert($("#nameSignIn").val()+""+resp.message);
       registerUser(user);
-      clearTextFields();
+      alert($("#nameSignIn").val()+""+resp.message);
       generateCustomerId();
       genarateUserId();
 
     },
-    error:function (ob,statusText,error) {
-      alert(error.responseJSON.message)
+    error:function (error) {
+      alert(JSON.parse(error.responseText).message);
     }
   });
 
@@ -274,15 +272,16 @@ function registerUser(users){
       clearTextFields();
 
     },
-    error:function (ob,statusText,error) {
-      alert(error.responseJSON.message);
+    error:function (error) {
+      alert(JSON.parse(error.responseText).message);
     }
   });
 }
 
 
+
 $("#btnSignIn").click(function () {
-  if ($("#customerId").val()=="" ||$("#nameSignIn").val()=="" || $("#emailSignIn").val()=="" || $("#nicSignIn").val()=="" ||
+  if ($("#nameSignIn").val()=="" || $("#emailSignIn").val()=="" || $("#nicSignIn").val()=="" ||
     $("#addressSignIn").val()=="" || $("#contactSignIn").val()=="" || $("#drivingLicenseSignIn").val()=="" ||
     $("#username").val()=="" || $("#password").val()=="" || $("#upLoadImage").val()=="") {
     /*alert("Please Fill All Fields");*/
@@ -295,18 +294,19 @@ $("#btnSignIn").click(function () {
     });
 
   }else {
-    if ($("#upLoadImage").get(0).file.length){
+    if ($("#upLoadImage").get(0).files.length ===0){
       alert("Please Input Fields Image Upload");
     }else {
-      if ($("#errorUserName").text()=="" && $("#errorEmail").text()=="" && $("#errorNIC").text()=="" &&
-        $("#errorAddress").text()=="" && $("#errorContact").text()=="" && $("#errorDriven").text()=="" &&
-        $("#errorUsername").text()=="" && $("#errorPassword").text()=="") {
+      if ($("#errorUserName").text() !=="" && $("#errorEmail").text() !=="" && $("#errorNIC").text() !=="" &&
+        $("#errorAddress").text() !=="" && $("#errorContact").text() !=="" && $("#errorDriven").text() !=="" &&
+        $("#errorUsername").text() !=="" && $("#errorPassword").text() !=="") {
         alert("Check All Input Fields");
       }else {
         $("#btnSignIn").prop("disabled",false);
         register();
+        generateCustomerId();
+        genarateUserId();
         upLoadImage();
-        /*alert("Successfully Register Customer")*/
         swal({
           title: "Successfully Register Customer",
           text: "message!",
@@ -320,7 +320,7 @@ $("#btnSignIn").click(function () {
 });
 
 function clearTextFields(){
-  generateCustomerId();
+  genarateUserId();
   $("#nameSignIn").val("");
   $("#emailSignIn").val("");
   $("#nicSignIn").val("");

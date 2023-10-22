@@ -4,6 +4,7 @@ import lk.ijse.spring.carRental.dto.CustomerDTO;
 import lk.ijse.spring.carRental.service.CustomerService;
 import lk.ijse.spring.carRental.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -21,7 +22,7 @@ public class CustomerController {
     @Autowired
     CustomerService customerService;
 
-    @PostMapping
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil saveCustomer(CustomerDTO dto){
         customerService.saveCustomer(dto);
         return new ResponseUtil("Ok", "Successfully Registered.",dto);
