@@ -1,11 +1,9 @@
-/*
 package lk.ijse.spring.carRental.service;
 
 import lk.ijse.spring.carRental.dto.CustomerDTO;
 
 import java.util.List;
 
-*/
 /**
  * `@authority` DUSHAN MALINDA
  * 14:43
@@ -13,8 +11,7 @@ import java.util.List;
  * ASUS
  * Back_End
  * lk.ijse.spring.carRental.service
- *//*
-
+ */
 public interface CustomerService {
     void saveCustomer(CustomerDTO customer);
 
@@ -36,4 +33,3 @@ public interface CustomerService {
 
     CustomerDTO findCustomerToReserve(String nic);
 }
-*/
