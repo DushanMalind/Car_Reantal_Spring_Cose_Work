@@ -1,4 +1,3 @@
-/*
 package lk.ijse.spring.carRental.service.impl;
 
 import lk.ijse.spring.carRental.dto.CustomerDTO;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
 
-*/
 /**
  * `@authority` DUSHAN MALINDA
  * 14:56
@@ -20,8 +18,7 @@ import java.util.List;
  * ASUS
  * Back_End
  * lk.ijse.spring.carRental.service.impl
- *//*
-
+ */
 
 @Service
 @Transactional
@@ -32,13 +29,13 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     private ModelMapper mapper;
 
-    @Override
+   /* @Override
     public void saveCustomer(CustomerDTO customer) {
         if (!repo.existsById(customer.getCustomerId())){
             throw new RuntimeException(customer.getCustomerId()+"is already available, please insert a new ID..!");
         }
         repo.save(mapper.map(customer, Customer.class));
-    }
+    }*/
 
     @Override
     public void updateCustomer(CustomerDTO customer) {
@@ -85,4 +82,3 @@ public class CustomerServiceImpl implements CustomerService {
         return null;
     }
 }
-*/
