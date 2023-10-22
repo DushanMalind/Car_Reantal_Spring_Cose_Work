@@ -50,4 +50,9 @@ public class CustomerController {
     public ResponseUtil getAllCustomers(){
         return new ResponseUtil("Ok", "Successfully Searched.",customerService.getAllCustomers());
     }
+
+    @GetMapping(params = {"test"})
+    public ResponseUtil generateCustomerIds(@RequestParam String test) {
+        return new ResponseUtil("Ok", "Successfully Searched.",customerService.generateCustomerIds());
+    }
 }
