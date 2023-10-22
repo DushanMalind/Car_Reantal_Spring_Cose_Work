@@ -48,12 +48,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteUser(String id) {
-
+        if(userRepo.existsById(id)){
+            userRepo.deleteById(id);
+        }else{
+            throw new RuntimeException(id+"No Please Check The Correct Id..!");
+        }
     }
 
     @Override
     public UserDTO searchUser(String id) {
-        return null;
+
     }
 
     @Override
