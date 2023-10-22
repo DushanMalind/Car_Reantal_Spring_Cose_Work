@@ -28,5 +28,9 @@ public class UserController {
         return new ResponseUtil("Ok","Successfully Registered",userDTO);
     }
 
+    @GetMapping(path = "/{id}")
+    public ResponseUtil searchUser(@PathVariable String id){
+        return new ResponseUtil("Ok","Successfully Searched",userService.searchUser(id));
 
+    }
 }
