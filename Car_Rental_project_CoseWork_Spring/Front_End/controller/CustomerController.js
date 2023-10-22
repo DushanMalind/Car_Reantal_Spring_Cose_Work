@@ -285,7 +285,14 @@ $("#btnSignIn").click(function () {
   if ($("#customerId").val()=="" ||$("#nameSignIn").val()=="" || $("#emailSignIn").val()=="" || $("#nicSignIn").val()=="" ||
     $("#addressSignIn").val()=="" || $("#contactSignIn").val()=="" || $("#drivingLicenseSignIn").val()=="" ||
     $("#username").val()=="" || $("#password").val()=="" || $("#upLoadImage").val()=="") {
-    alert("Please Fill All Fields");
+    /*alert("Please Fill All Fields");*/
+    swal({
+      title: "Please Fill All Fields",
+      text: "message!",
+      type: "warning",
+      showCancelButtonClass: "btn-primary",
+      confirmButtonClass: "btn-danger",
+    });
 
   }else {
     if ($("#upLoadImage").get(0).file.length===0){
@@ -299,7 +306,14 @@ $("#btnSignIn").click(function () {
         $("#btnSignIn").prop("disabled",false);
         register();
         upLoadImage();
-        alert("Successfully Register Customer")
+        /*alert("Successfully Register Customer")*/
+        swal({
+          title: "Successfully Register Customer",
+          text: "message!",
+          type: "success",
+          showCancelButtonClass: "btn-primary",
+          confirmButtonClass: "btn-danger",
+        });
       }
     }
   }
