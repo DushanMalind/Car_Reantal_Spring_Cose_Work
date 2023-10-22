@@ -63,6 +63,10 @@ public class UserController {
     }
 
 
+    @GetMapping(path ="/FIND/{uname}")
+    public ResponseUtil findByUsername(@PathVariable("uname") String uname){
+        return new ResponseUtil("Ok","Successfully Searched",userService.findByUsername(uname));
+    }
 
 
 }
