@@ -57,7 +57,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDTO searchUser(String id) {
-
+        if(userRepo.existsById(id)){
+            Users users = userRepo.findById(id).get();
+            return mapper.map(users, UserDTO.class);
+        }else {
+            throw new RuntimeException(id+"No Please Check The Correct Id..!");
+        }
     }
 
     @Override
