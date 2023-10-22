@@ -5,6 +5,7 @@ import lk.ijse.spring.carRental.entity.Users;
 import lk.ijse.spring.carRental.repo.UserRepo;
 import lk.ijse.spring.carRental.service.UserService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -67,21 +68,24 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserDTO> getAllUsers() {
-        return null;
+        List<Users> all=userRepo.findAll();
+        return mapper.map(all,new TypeToken<List<UserDTO>>(){}.getType());
     }
 
     @Override
     public String generateUserIds() {
-        return null;
+        return userRepo.generateUserId();
     }
 
     @Override
     public UserDTO findByPasswordAndUsername(String password, String username) {
-        return null;
+        /* Users users = userRepo.findByPasswordAndUsername(password, username);
+         return mapper.map(users, UserDTO.class);*/
     }
 
     @Override
     public UserDTO findByUsername(String username) {
-        return null;
+       /* Users users = userRepo.findByUsername(username);
+        return mapper.map(users, UserDTO.class);*/
     }
 }
