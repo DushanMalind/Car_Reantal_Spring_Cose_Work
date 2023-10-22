@@ -31,24 +31,28 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void saveCustomer(CustomerDTO customer) {
-        if (!repo.existsById(customer.getCustomerId())){
-            throw new RuntimeException(customer.getCustomerId()+"is already available, please insert a new ID..!");
+        if (!repo.existsById(customer.getCustomerId())) {
+            throw new RuntimeException(customer.getCustomerId() + "is already available, please insert a new ID..!");
         }
         repo.save(mapper.map(customer, Customer.class));
     }
 
     @Override
     public void updateCustomer(CustomerDTO customer) {
-if (repo.existsById(customer.getCustomerId())){
+        if (repo.existsById(customer.getCustomerId())) {
             repo.save(mapper.map(customer, Customer.class));
-        }else{
-            throw new RuntimeException(customer.getCustomerId()+"No Please Check The Correct Id..!");
+        } else {
+            throw new RuntimeException(customer.getCustomerId() + "No Please Check The Correct Id..!");
         }
     }
 
     @Override
     public void deleteCustomer(String id) {
-
+        if (repo.existsById(id)) {
+            repo.deleteById(id);
+        } else {
+            throw new RuntimeException(id + "No Please Check The Correct Id..!");
+        }
     }
 
     @Override
