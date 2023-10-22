@@ -40,5 +40,9 @@ public class CustomerController {
         return new ResponseUtil("Ok", "Successfully Updated.",null);
     }
 
-
+    @DeleteMapping(params = {"id"})
+    public ResponseUtil deleteCustomer(@RequestParam String id){
+        customerService.deleteCustomer(id);
+        return new ResponseUtil("Ok", "Successfully Deleted.",null);
+    }
 }
