@@ -5,6 +5,7 @@ import lk.ijse.spring.carRental.entity.Customer;
 import lk.ijse.spring.carRental.repo.CustomerRepo;
 import lk.ijse.spring.carRental.service.CustomerService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -67,31 +68,34 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<CustomerDTO> getAllCustomers() {
-        return null;
+        List<Customer> all = repo.findAll();
+        return mapper.map(all, new TypeToken<List<CustomerDTO>>() {}.getType());
     }
 
-    @Override
+   /* @Override
     public String generateCustomerIds() {
-        return null;
+        return repo.generateCustomerId();
     }
 
     @Override
     public int countRegisteredCustomers() {
-        return 0;
+        return repo.countRegisteredCustomers();
     }
 
     @Override
     public int countDailyRegisteredCustomers(String date) {
-        return 0;
+        return repo.countDailyRegisteredCustomers(date);
     }
 
     @Override
     public CustomerDTO searchUserFromCustomer(String id) {
-        return null;
+        Customer customer = repo.searchUserFromCustomer(id);
+        return mapper.map(customer, CustomerDTO.class);
     }
 
     @Override
     public CustomerDTO findCustomerToReserve(String nic) {
-        return null;
-    }
+        Customer customer = repo.findCustomerToReserve(nic);
+        return mapper.map(customer, CustomerDTO.class);
+    }*/
 }
