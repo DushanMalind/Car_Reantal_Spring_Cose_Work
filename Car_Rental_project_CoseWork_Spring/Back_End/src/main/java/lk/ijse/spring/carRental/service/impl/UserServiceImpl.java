@@ -39,7 +39,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void updateUser(UserDTO usersDTO) {
-
+        if(userRepo.existsById(usersDTO.getUserId())){
+            userRepo.save(mapper.map(usersDTO, Users.class));
+        }else{
+            throw new RuntimeException(usersDTO.getUserId()+"No Please Check The Correct Id..!");
+        }
     }
 
     @Override
