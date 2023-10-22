@@ -1,7 +1,11 @@
 package lk.ijse.spring.carRental.service.impl;
 
 import lk.ijse.spring.carRental.dto.UserDTO;
+import lk.ijse.spring.carRental.entity.Users;
+import lk.ijse.spring.carRental.repo.UserRepo;
 import lk.ijse.spring.carRental.service.UserService;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -19,10 +23,18 @@ import java.util.List;
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
+    @Autowired
+    private UserRepo userRepo;
+
+    @Autowired
+    ModelMapper mapper;
 
     @Override
     public void saveUser(UserDTO usersDTO) {
-
+        if(userRepo.existsById(usersDTO.getUserId())){
+            throw new RuntimeException(usersDTO.getUserId()+"is already available, please insert a new ID..!");
+        }
+        userRepo.save(mapper.map(usersDTO, Users.class));
     }
 
     @Override
