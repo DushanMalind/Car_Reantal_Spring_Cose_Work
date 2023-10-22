@@ -52,4 +52,9 @@ public class UserController {
     }
 
 
+    @GetMapping(params = {"test"})
+    public ResponseUtil generateUserIds(@RequestParam String test) {
+        return new ResponseUtil("Ok","Successfully Searched",userService.generateUserIds());
+    }
+
 }
