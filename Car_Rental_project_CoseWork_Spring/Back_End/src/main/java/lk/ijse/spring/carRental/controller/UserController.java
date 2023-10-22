@@ -40,6 +40,16 @@ public class UserController {
         return new ResponseUtil("Ok","Successfully Updated",null);
     }
 
+    @DeleteMapping(params = {"id"})
+    public ResponseUtil deleteUser(@RequestParam String id){
+        userService.deleteUser(id);
+        return new ResponseUtil("Ok","Successfully Deleted",null);
+    }
+
+    @GetMapping
+    public ResponseUtil getAllUsers(){
+        return new ResponseUtil("Ok","Successfully Searched",userService.getAllUsers());
+    }
 
 
 }
