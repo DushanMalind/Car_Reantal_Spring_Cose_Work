@@ -79,13 +79,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDTO findByPasswordAndUsername(String password, String username) {
-        /* Users users = userRepo.findByPasswordAndUsername(password, username);
-         return mapper.map(users, UserDTO.class);*/
+         Users users = userRepo.findByPasswordAndUsername(password, username);
+         return mapper.map(users, UserDTO.class);
     }
 
     @Override
     public UserDTO findByUsername(String username) {
-       /* Users users = userRepo.findByUsername(username);
-        return mapper.map(users, UserDTO.class);*/
+        Users users = userRepo.findByUsername(username);
+        return mapper.map(users, UserDTO.class);
     }
 }
