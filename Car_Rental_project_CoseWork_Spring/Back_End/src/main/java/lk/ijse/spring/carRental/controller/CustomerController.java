@@ -61,5 +61,19 @@ public class CustomerController {
         return new ResponseUtil("Ok", "Successfully Searched.",customerService.countRegisteredCustomers());
     }
 
+    @GetMapping(path ="/NewUsers/{date}")
+    public ResponseUtil countDailyRegisteredCustomers(@PathVariable String date) {
+        return new ResponseUtil("Ok", "Successfully Searched.",customerService.countDailyRegisteredCustomers(date));
+    }
+
+    @GetMapping(path = "USER/{id}")
+    public ResponseUtil searchUserFromCustomer(@PathVariable String id){
+        return new ResponseUtil("Ok", "Successfully Searched.",customerService.searchUserFromCustomer(id));
+    }
+
+    @GetMapping(path = "/findValidNic/{nic}")
+    public ResponseUtil findCustomerToReserve(@PathVariable String nic){
+        return new ResponseUtil("Ok", "Successfully Searched.",customerService.findCustomerToReserve(nic));
+    }
 
 }
