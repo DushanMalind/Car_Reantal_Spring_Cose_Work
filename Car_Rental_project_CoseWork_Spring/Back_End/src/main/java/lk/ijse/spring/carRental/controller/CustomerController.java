@@ -33,4 +33,12 @@ public class CustomerController {
         return new ResponseUtil("Ok", "Successfully Searched.",customerService.searchCustomer(id));
     }
 
+
+    @PutMapping
+    public ResponseUtil updateCustomer(@RequestBody CustomerDTO dto){
+        customerService.updateCustomer(dto);
+        return new ResponseUtil("Ok", "Successfully Updated.",null);
+    }
+
+
 }
