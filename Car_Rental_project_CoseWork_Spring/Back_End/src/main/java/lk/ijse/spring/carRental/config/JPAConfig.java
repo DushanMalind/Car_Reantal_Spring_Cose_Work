@@ -38,13 +38,12 @@ public class JPAConfig {
     Environment env;
 
     @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(DataSource ds, JpaVendorAdapter vad){
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource ds, JpaVendorAdapter vad){
         LocalContainerEntityManagerFactoryBean factory= new LocalContainerEntityManagerFactoryBean();
         factory.setDataSource(ds);
         factory.setJpaVendorAdapter(vad);
         factory.setPackagesToScan(env.getRequiredProperty("pro.entity"));
         return factory;
-
     }
 
     @Bean

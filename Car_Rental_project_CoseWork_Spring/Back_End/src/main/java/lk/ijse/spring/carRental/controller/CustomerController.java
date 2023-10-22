@@ -22,7 +22,7 @@ public class CustomerController {
     CustomerService customerService;
 
     @PostMapping
-    public ResponseUtil saveCustomer(@RequestBody CustomerDTO dto){
+    public ResponseUtil saveCustomer(CustomerDTO dto){
         customerService.saveCustomer(dto);
         return new ResponseUtil("Ok", "Successfully Registered.",dto);
     }

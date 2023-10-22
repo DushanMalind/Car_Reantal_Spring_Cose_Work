@@ -137,17 +137,17 @@ function generateCustomerId() {
     url: basUrl + "customer?test=" + test,
     method: "GET",
     success: function (response) {
-      var id = response.data;
-      var newId = id.split("-")[1];
-      var incId = parseInt(newId) + 1;
-      if (incId < 10) {
-        $("#customerId").val("C00-000" + incId);
-      } else if (incId < 100) {
-        $("#customerId").val("C00-00" + incId);
-      } else if (incId < 1000) {
-        $("#customerId").val("C00-0" + incId);
+      var customerId = response.data;
+      var tempId = parseInt(customerId.split("-")[1]);
+      tempId = tempId + 1;
+      if (tempId <= 9) {
+        $("#customerId").text("C00-000" + tempId);
+      } else if (tempId <= 99) {
+        $("#customerId").text("C00-00" + tempId);
+      } else if (tempId <= 999) {
+        $("#customerId").text("C00-0" + tempId);
       } else {
-        $("#customerId").val("C00-" + incId);
+        $("#customerId").text("C00-" + tempId);
       }
     },
     error: function (ob,statusText,error) {
@@ -166,17 +166,17 @@ function genarateUserId(){
     url: basUrl + "user?test=" + test,
     method: "GET",
     success: function (response) {
-      var id = response.data;
-      var newId = id.split("-")[1];
-      var incId = parseInt(newId) + 1;
-      if (incId < 10) {
-        $("#generateUserId").text("U00-000" + incId);
-      } else if (incId < 100) {
-        $("#generateUserId").text("U00-00" + incId);
-      } else if (incId < 1000) {
-        $("#generateUserId").text("U00-0" + incId);
+      var userId = response.data;
+      var tempId = parseInt(userId.split("-")[1]);
+      tempId = tempId + 1;
+      if (tempId <= 9) {
+        $("#generateUserId").text("U00-000" + tempId);
+      } else if (tempId <= 99) {
+        $("#generateUserId").text("U00-00" + tempId);
+      } else if (tempId <= 999) {
+        $("#generateUserId").text("U00-0" + tempId);
       } else {
-        $("#generateUserId").text("U00-" + incId);
+        $("#generateUserId").text("U00-" + tempId);
       }
     },
     error: function (ob,statusText,error) {
@@ -295,7 +295,7 @@ $("#btnSignIn").click(function () {
     });
 
   }else {
-    if ($("#upLoadImage").get(0).file.length===0){
+    if ($("#upLoadImage").get(0).file.length){
       alert("Please Input Fields Image Upload");
     }else {
       if ($("#errorUserName").text()=="" && $("#errorEmail").text()=="" && $("#errorNIC").text()=="" &&

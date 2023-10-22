@@ -20,10 +20,10 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    UserService userService;
 
     @PostMapping
-    public ResponseUtil saveUser(@RequestBody UserDTO userDTO){
+    public ResponseUtil saveUser(UserDTO userDTO){
         userService.saveUser(userDTO);
         return new ResponseUtil("Ok","Successfully Registered",userDTO);
     }

@@ -8,8 +8,8 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 /**
@@ -25,23 +25,23 @@ import java.util.List;
 @Transactional
 public class CustomerServiceImpl implements CustomerService {
     @Autowired
-    private CustomerRepo repo;
+    CustomerRepo customerRepo;
 
     @Autowired
-    private ModelMapper mapper;
+    ModelMapper mapper;
 
     @Override
     public void saveCustomer(CustomerDTO customer) {
-        if (!repo.existsById(customer.getCustomerId())) {
+        if (!customerRepo.existsById(customer.getCustomerId())) {
             throw new RuntimeException(customer.getCustomerId() + "is already available, please insert a new ID..!");
         }
-        repo.save(mapper.map(customer, Customer.class));
+        customerRepo.save(mapper.map(customer, Customer.class));
     }
 
     @Override
     public void updateCustomer(CustomerDTO customer) {
-        if (repo.existsById(customer.getCustomerId())) {
-            repo.save(mapper.map(customer, Customer.class));
+        if (customerRepo.existsById(customer.getCustomerId())) {
+            customerRepo.save(mapper.map(customer, Customer.class));
         } else {
             throw new RuntimeException(customer.getCustomerId() + "No Please Check The Correct Id..!");
         }
@@ -49,8 +49,8 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void deleteCustomer(String id) {
-        if (repo.existsById(id)) {
-            repo.deleteById(id);
+        if (customerRepo.existsById(id)) {
+            customerRepo.deleteById(id);
         } else {
             throw new RuntimeException(id + "No Please Check The Correct Id..!");
         }
@@ -58,8 +58,8 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public CustomerDTO searchCustomer(String id) {
-        if (repo.existsById(id)) {
-            Customer customer = repo.findById(id).get();
+        if (customerRepo.existsById(id)) {
+            Customer customer = customerRepo.findById(id).get();
             return mapper.map(customer, CustomerDTO.class);
         } else {
             throw new RuntimeException(id + "No Please Check The Correct Id..!");
@@ -68,34 +68,34 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<CustomerDTO> getAllCustomers() {
-        List<Customer> all = repo.findAll();
+        List<Customer> all = customerRepo.findAll();
         return mapper.map(all, new TypeToken<List<CustomerDTO>>() {}.getType());
     }
 
     @Override
     public String generateCustomerIds() {
-        return repo.generateCustomerId();
+        return customerRepo.generateCustomerId();
     }
 
     @Override
     public int countRegisteredCustomers() {
-        return repo.countRegisteredCustomers();
+        return customerRepo.countRegisteredCustomers();
     }
 
     @Override
     public int countDailyRegisteredCustomers(String date) {
-        return repo.countDailyRegisteredCustomers(date);
+        return customerRepo.countDailyRegisteredCustomers(date);
     }
 
     @Override
     public CustomerDTO searchUserFromCustomer(String id) {
-        Customer customer = repo.searchUserFromCustomer(id);
+        Customer customer = customerRepo.searchUserFromCustomer(id);
         return mapper.map(customer, CustomerDTO.class);
     }
 
     @Override
     public CustomerDTO findCustomerToReserve(String nic) {
-        Customer customer = repo.findCustomerToReserve(nic);
+        Customer customer = customerRepo.findCustomerToReserve(nic);
         return mapper.map(customer, CustomerDTO.class);
     }
 }
