@@ -33,4 +33,13 @@ public class UserController {
         return new ResponseUtil("Ok","Successfully Searched",userService.searchUser(id));
 
     }
+
+    @PutMapping
+    public ResponseUtil updateUser(@RequestBody UserDTO userDTO){
+        userService.updateUser(userDTO);
+        return new ResponseUtil("Ok","Successfully Updated",null);
+    }
+
+
+
 }
