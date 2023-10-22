@@ -45,4 +45,9 @@ public class CustomerController {
         customerService.deleteCustomer(id);
         return new ResponseUtil("Ok", "Successfully Deleted.",null);
     }
+
+    @GetMapping
+    public ResponseUtil getAllCustomers(){
+        return new ResponseUtil("Ok", "Successfully Searched.",customerService.getAllCustomers());
+    }
 }
