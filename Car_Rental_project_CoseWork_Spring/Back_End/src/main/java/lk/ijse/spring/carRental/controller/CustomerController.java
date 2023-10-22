@@ -27,4 +27,10 @@ public class CustomerController {
         return new ResponseUtil("Ok", "Successfully Registered.",dto);
     }
 
+
+    @GetMapping(path = "/{id}")
+    public ResponseUtil searchCustomer(@PathVariable String id){
+        return new ResponseUtil("Ok", "Successfully Searched.",customerService.searchCustomer(id));
+    }
+
 }
