@@ -23,7 +23,7 @@ import java.time.LocalDate;
 public class CustomerDTO {
     private String customerId;
 
-    private UserDTO users;
+    private UsersDTO users;
 
     private String customerName;
     private LocalDate registeredDate;

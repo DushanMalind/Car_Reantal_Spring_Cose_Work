@@ -30,5 +30,60 @@ $("#loginPassword").keyup(function (event) {
 
 
 
+$("#btnLogToSystem").click(function () {
+  if ($("#loginUsername").val() == "" || $("#loginPassword").val() == "") {
+    alert("All Fields Are Required To Log !");
+  }
+  else {
+    isExists($("#loginUsername").val(), $("#loginPassword").val());
+  }
+});
 
+function isExists(username, password) {
+$.ajax({
+    url: "http://localhost:8081/Back_End_war/user/" + password + "/" + username,
+    method: "GET",
+    success: function (response) {
+      if (response.data.username == $("#loginUsername").val() && response.data.password == $("#loginPassword").val()) {
+        searchCustomerTable(response.data.userId);
+
+      }
+    },
+    error: function (ob) {
+      alert("Wrong Username And Password !");
+    }
+  });
+}
+
+
+
+
+function searchCustomerTable(){
+  let username = $("#loginUsername").val();
+  let password = $("#loginPassword").val();
+
+  $.ajax({
+
+  });
+}
+
+/*function searchCustomerTable(userId) {
+  $.ajax({
+    url: "http://localhost:8081/Back_End_war/customer/USER/" + userId,
+    method: "GET",
+    success: function (response) {
+      for (var i in response.data) {
+        if (response.data[i].username == $("#loginUsername").val() && response.data[i].password == $("#loginPassword").val()) {
+          window.location.href = 'customerDashboard.html';
+        }
+
+      }
+      /!*log= "Logged";
+      window.location.href = 'customerDashboard.html';*!/
+    },
+    error: function (ob) {
+      alert("Wrong Username And Password !");
+    }
+  });
+}*/
 

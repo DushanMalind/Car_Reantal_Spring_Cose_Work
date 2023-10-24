@@ -21,7 +21,7 @@ import lombok.ToString;
 public class AdminDTO {
     private String adminId;
 
-    private UserDTO users;
+    private UsersDTO users;
 
     private String adminName;
     private String adminAddress;

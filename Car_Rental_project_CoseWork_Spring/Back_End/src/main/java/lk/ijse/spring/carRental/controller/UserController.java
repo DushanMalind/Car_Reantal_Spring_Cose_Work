@@ -1,6 +1,6 @@
 package lk.ijse.spring.carRental.controller;
 
-import lk.ijse.spring.carRental.dto.UserDTO;
+import lk.ijse.spring.carRental.dto.UsersDTO;
 import lk.ijse.spring.carRental.service.UserService;
 import lk.ijse.spring.carRental.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ public class UserController {
     UserService userService;
 
     @PostMapping
-    public ResponseUtil saveUser(UserDTO userDTO){
+    public ResponseUtil saveUser(UsersDTO userDTO){
         userService.saveUser(userDTO);
         return new ResponseUtil("Ok","Successfully Registered",userDTO);
     }
@@ -35,7 +35,7 @@ public class UserController {
     }
 
     @PutMapping
-    public ResponseUtil updateUser(@RequestBody UserDTO userDTO){
+    public ResponseUtil updateUser(@RequestBody UsersDTO userDTO){
         userService.updateUser(userDTO);
         return new ResponseUtil("Ok","Successfully Updated",null);
     }

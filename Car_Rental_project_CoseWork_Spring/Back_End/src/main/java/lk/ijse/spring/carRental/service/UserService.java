@@ -1,6 +1,6 @@
 package lk.ijse.spring.carRental.service;
 
-import lk.ijse.spring.carRental.dto.UserDTO;
+import lk.ijse.spring.carRental.dto.UsersDTO;
 
 import java.util.List;
 
@@ -13,20 +13,20 @@ import java.util.List;
  * lk.ijse.spring.carRental.service
  */
 public interface UserService {
-    void saveUser(UserDTO usersDTO);
+    void saveUser(UsersDTO usersDTO);
 
-    void updateUser(UserDTO usersDTO);
+    void updateUser(UsersDTO usersDTO);
 
     void deleteUser(String id);
 
-    UserDTO searchUser(String id);
+    UsersDTO searchUser(String id);
 
-    List<UserDTO> getAllUsers();
+    List<UsersDTO> getAllUsers();
 
     String generateUserIds();
 
-    UserDTO findByPasswordAndUsername(String password, String username);
+    UsersDTO findByPasswordAndUsername(String password, String username);
 
-    UserDTO findByUsername(String username);
+    UsersDTO findByUsername(String username);
 
 }

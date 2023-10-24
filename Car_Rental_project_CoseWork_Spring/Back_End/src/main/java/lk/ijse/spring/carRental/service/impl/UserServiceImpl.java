@@ -1,6 +1,6 @@
 package lk.ijse.spring.carRental.service.impl;
 
-import lk.ijse.spring.carRental.dto.UserDTO;
+import lk.ijse.spring.carRental.dto.UsersDTO;
 import lk.ijse.spring.carRental.entity.Users;
 import lk.ijse.spring.carRental.repo.UserRepo;
 import lk.ijse.spring.carRental.service.UserService;
@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
     ModelMapper mapper;
 
     @Override
-    public void saveUser(UserDTO usersDTO) {
+    public void saveUser(UsersDTO usersDTO) {
         if(userRepo.existsById(usersDTO.getUserId())){
             throw new RuntimeException(usersDTO.getUserId()+"is already available, please insert a new ID..!");
         }
@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateUser(UserDTO usersDTO) {
+    public void updateUser(UsersDTO usersDTO) {
         if(userRepo.existsById(usersDTO.getUserId())){
             userRepo.save(mapper.map(usersDTO, Users.class));
         }else{
@@ -57,19 +57,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDTO searchUser(String id) {
+    public UsersDTO searchUser(String id) {
         if(userRepo.existsById(id)){
             Users users = userRepo.findById(id).get();
-            return mapper.map(users, UserDTO.class);
+            return mapper.map(users, UsersDTO.class);
         }else {
             throw new RuntimeException(id+"No Please Check The Correct Id..!");
         }
     }
 
     @Override
-    public List<UserDTO> getAllUsers() {
+    public List<UsersDTO> getAllUsers() {
         List<Users> all=userRepo.findAll();
-        return mapper.map(all,new TypeToken<List<UserDTO>>(){}.getType());
+        return mapper.map(all,new TypeToken<List<UsersDTO>>(){}.getType());
     }
 
     @Override
@@ -78,14 +78,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDTO findByPasswordAndUsername(String password, String username) {
+    public UsersDTO findByPasswordAndUsername(String password, String username) {
          Users users = userRepo.findByPasswordAndUsername(password, username);
-         return mapper.map(users, UserDTO.class);
+         return mapper.map(users, UsersDTO.class);
     }
 
     @Override
-    public UserDTO findByUsername(String username) {
+    public UsersDTO findByUsername(String username) {
         Users users = userRepo.findByUsername(username);
-        return mapper.map(users, UserDTO.class);
+        return mapper.map(users, UsersDTO.class);
     }
 }
