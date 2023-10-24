@@ -34,7 +34,7 @@ public class Customer {
     private String customerAddress;
     private String customerContact;
     private String customerDrivingLicenseId;
-    /*private String customerDrivingLicenseImage*/;
+    private String customerDrivingLicenseImage;
 
 
     @OneToOne(cascade = CascadeType.ALL)

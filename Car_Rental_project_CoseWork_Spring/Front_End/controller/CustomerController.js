@@ -245,6 +245,24 @@ function generateUserIds() {
 }
 
 
+/*function CustomerId() {
+  $.ajax({
+    url: basUrl + "customer?test=" + test,
+    method: "GET",
+    success: function (response) {
+      if (response.data == null) {
+        test= "id";
+      } else {
+        let number=parseInt(response.data.slice(4),10);
+        number++;
+        test="C00-"+number.toString().padStart(3,"0");
+      }
+    },
+    error: function (ob,statusText,error) {
+      console.log(error);
+    }
+  })
+}*/
 
 function upLoadImage(){
   var data=new FormData();
@@ -255,13 +273,14 @@ function upLoadImage(){
 
   $.ajax({
     url:basUrl+"api/v1/upload",
-    method:"POST",
+    method:'post',
     data:data,
     contentType:false,
     processData:false,
     async:true,
     success:function(resp){
-      alert(resp.message);
+      console.log(resp);
+    /*  alert(resp.message);*/
     },
     error:function(ob,statusText,error){
       console.log(error);
@@ -279,8 +298,8 @@ var today = now.getFullYear() + "-" + (month) + "-" + (day);
 function register(){
   var user={
     userId:$("#generateUserId").text(),
-    username:$("#username").val(),
-    password:$("#password").val(),
+    username:$("#registerUsername").val(),
+    password:$("#registerPassword").val(),
   }
 
   var cusDetails={
@@ -292,20 +311,21 @@ function register(){
     customerNIC:$("#nicSignIn").val(),
     customerAddress:$("#addressSignIn").val(),
     customerContact:$("#contactSignIn").val(),
-    customerDrivingLicense:$("#drivingLicenseSignIn").val(),
-    customerImage:$("#upLoadImage")[0].files[0].name
+    customerDrivingLicenseId:$("#drivingLicenseSignIn").val(),
+    customerDrivingLicenseImage:$("#upLoadImage")[0].files[0].name
   }
 
   $.ajax({
-    url:"http://localhost:8081/Back_End_war/customer",
+    url:basUrl+"customer",
     method:"POST",
     contentType:"application/json",
     data: JSON.stringify(cusDetails),
     success:function (resp) {
       registerUser(user);
-      alert($("#nameSignIn").val()+""+resp.message);
-      generateRegisterIds();
+      /*alert($("#nameSignIn").val()+ " " +resp.message);*/
       generateUserIds();
+      generateRegisterIds();
+
 
     },
     error:function (error) {
@@ -328,8 +348,11 @@ function registerUser(users){
     contentType:"application/json",
     data: JSON.stringify(user),
     success:function (resp) {
-      alert(resp.message);
-      clearTextFields();
+    /*  alert(resp.message);*/
+      console.log(resp);
+      if (resp.message==200){
+        clearTextFields();
+      }
 
     },
     error:function (error) {
@@ -380,14 +403,14 @@ $("#btnSignIn").click(function () {
 });
 
 function clearTextFields(){
-  genarateUserId();
+  generateUserIds();
   $("#nameSignIn").val("");
   $("#emailSignIn").val("");
   $("#nicSignIn").val("");
   $("#addressSignIn").val("");
   $("#contactSignIn").val("");
   $("#drivingLicenseSignIn").val("");
-  $("#username").val("");
-  $("#password").val("");
+  $("#registerUsername").val("");
+  $("#registerPassword").val("");
   $("#upLoadImage").val("");
 }

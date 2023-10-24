@@ -147,8 +147,6 @@ $("#car").click(function () {
 });
 
 $("#btnOpenRegisterForm").click(function () {
-  generateUserIds();
-  generateRegisterIds();
   setView($("#registerPage"));
 });
 

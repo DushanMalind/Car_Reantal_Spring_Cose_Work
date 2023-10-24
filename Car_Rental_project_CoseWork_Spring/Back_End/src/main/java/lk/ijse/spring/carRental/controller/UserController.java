@@ -4,6 +4,7 @@ import lk.ijse.spring.carRental.dto.UsersDTO;
 import lk.ijse.spring.carRental.service.UserService;
 import lk.ijse.spring.carRental.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -22,31 +23,31 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @PostMapping
-    public ResponseUtil saveUser(UsersDTO userDTO){
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil saveUser(@RequestBody UsersDTO userDTO){
         userService.saveUser(userDTO);
         return new ResponseUtil("Ok","Successfully Registered",userDTO);
     }
 
-    @GetMapping(path = "/{id}")
+    @GetMapping(path = "/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil searchUser(@PathVariable String id){
         return new ResponseUtil("Ok","Successfully Searched",userService.searchUser(id));
 
     }
 
-    @PutMapping
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil updateUser(@RequestBody UsersDTO userDTO){
         userService.updateUser(userDTO);
         return new ResponseUtil("Ok","Successfully Updated",null);
     }
 
-    @DeleteMapping(params = {"id"})
+    @DeleteMapping(params = {"id"},produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil deleteUser(@RequestParam String id){
         userService.deleteUser(id);
         return new ResponseUtil("Ok","Successfully Deleted",null);
     }
 
-    @GetMapping
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil getAllUsers(){
         return new ResponseUtil("Ok","Successfully Searched",userService.getAllUsers());
     }

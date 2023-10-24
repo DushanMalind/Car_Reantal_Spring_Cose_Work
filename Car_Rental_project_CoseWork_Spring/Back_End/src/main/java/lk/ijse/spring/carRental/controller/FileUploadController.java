@@ -22,7 +22,7 @@ import java.util.ArrayList;
  * lk.ijse.spring.carRental.config
  */
 @RestController
-@RequestMapping("/api/v1/upload")
+@RequestMapping("api/v1/upload")
 @CrossOrigin
 public class FileUploadController {
     private static final ArrayList<String> allImages = new ArrayList();
@@ -53,5 +53,33 @@ public class FileUploadController {
             return new ResponseEntity(var7.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+
+
+    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity uploadFileWithSpringWay(@RequestPart("myFile") MultipartFile myFile) {
+        try {
+            String projectPath = (new File(this.getClass().getProtectionDomain().getCodeSource().getLocation().toURI())).getParentFile().getParentFile().getAbsolutePath();
+            File uploadsDir = new File(projectPath + "/uploads");
+            uploadsDir.mkdir();
+            myFile.transferTo(new File(uploadsDir.getAbsolutePath() + "/" + myFile.getOriginalFilename()));
+            allImages.add("uploads/" + myFile.getOriginalFilename());
+            return ResponseEntity.ok(HttpStatus.OK);
+        } catch (URISyntaxException var4) {
+            var4.printStackTrace();
+            return new ResponseEntity(var4.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        } catch (IOException var5) {
+            var5.printStackTrace();
+            return new ResponseEntity(var5.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity getAllImagesFromDatabase() {
+
+        return new ResponseEntity(allImages, HttpStatus.OK);
+    }
+
 
 }
