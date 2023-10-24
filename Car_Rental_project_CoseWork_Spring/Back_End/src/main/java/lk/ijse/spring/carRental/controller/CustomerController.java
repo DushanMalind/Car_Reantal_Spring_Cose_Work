@@ -23,7 +23,7 @@ public class CustomerController {
     CustomerService customerService;
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil saveCustomer(CustomerDTO dto){
+    public ResponseUtil saveCustomer(@RequestBody CustomerDTO dto){
         customerService.saveCustomer(dto);
         return new ResponseUtil("Ok", "Successfully Registered.",dto);
     }

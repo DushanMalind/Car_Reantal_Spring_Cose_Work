@@ -279,8 +279,8 @@ var today = now.getFullYear() + "-" + (month) + "-" + (day);
 function register(){
   var user={
     userId:$("#generateUserId").text(),
-    username:$("#registerUsername").val(),
-    password:$("#registerPassword").val(),
+    username:$("#username").val(),
+    password:$("#password").val(),
   }
 
   var cusDetails={
