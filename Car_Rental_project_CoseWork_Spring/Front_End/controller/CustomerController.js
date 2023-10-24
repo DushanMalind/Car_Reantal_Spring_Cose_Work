@@ -128,8 +128,8 @@ let password = $(this).val();
   }
 });
 
-function generateCustomerId() {
-  $("#customerId").text("C00-0001");
+/*function generateCustomerId() {
+  $("#generateCustomerId").text("C00-0001");
   var test = "id";
 
   $.ajax({
@@ -140,13 +140,13 @@ function generateCustomerId() {
       var tempId = parseInt(customerIds.split("-")[1]);
       tempId = tempId + 1;
       if (tempId <= 9) {
-        $("#customerId").text("C00-000" + tempId);
+        $("#generateCustomerId").text("C00-000" + tempId);
       } else if (tempId <= 99) {
-        $("#customerId").text("C00-00" + tempId);
+        $("#generateCustomerId").text("C00-00" + tempId);
       } else if (tempId <= 999) {
-        $("#customerId").text("C00-0" + tempId);
+        $("#generateCustomerId").text("C00-0" + tempId);
       } else {
-        $("#customerId").text("C00-" + tempId);
+        $("#generateCustomerId").text("C00-" + tempId);
       }
     },
     error: function (ob,statusText,error) {
@@ -155,9 +155,9 @@ function generateCustomerId() {
     }
 
   });
-}
+}*/
 
-function genarateUserId(){
+/*function genarateUserId(){
   $("#generateUserId").text("U00-0001");
   var test = "id";
 
@@ -183,7 +183,67 @@ function genarateUserId(){
 
     }
   });
+}*/
+
+
+
+function generateRegisterIds() {
+  $("#generateCusId").text("C00-0001");
+  var test = "id";
+
+  $.ajax({
+
+    url: basUrl+"customer?test="+test,
+    method: "GET",
+    success: function (response) {
+      var customerId = response.data;
+      var tempId = parseInt(customerId.split("-")[1]);
+      tempId = tempId + 1;
+      if (tempId <= 9) {
+        $("#generateCusId").text("C00-000" + tempId);
+      } else if (tempId <= 99) {
+        $("#generateCusId").text("C00-00" + tempId);
+      } else if (tempId <= 999) {
+        $("#generateCusId").text("C00-0" + tempId);
+      } else {
+        $("#generateCusId").text("C00-" + tempId);
+      }
+
+    },
+    error: function (ob, statusText, error) {
+      console.log(error);
+    }
+  });
 }
+
+function generateUserIds() {
+  $("#generateUserId").text("U00-0001");
+  var test = "id";
+
+  $.ajax({
+    url: basUrl+"user?test="+test,
+    method: "GET",
+    success: function (response) {
+      var userId = response.data;
+      var tempId = parseInt(userId.split("-")[1]);
+      tempId = tempId + 1;
+      if (tempId <= 9) {
+        $("#generateUserId").text("U00-000" + tempId);
+      } else if (tempId <= 99) {
+        $("#generateUserId").text("U00-00" + tempId);
+      } else if (tempId <= 999) {
+        $("#generateUserId").text("U00-0" + tempId);
+      } else {
+        $("#generateUserId").text("U00-" + tempId);
+      }
+
+    },
+    error: function (ob, statusText, error) {
+      console.log(error);
+    }
+  });
+}
+
 
 
 function upLoadImage(){
@@ -219,15 +279,15 @@ var today = now.getFullYear() + "-" + (month) + "-" + (day);
 function register(){
   var user={
     userId:$("#generateUserId").text(),
-    username:$("#username").val(),
-    password:$("#password").val(),
+    username:$("#registerUsername").val(),
+    password:$("#registerPassword").val(),
   }
 
   var cusDetails={
-    customerId:$("#customerId").text(),
+    customerId:$("#generateCusId").text(),
     users:user,
-    customerName:$("#nameSignIn").val(),
     registeredDate:today.toString(),
+    customerName:$("#nameSignIn").val(),
     customerEmail:$("#emailSignIn").val(),
     customerNIC:$("#nicSignIn").val(),
     customerAddress:$("#addressSignIn").val(),
@@ -237,19 +297,19 @@ function register(){
   }
 
   $.ajax({
-    url:basUrl+"customer",
+    url:"http://localhost:8081/Back_End_war/customer",
     method:"POST",
     contentType:"application/json",
     data: JSON.stringify(cusDetails),
     success:function (resp) {
       registerUser(user);
       alert($("#nameSignIn").val()+""+resp.message);
-      generateCustomerId();
-      genarateUserId();
+      generateRegisterIds();
+      generateUserIds();
 
     },
     error:function (error) {
-      alert(JSON.parse(error.responseText).message);
+      console.log(error);
     }
   });
 
@@ -280,10 +340,12 @@ function registerUser(users){
 
 
 
+
 $("#btnSignIn").click(function () {
+
   if ($("#nameSignIn").val()=="" || $("#emailSignIn").val()=="" || $("#nicSignIn").val()=="" ||
     $("#addressSignIn").val()=="" || $("#contactSignIn").val()=="" || $("#drivingLicenseSignIn").val()=="" ||
-    $("#username").val()=="" || $("#password").val()=="" || $("#upLoadImage").val()=="") {
+    $("#registerUsername").val()=="" || $("#registerPassword").val()=="" || $("#upLoadImage").val()=="") {
     /*alert("Please Fill All Fields");*/
     swal({
       title: "Please Fill All Fields",
@@ -304,8 +366,6 @@ $("#btnSignIn").click(function () {
       }else {
         $("#btnSignIn").prop("disabled",false);
         register();
-        generateCustomerId();
-        genarateUserId();
         upLoadImage();
         swal({
           title: "Successfully Register Customer",
