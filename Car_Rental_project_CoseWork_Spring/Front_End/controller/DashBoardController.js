@@ -158,3 +158,9 @@ $("#btnCancel").click(function (){
   setView($("#login_page_container"));
 });
 
+/*
+$("#btnLogToSystem").click(function (){
+  searchCustomerTable();
+});
+*/
+
