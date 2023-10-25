@@ -1,8 +1,10 @@
 package lk.ijse.spring.carRental.controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lk.ijse.spring.carRental.dto.AdminDTO;
+import lk.ijse.spring.carRental.service.AdminService;
+import lk.ijse.spring.carRental.util.ResponseUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * `@authority` DUSHAN MALINDA
@@ -17,5 +19,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/admin")
 @CrossOrigin
 public class AdminController {
+    @Autowired
+    AdminService service;
+
+    @PostMapping
+    public ResponseUtil saveAdmin(@ModelAttribute AdminDTO dto){
+        service.addAdmin(dto);
+        return new ResponseUtil("Ok",dto.getAdminId()+" Successfully Added..",null);
+    }
+
 
 }
