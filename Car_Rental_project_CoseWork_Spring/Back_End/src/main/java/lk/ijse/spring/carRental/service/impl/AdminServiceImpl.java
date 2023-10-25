@@ -39,7 +39,10 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public void deleteAdmin(String id) {
-
+        if(!repo.existsById(id)){
+            throw new RuntimeException("Admin "+id+" Not Available to Delete..!");
+        }
+        repo.deleteById(id);
     }
 
     @Override
