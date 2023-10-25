@@ -1,15 +1,18 @@
 package lk.ijse.spring.carRental.service.impl;
 
 import lk.ijse.spring.carRental.dto.AdminDTO;
+import lk.ijse.spring.carRental.dto.CustomerDTO;
 import lk.ijse.spring.carRental.entity.Admin;
 import lk.ijse.spring.carRental.repo.AdminRepo;
 import lk.ijse.spring.carRental.service.AdminService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * `@authority` DUSHAN MALINDA
@@ -55,7 +58,8 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public ArrayList<AdminDTO> getAllAdmins() {
-        return null;
+        List<Admin> adminList= repo.findAll();
+        return mapper.map(adminList, new TypeToken<List<AdminDTO>>() {}.getType());
     }
 
     @Override
