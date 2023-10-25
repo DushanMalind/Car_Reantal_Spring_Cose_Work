@@ -52,8 +52,8 @@ $.ajax({
         searchCustomerTable(response.data.userId);
 
       }
-      /*window.location.href = 'page/customerDashBoard.html';*/
-      searchAdminTable(response.data.userId,window.location.href = 'page/addMinDashBoard.html');
+      window.location.href = 'page/customerDashBoard.html';
+
     },
     error: function (ob) {
       alert("Wrong Username And Password !");
@@ -84,37 +84,9 @@ function searchCustomerTable(userId){
 
 }
 
-function isExistsAdmin(username, password) {
-  $.ajax({
-    url: "http://localhost:8081/Back_End_war/admin/" + password + "/" + username,
-    method: "GET",
-    success: function (response) {
-      if (response.data.username == $("#loginUsername").val() && response.data.password == $("#loginPassword").val()) {
-        searchAdminTable(response.data.userId);
-      }
-      window.location.href = 'page/addminDashBoard.html';
-    },
-    error: function (ob) {
-      alert("Wrong Username And Password !");
-    }
-  });
-}
 
 
-function searchAdminTable(usrId){
-  $.ajax({
-    url: "http://localhost:8081/Back_End_war/admin/USER/"+usrId,
-    method: "GET",
-    success: function (response) {
-      for (var i in response.data) {
-        if (response.data[i].username == $("#loginUsername").val() && response.data[i].password == $("#loginPassword").val()) {
 
-        }
-      }
-      window.location.href = 'page/addminDashBoard.html';
-    }
-  });
-}
 
 
 

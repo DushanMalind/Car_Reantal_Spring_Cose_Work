@@ -34,7 +34,7 @@
         <a class="navbar-brand text-white" href="#">Car Rental System</a>
         <ul class="navbar-nav me-auto ms-2 mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active text-white" aria-current="page" href=#" id="home">Home</a>
+            <a class="nav-link active text-white" aria-current="page" href=../index.html id="home">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="#" id="service">Service</a>
@@ -103,18 +103,18 @@
               <form class="row g-3 needs-validation" id="loginPageFrom" novalidate>
 
                 <div class="col-12">
-                  <label class="form-label" for="loginUsername">Username</label>
+                  <label class="form-label" for="loginUsernameAdmin">Username</label>
                   <div class="input-group has-validation">
                     <span class="input-group-text" id="inputGroupPrepend">@</span>
-                    <input class="form-control" id="loginUsername" name="loginUsername" required
+                    <input class="form-control" id="loginUsernameAdmin" name="loginUsernameAdmin" required
                            type="text">
                     <div class="invalid-feedback">Please enter your username.</div>
                   </div>
                 </div>
 
                 <div class="col-12">
-                  <label class="form-label" for="loginPassword">Password</label>
-                  <input class="form-control" id="loginPassword" name="loginPassword" required
+                  <label class="form-label" for="loginPasswordAdmin">Password</label>
+                  <input class="form-control" id="loginPasswordAdmin" name="loginPasswordDrive" required
                          type="password">
                   <div class="invalid-feedback">Please enter your password!</div>
                 </div>
@@ -148,11 +148,11 @@
 
                 <!--submit btn-->
                 <div class="col-12">
-                  <button class="btn btn-primary w-100" type="button" id="btnLogToSystem">Login</button>
+                  <button class="btn btn-primary w-100" type="button" id="btnRegisterInAdmin">Login</button>
                 </div>
 
                 <div class="text-center">
-                  <p class="text-black" style="font-size: 18px">Not a member? <a href="#RegisterPage" id="btnRegisterInLoginPage" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;color: #6f42c1;text-decoration: none">
+                  <p class="text-black" style="font-size: 18px">Not a member? <a href="#RegisterPage" id="btnRegisterIn" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;color: #6f42c1;text-decoration: none">
                     Register</a></p>
                   <p class="text-black" style="font-size: 18px">or sign up with:</p>
 
@@ -184,8 +184,11 @@
 
 </div>
 
-<script src="../assets/js/jquery-3.6.1.min.js"></script>
+
 <script src="../assets/js/bootstrap.js"></script>
 <script src="../assets/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/jquery-3.6.1.min.js"></script>
+<script src="../controller/addMinController.js"></script>
+
 </body>
 </html>
