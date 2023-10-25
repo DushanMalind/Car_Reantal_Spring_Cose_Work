@@ -47,4 +47,9 @@ public class AdminController {
         service.updateAdmin(dto);
         return new ResponseUtil("Ok", dto.getAdminId()+" Successfully updated..", null);
     }
+
+    @GetMapping(path ="/{password}/{name}")
+    public ResponseUtil findByPasswordAndUsername(@PathVariable("password") String password, @PathVariable("name") String name){
+        return new ResponseUtil("Ok", "Successfully Searched.",service.findByPasswordAndUsername(password,name));
+    }
 }
