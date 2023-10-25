@@ -211,7 +211,7 @@ function generateRegisterIds() {
 
     },
     error: function (ob, statusText, error) {
-      console.log(error);
+
     }
   });
 }
@@ -239,13 +239,15 @@ function generateUserIds() {
 
     },
     error: function (ob, statusText, error) {
-      console.log(error);
+
     }
   });
 }
 
 
+
 /*function CustomerId() {
+  var test="id";
   $.ajax({
     url: basUrl + "customer?test=" + test,
     method: "GET",
@@ -264,7 +266,7 @@ function generateUserIds() {
   })
 }*/
 
-function upLoadImage(){
+/*function upLoadImage(){
   var data=new FormData();
   let file=$("#upLoadImage")[0].files[0];
   let fileName=$("#upLoadImage")[0].files[0].name;
@@ -273,19 +275,42 @@ function upLoadImage(){
 
   $.ajax({
     url:basUrl+"api/v1/upload",
-    method:'post',
-    data:data,
-    contentType:false,
-    processData:false,
-    async:true,
+    method: 'post',
+    async: true,
+    contentType: false,
+    processData: false,
+    data: data,
     success:function(resp){
       console.log(resp);
-    /*  alert(resp.message);*/
+    /!*  alert(resp.message);*!/
     },
     error:function(ob,statusText,error){
       console.log(error);
     }
 
+  });
+}*/
+
+function uploadCustomerImages() {
+  var data = new FormData();
+  let file = $("#upLoadImage")[0].files[0];
+  let fileName = $("#upLoadImage")[0].files[0].name;
+
+  data.append("myFile", file, fileName);
+
+
+  $.ajax({
+    url: basUrl + "api/v1/upload",
+    method: 'post',
+    async: true,
+    contentType: false,
+    processData: false,
+    data: data,
+    success: function (resp) {
+    },
+    error: function (err) {
+      console.log(err);
+    }
   });
 }
 
@@ -321,10 +346,11 @@ function register(){
     contentType:"application/json",
     data: JSON.stringify(cusDetails),
     success:function (resp) {
-      registerUser(user);
-      /*alert($("#nameSignIn").val()+ " " +resp.message);*/
-      generateUserIds();
-      generateRegisterIds();
+     if (resp.message==200){
+       registerUser(user);
+       generateUserIds();
+       generateRegisterIds();
+     }
 
 
     },
@@ -365,10 +391,9 @@ function registerUser(users){
 
 
 $("#btnSignIn").click(function () {
-
   if ($("#nameSignIn").val()=="" || $("#emailSignIn").val()=="" || $("#nicSignIn").val()=="" ||
     $("#addressSignIn").val()=="" || $("#contactSignIn").val()=="" || $("#drivingLicenseSignIn").val()=="" ||
-    $("#registerUsername").val()=="" || $("#registerPassword").val()=="" || $("#upLoadImage").val()=="") {
+    $("#registerUsername").val()=="" || $("#registerPassword").val()=="") {
     /*alert("Please Fill All Fields");*/
     swal({
       title: "Please Fill All Fields",
@@ -389,7 +414,8 @@ $("#btnSignIn").click(function () {
       }else {
         $("#btnSignIn").prop("disabled",false);
         register();
-        upLoadImage();
+       uploadCustomerImages();
+
         swal({
           title: "Successfully Register Customer",
           text: "message!",

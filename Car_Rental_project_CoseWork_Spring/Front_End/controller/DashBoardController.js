@@ -127,6 +127,8 @@ $("#btnForgotPW").click(function () {
 
 
 $("#btnRegisterInLoginPage").click(function () {
+  generateUserIds();
+  generateRegisterIds();
   setView($("#registerPage"));
 });
 
@@ -147,6 +149,8 @@ $("#car").click(function () {
 });
 
 $("#btnOpenRegisterForm").click(function () {
+  generateUserIds();
+  generateRegisterIds();
   setView($("#registerPage"));
 });
 

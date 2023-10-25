@@ -22,7 +22,7 @@ import java.util.ArrayList;
  * lk.ijse.spring.carRental.config
  */
 @RestController
-@RequestMapping("api/v1/upload")
+@RequestMapping("/api/v1/upload")
 @CrossOrigin
 public class FileUploadController {
     private static final ArrayList<String> allImages = new ArrayList();
