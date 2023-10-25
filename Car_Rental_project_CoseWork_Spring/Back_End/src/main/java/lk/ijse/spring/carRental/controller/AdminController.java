@@ -35,4 +35,12 @@ public class AdminController {
         ArrayList<AdminDTO> allAdmins = service.getAllAdmins();
         return new ResponseUtil("Ok","Success..",allAdmins);
     }
+
+    @DeleteMapping(params = "id")
+    public ResponseUtil  deleteAdmin(String id){
+        service.deleteAdmin(id);
+        return new ResponseUtil("Ok",id+" Successfully deleted...!",null);
+    }
+
+
 }
