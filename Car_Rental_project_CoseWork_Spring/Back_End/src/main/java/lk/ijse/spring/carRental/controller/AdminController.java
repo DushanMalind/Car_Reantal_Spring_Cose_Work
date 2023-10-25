@@ -42,5 +42,9 @@ public class AdminController {
         return new ResponseUtil("Ok",id+" Successfully deleted...!",null);
     }
 
-
+    @PutMapping
+    public ResponseUtil updateAdmin(@RequestBody AdminDTO dto){
+        service.updateAdmin(dto);
+        return new ResponseUtil("Ok", dto.getAdminId()+" Successfully updated..", null);
+    }
 }
