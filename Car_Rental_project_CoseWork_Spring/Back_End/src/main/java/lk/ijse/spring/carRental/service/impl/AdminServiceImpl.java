@@ -64,6 +64,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public AdminDTO findByPasswordAndUsername(String password, String name) {
-        return null;
+        Admin admin = repo.findByPasswordAndName(password, name);
+        return mapper.map(admin,AdminDTO.class);
     }
 }
