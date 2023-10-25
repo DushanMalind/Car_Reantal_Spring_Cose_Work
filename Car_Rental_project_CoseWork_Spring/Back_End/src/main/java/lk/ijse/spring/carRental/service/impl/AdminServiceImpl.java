@@ -1,7 +1,11 @@
 package lk.ijse.spring.carRental.service.impl;
 
 import lk.ijse.spring.carRental.dto.AdminDTO;
+import lk.ijse.spring.carRental.entity.Admin;
+import lk.ijse.spring.carRental.repo.AdminRepo;
 import lk.ijse.spring.carRental.service.AdminService;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,9 +23,18 @@ import java.util.ArrayList;
 @Transactional
 public class AdminServiceImpl implements AdminService {
 
+    @Autowired
+    AdminRepo repo;
+
+    @Autowired
+    ModelMapper mapper;
+
     @Override
     public void addAdmin(AdminDTO dto) {
-
+        if (repo.existsById(dto.getAdminId())){
+            throw new RuntimeException("Admin "+dto.getAdminId()+" Already Exists..!");
+        }
+        repo.save(mapper.map(dto, Admin.class));
     }
 
     @Override
