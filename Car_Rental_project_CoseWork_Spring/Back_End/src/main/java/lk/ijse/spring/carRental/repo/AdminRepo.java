@@ -2,10 +2,11 @@ package lk.ijse.spring.carRental.repo;
 
 import lk.ijse.spring.carRental.entity.Admin;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 /**
  * `@authority` DUSHAN MALINDA
- * 13:51
+ * 15:57
  * 25/10/2023
  * ASUS
  * Back_End
@@ -13,5 +14,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface AdminRepo extends JpaRepository<Admin,String> {
 
-    Admin findByPasswordAndName(String password,String name);
+        @Query(value = "select * from admin where password=?1 and name=?2",nativeQuery = true)
+        Admin findByPasswordAndName(String password,String name);
 }

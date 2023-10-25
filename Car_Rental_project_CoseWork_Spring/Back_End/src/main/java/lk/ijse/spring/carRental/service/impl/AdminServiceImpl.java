@@ -1,7 +1,6 @@
 package lk.ijse.spring.carRental.service.impl;
 
 import lk.ijse.spring.carRental.dto.AdminDTO;
-import lk.ijse.spring.carRental.dto.CustomerDTO;
 import lk.ijse.spring.carRental.entity.Admin;
 import lk.ijse.spring.carRental.repo.AdminRepo;
 import lk.ijse.spring.carRental.service.AdminService;
@@ -27,44 +26,45 @@ import java.util.List;
 public class AdminServiceImpl implements AdminService {
 
     @Autowired
-    AdminRepo repo;
+    AdminRepo adminRepo;
+
 
     @Autowired
     ModelMapper mapper;
 
     @Override
     public void addAdmin(AdminDTO dto) {
-        if (repo.existsById(dto.getAdminId())){
+        if (adminRepo.existsById(dto.getAdminId())){
             throw new RuntimeException("Admin "+dto.getAdminId()+" Already Exists..!");
         }
-        repo.save(mapper.map(dto, Admin.class));
+        adminRepo.save(mapper.map(dto, Admin.class));
     }
 
     @Override
     public void deleteAdmin(String id) {
-        if(!repo.existsById(id)){
+        if(!adminRepo.existsById(id)){
             throw new RuntimeException("Admin "+id+" Not Available to Delete..!");
         }
-        repo.deleteById(id);
+        adminRepo.deleteById(id);
     }
 
     @Override
     public void updateAdmin(AdminDTO dto) {
-        if(!repo.existsById(dto.getAdminId())){
+        if(!adminRepo.existsById(dto.getAdminId())){
             throw new RuntimeException("Admin "+dto.getAdminId()+" Not Available to Update..!");
         }
-        repo.save(mapper.map(dto,Admin.class));
+        adminRepo.save(mapper.map(dto,Admin.class));
     }
 
     @Override
     public ArrayList<AdminDTO> getAllAdmins() {
-        List<Admin> adminList= repo.findAll();
-        return mapper.map(adminList, new TypeToken<List<AdminDTO>>() {}.getType());
+        List<Admin> adminList= adminRepo.findAll();
+        return  mapper.map(adminList,new TypeToken<ArrayList<AdminDTO>>() {}.getType());
     }
 
     @Override
     public AdminDTO findByPasswordAndUsername(String password, String name) {
-        Admin admin = repo.findByPasswordAndName(password, name);
+        Admin admin = this.adminRepo.findByPasswordAndName(password, name);
         return mapper.map(admin,AdminDTO.class);
     }
 }
