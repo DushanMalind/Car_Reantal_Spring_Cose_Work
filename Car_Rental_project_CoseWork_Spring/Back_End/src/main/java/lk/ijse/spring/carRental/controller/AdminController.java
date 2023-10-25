@@ -6,6 +6,8 @@ import lk.ijse.spring.carRental.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+
 /**
  * `@authority` DUSHAN MALINDA
  * 14:27
@@ -28,5 +30,9 @@ public class AdminController {
         return new ResponseUtil("Ok",dto.getAdminId()+" Successfully Added..",null);
     }
 
-
+    @GetMapping
+    public ResponseUtil getAllAdmins(){
+        ArrayList<AdminDTO> allAdmins = service.getAllAdmins();
+        return new ResponseUtil("Ok","Success..",allAdmins);
+    }
 }
