@@ -2,10 +2,11 @@
   /*display: none;*/
   font-family: "Open Sans", sans-serif;
 
+
 }
 
 #adminPanel_btn>button{
-  background: #636e72;
+  background: deepskyblue;
   color: black;
   border-style: none;
   margin-bottom: 5px;
