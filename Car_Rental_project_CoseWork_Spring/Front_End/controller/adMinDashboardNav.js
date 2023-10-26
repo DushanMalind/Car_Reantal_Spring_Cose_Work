@@ -53,4 +53,21 @@ $("#btn_car").click(function(){
   $("#income_dashboard").css('display', 'none');
   $('#admin_profile').css('display', 'none');
   $("#schedule_dashboard").css('display', 'none');
+
+
 });
+
+
+$("#btn_driver").click(function(){
+  $("#driver_dashboard").css('display', 'block');
+
+  $('#admin_dashboard').css('display', 'none');
+  $("#car_dashboard").css('display', 'none');
+  $("#customer_dashboard").css('display', 'none');
+  $("#reservation_dashboard").css('display', 'none');
+  $("#payment_dashboard").css('display', 'none');
+  $("#income_dashboard").css('display', 'none');
+  $('#admin_profile').css('display', 'none');
+  $("#schedule_dashboard").css('display', 'none');
+});
+
