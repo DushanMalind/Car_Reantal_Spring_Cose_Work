@@ -53,5 +53,27 @@ public interface CarRepo extends JpaRepository<Car,String> {
     List<Car> sortAccordingToMonthlyRatePriceByAscending();
 
 
+    /*Search Details*/
+
+    @Query(value = "SELECT * FROM Car WHERE transmissionType LIKE :type% ", nativeQuery = true)
+    List<Car> findByTransmissionType(@Param("type")String type);
+
+
+    @Query(value = "SELECT * FROM Car WHERE brand LIKE :brand% ", nativeQuery = true)
+    List<Car> findByBrand(@Param("brand")String brand);
+
+
+    @Query(value = "SELECT * FROM Car WHERE type LIKE :type% ", nativeQuery = true)
+    List<Car> findByType(@Param("type")String type);
+
+
+    @Query(value = "SELECT * FROM Car WHERE fuelType LIKE :fuelType% ", nativeQuery = true)
+    List<Car> findByFuelType(@Param("fuelType")String fuelType);
+
+
+    @Query(value = "SELECT * FROM Car WHERE colour LIKE :colour% ", nativeQuery = true)
+    List<Car> findByColour(@Param("colour")String colour);
+
+
 
 }
