@@ -1,28 +1,23 @@
-package lk.ijse.spring.carRental.entity;
+package lk.ijse.spring.carRental.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
 /**
  * `@authority` DUSHAN MALINDA
- * 13:42
+ * 19:14
  * 26/10/2023
  * ASUS
  * Back_End
- * lk.ijse.spring.carRental.entity
+ * lk.ijse.spring.carRental.dto
  */
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @ToString
-public class Car {
-    @Id
+public class CarDTO {
     private String carId;
     private String registrationNo;
     private String colour;
