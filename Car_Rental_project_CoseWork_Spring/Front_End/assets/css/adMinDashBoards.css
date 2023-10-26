@@ -19,4 +19,84 @@
   color: crimson;
 }
 
+#admin_logout{
+  margin: auto;
+  background: red;
+  font-weight: 600;
+  border-style: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 20px;
+}
+
+#admin_logout:hover{
+  background: green;
+}
+
+#CarManagePage{
+  min-height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.4);
+  background-size: cover;
+  transform: scale(1);
+  z-index: 6;
+}
+
+
+#CarManagePage>label{
+  color: cornflowerblue;
+}
+
+
+#DriverManagePage{
+  min-height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.4);
+  background-size: cover;
+  transform: scale(1);
+  z-index: 6;
+}
+
+
+#ChangeDriver{
+  min-height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.4);
+  background-size: cover;
+  transform: scale(1);
+  z-index: 6;
+}
+
+#ReserveDetailsPage{
+  min-height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.4);
+  background-size: cover;
+  transform: scale(0);
+  z-index: 7;
+}
+
+#PaymentAddPage{
+  min-height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.4);
+  background-size: cover;
+  transform: scale(1);
+  z-index: 6;
+}
 
