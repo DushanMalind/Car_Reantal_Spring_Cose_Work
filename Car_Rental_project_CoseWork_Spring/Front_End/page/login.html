@@ -7,104 +7,789 @@
   <link rel="stylesheet" href="../assets/css/bootstrap.css">
 </head>
 <body>
-<div class="container" id="login_page_container">
-  <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+<section id="admin_screen" style="height: 90vh;">
+  <div class="d-flex" style="height: 100%; width: 100%;">
+    <div class="d-flex flex-column justify-content-between"
+         style="height: 91%; width: 15%; background-color: rgb(222,220,220); border-right: 1px solid black">
 
-          <div class="d-flex justify-content-center py-4">
+      <div style="text-align: center;">
+        <h5>Admin Profile</h5>
+        <img src="assets/images/admin_prof.jpg"
+             style="width:100px; height: 100px; display: block; object-fit: cover;  margin: 0 auto; border-radius: 50%">
+        <small> Sheron Fernandoo</small>
+      </div>
 
-          </div><!-- End Logo -->
-
-          <div class="card mb-3">
-
-            <div class="card-body" style="background-image: radial-gradient(circle at top,white,green)">
-
-              <div class="pt-4 pb-2">
-                <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
-                <p class="text-center small">Enter your username & password to login</p>
-              </div>
-
-              <form class="row g-3 needs-validation" novalidate>
-
-                <div class="col-12">
-                  <label class="form-label" for="yourUsername">Username</label>
-                  <div class="input-group has-validation">
-                    <span class="input-group-text" id="inputGroupPrepend">@</span>
-                    <input class="form-control" id="yourUsername" name="username" required
-                           type="text">
-                    <div class="invalid-feedback">Please enter your username.</div>
-                  </div>
-                </div>
-
-                <div class="col-12">
-                  <label class="form-label" for="yourPassword">Password</label>
-                  <input class="form-control" id="yourPassword" name="password" required
-                         type="password">
-                  <div class="invalid-feedback">Please enter your password!</div>
-                </div>
-
-                <!-- <div class="col-12">
-                   <div class="form-check">
-                     <input class="form-check-input" id="rememberMe" name="remember" type="checkbox"
-                            value="true">
-                     <label class="form-check-label" for="rememberMe">Remember me</label>
-                   </div>
-                 </div>-->
-
-                <div class="row mt-3">
-                  <div class="col d-flex justify-content-center">
-                    <!-- Checkbox -->
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                      <label class="form-check-label text-black" for="flexCheckDefault" style="font-size: 18px">Remember Me</label>
-                    </div>
-                  </div>
-
-                  <div class="col">
-                    <!-- Simple link -->
-                    <a href="#ForgotPasswordPage"  id="btnForgotPW"  style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;color: #6f42c1;text-decoration: none">Forgot password?</a>
-                  </div>
-                </div>
-
-
-                <!--submit btn-->
-                <div class="col-12">
-                  <button class="btn btn-primary w-100" type="button" id="btnLogToSystem">Login</button>
-                </div>
-
-                <div class="text-center">
-                  <p class="text-black" style="font-size: 18px">Not a member? <a href="#RegisterPage" id="btnRegisterInLoginPage" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;color: #6f42c1;text-decoration: none"> Register</a></p>
-                  <p class="text-black" style="font-size: 18px">or sign up with:</p>
-
-                  <button type="button" class="btn btn-dark btn-floating mx-1">
-                    <i class="fab fa-google"></i>
-                  </button>
-                </div>
-
-
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end" >
-                  <button type="button" class="btn btn-danger text-end" id="btnCancelLogin">Cancel</button>
-                </div>
-
-
-              </form>
-
-            </div>
-          </div>
-
-          <!-- <div class="credits">
-             Designed by <a href=""></a>
-           </div>-->
-
-        </div>
+      <hr>
+      <div class="d-flex flex-column justify-content-center" id="adminPanel_btn">
+        <button class="mt-2" id="btn_dashboard" style="height: 33px">DASHBOARD</button>
+        <button class="mt-2" id="btn_profile" style="height: 33px">ADMIN MANAGE</button>
+        <button class="mt-2" id="btn_car" style="height: 33px">CAR DETAILS</button>
+        <button class="mt-2" id="btn_driver" style="height: 33px">DRIVER DETAILS</button>
+        <button class="mt-2" id="btn_customer" style="height: 33px">CUSTOMER DETAILS</button>
+        <button class="mt-2" id="btn_reservation" style="height: 33px">RENTAL DETAILS</button>
+        <button class="mt-2" id="btn_shedule" style="height: 33px">SCHEDULE DETAILS</button>
+        <button class="mt-2" id="btn_payment" style="height: 33px">PAYMENT DETAILS</button>
+        <button class="mt-2" id="btn_income" style="height: 33px">INCOME DETAILS</button>
+      </div>
+      <hr style="border-right: 1px solid black">
+      <div style="text-align: center; border-right: 1px solid black ">
+        <button class="mt-2" id="admin_logout" style="height: 33px;"><i
+          class="fa-solid fa-right-from-bracket"></i> LOG OUT
+        </button>
       </div>
     </div>
 
-  </section>
+    <div style="height: 98%; width: 85%;">
+      <!--   Main  dashboard-->
+      <div id="admin_dashboard" style="height: 96%;">
+        <section id="mainForm">
+          <div id="main" style="margin-top: 20px;width: 98%;">
+            <div class="container  me-3 ms-3">
 
-</div>
+              <h2 class="text-dark text-center mt-2 mb-3">~ Admin DashBoard ~</h2>
+
+              <!--Section: statistics cards-->
+              <section>
+                <div class="row">
+                  <div class="col-xl-3 col-sm-6 col-12 mb-4">
+                    <div class="card border-2 border-primary card_dash">
+                      <div class="card-body">
+                        <div class="d-flex justify-content-between px-md-1">
+                          <div class="align-self-center">
+                            <i class="fa-solid fa-users text-primary fa-3x"></i>
+
+                          </div>
+                          <div>
+                            <h3 class="text-center" id="totalRegUsers"
+                                style="color: crimson">0</h3>
+                            <p class="mb-0">Total Registered Users</p>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 col-sm-6 col-12 mb-4">
+                    <div class="card border-2 border-success card_dash">
+                      <div class="card-body">
+                        <div class="d-flex justify-content-between px-md-1">
+                          <div class="align-self-center">
+                            <i class="fa-solid fa-users-gear text-success fa-3x"></i>
+                          </div>
+                          <div class="text-end">
+                            <h3 class="text-center" id="totalNewUsers"
+                                style="color: crimson">0</h3>
+                            <p class="mb-0">Today Total New Users</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 col-sm-6 col-12 mb-4">
+                    <div class="card border-2 border-warning card_dash">
+                      <div class="card-body">
+                        <div class="d-flex justify-content-between px-md-1">
+                          <div class="align-self-center">
+                            <i class="fa-solid fa-list text-warning fa-3x "></i>
+                          </div>
+                          <div class="text-end">
+                            <h3 class="text-center" id="todayReservations"
+                                style="color: crimson">0</h3>
+                            <p class="mb-0">Today Reservations</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 col-sm-6 col-12 mb-4">
+                    <div class="card border-2 border-warning card_dash">
+                      <div class="card-body">
+                        <div class="d-flex justify-content-between px-md-1">
+
+                          <div class="align-self-center">
+                            <i class="far fa-comment-alt text-warning fa-3x"></i>
+                          </div>
+                          <div class="text-end">
+                            <h3 class="text-center" id="todayActiveBookings"
+                                style="color: crimson">0</h3>
+                            <p class="mb-0">Total Active Bookings</p>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xl-3 col-sm-6 col-12 mb-4">
+                    <div class="card border-2 border-success card_dash">
+                      <div class="card-body">
+                        <div class="d-flex justify-content-between px-md-1">
+                          <div class="align-self-center">
+                            <i class="fa-solid fa-car-on text-success fa-3x"></i>
+                          </div>
+
+                          <div>
+                            <h3 class="text-center" id="availableCar"
+                                style="color: crimson">0</h3>
+                            <p class="mb-0">Total Available Cars</p>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 col-sm-6 col-12 mb-4">
+                    <div class="card border-2 border-danger card_dash">
+                      <div class="card-body">
+                        <div class="d-flex justify-content-between px-md-1">
+                          <div class="align-self-center">
+                            <i class="fas fa-car text-danger fa-3x"></i>
+                          </div>
+                          <div>
+                            <h3 class="text-center" id="reservedCars"
+                                style="color: crimson">0</h3>
+                            <p class="mb-0">Total Reserved Cars</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 col-sm-6 col-12 mb-4">
+                    <div class="card  border-2 border-success card_dash">
+                      <div class="card-body">
+                        <div class="d-flex justify-content-between px-md-1">
+                          <div class="align-self-center">
+                            <i class="fa-solid fa-person-arrow-down-to-line text-success fa-3x"></i>
+
+                          </div>
+                          <div>
+                            <h3 class="text-center" id="availableDrivers"
+                                style="color: crimson">0</h3>
+                            <p class="mb-0">Total Available drivers</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 col-sm-6 col-12 mb-4">
+                    <div class="card border-2 border-info card_dash">
+                      <div class="card-body">
+                        <div class="d-flex justify-content-between px-md-1">
+                          <div class="align-self-center">
+                            <i class="fa-solid fa-person-circle-check text-info fa-3x"></i>
+                          </div>
+                          <div>
+                            <h3 class="text-center" id="occupiedDrivers"
+                                style="color: crimson">0</h3>
+                            <p class="mb-0">Total Reserved drivers</p>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 mt-2 col-sm-6 col-12 mb-4"></div>
+                  <div class="col-xl-3 mt-2 col-sm-6 col-12 mb-4">
+                    <div class="card border-2 border-info card_dash">
+                      <div class="card-body">
+                        <div class="d-flex justify-content-between px-md-1">
+                          <div class="align-self-center">
+                            <i class="fa-solid fa-car-rear text-info fa-3x"></i>
+                          </div>
+                          <div>
+                            <h3 class="text-center" id="maintainedCars"
+                                style="color: crimson">0</h3>
+                            <p class="mb-0">Total Maintained Cars</p>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 mt-2 col-sm-6 col-12 mb-4">
+                    <div class="card border-2 border-warning card_dash">
+                      <div class="card-body">
+                        <div class="d-flex justify-content-between px-md-1">
+                          <div class="align-self-center">
+                            <i class="fas fa-car-crash text-warning fa-3x"></i>
+                          </div>
+                          <div>
+                            <h3 class="text-center" id="underMaintainedCars"
+                                style="color: crimson">0</h3>
+                            <p class="mb-0">Under Maintained Cars</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 mt-2 col-sm-6 col-12 mb-4"></div>
+                </div>
+              </section>
+              <!--Section: Minimal statistics cards-->
+
+              <!--Section: Statistics with subtitles-->
+              <section>
+                <div class="row ">
+                  <div class="col-12 mb-4 bg-warning">
+                    <div class="card card_dash">
+                      <div class="card-body">
+                        <div class="d-flex justify-content-between p-md-1">
+                          <div class="d-flex flex-row">
+                            <div class="align-self-center">
+                              <i class="far fa-comment-alt text-warning fa-3x me-4"></i>
+                            </div>
+                            <div>
+                              <h5>Reservation</h5>
+                              <p class="mb-0">All Reservations</p>
+                            </div>
+                          </div>
+                          <div class="align-self-center">
+                            <h6 class="h2 mb-0 text-success" id="allReservation">0</h6>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row ">
+                  <div class="col-12  bg-success">
+                    <div class="card card_dash">
+                      <div class="card-body">
+                        <div class="d-flex justify-content-between p-md-1 ">
+                          <div class="d-flex flex-row">
+                            <div class="align-self-center">
+                              <i class="fas fa-dollar-sign text-success fa-3x me-4"></i>
+                            </div>
+                            <div>
+                              <h5>Income</h5>
+                              <p class="mb-0">Total Income </p>
+                            </div>
+                          </div>
+                          <div class="align-self-center">
+                            <h6 class="h2 mb-0 me-4 me-2 text-danger" id="totalIncome">
+                              <span>Rs. </span>0.00</h6>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!--   Admin profile  dashboard-->
+      <div id="admin_profile" style="height: 100%;">
+        <div class="container" id="container_admin">
+
+          <h1>Admin Form</h1>
+          <form id="adminForm">
+            <div class="row">
+              <div class="mb-3 col-6">
+                <label class="form-label" for="adminId">Admin ID</label>
+                <input class="form-control admin_form" id="adminId" name="id" placeholder="ADM-001 "
+                       type="text">
+
+              </div>
+              <div class="mb-3 col-6">
+                <label class="form-label" for="adminName">Admin Name</label>
+                <input class="form-control admin_form" id="adminName" name="name"
+                       placeholder="Ishara Maduranga" type="text">
+                <span class="control-error" id="lblAdminName"></span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="mb-3 col-6">
+                <label class="form-label" for="adminPassword">Admin Password</label>
+                <input class="form-control admin_form" id="adminPassword" name="password"
+                       placeholder="******" type="password">
+                <span class="control-error" id="lblAdminAddress"></span>
+              </div>
+              <div class="mb-3 col-6">
+                <label class="form-label" for="adminContact">Admin Contact</label>
+                <input class="form-control admin_form" id="adminContact" name="contact"
+                       placeholder="0776127572" type="text">
+                <span class="control-error" id="lblAdminContact"></span>
+              </div>
+            </div>
+
+            <button class="btn btn-primary" id="addBtn" type="button">Add</button>
+            <button class="btn btn-secondary" id="updateBtn" type="button">Update</button>
+            <button class="btn btn-danger" id="deleteBtn" type="button">Delete</button>
+            <button class="btn btn-success" id="getAllBtn" type="button">Get All</button>
+            <button class="btn btn-warning" id="clearBtn" type="button">Clear</button>
+          </form>
+          <div class="container" id="container_admin_table">
+            <table class="table table-striped table-bordered table-hover">
+              <thead class="bg-secondary text-white">
+
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Password</th>
+                <th>Contact</th>
+              </tr>
+
+              </thead>
+              <tbody class="table-light" id="adminTable">
+
+
+              <!-- Add more rows here as needed -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+      </div>
+
+      <!--   admin car details dashboard-->
+      <div id="car_dashboard" style="height: 100%;">
+
+        <section id="CarDetailsPage" style="width: 100%; height: 90vh ;">
+
+          <div>
+
+            <div class="text-center" style="position: relative;top: 50px">
+              <h1 class="mt-1 fw-light" style="font-family: 'PT Serif', serif;">~ Car Details ~</h1>
+            </div>
+
+            <div class="text-center" style="position: relative;top: 70px;">
+              <h1 class="mt-1 fw-light" style="font-family: 'PT Serif', serif; font-size: 25px">
+                <i class="fas fa-taxi fa-1x text-success"></i>
+                Car Information
+                <button class="btn btn-success ms-5" id="btnAddCar">
+                  <i class="fas fa-plus-circle"></i>
+                  Add
+                </button>
+              </h1>
+
+            </div>
+
+            <div class="table-responsive "
+                 style="width: 80vw; height: 62vh;position: relative; top: 80px;right: 0;bottom: 0;left: 0;margin: auto">
+
+              <table class="table align-middle mb-0 bg-white table table-responsive table-bordered table-hover w-auto text-nowrap text-primary"
+                     id="tblCars"
+                     style="position: relative;left: 10px;top: 50px;">
+                <thead class="bg-secondary text-white">
+                <tr class="head">
+                  <th>Car Id</th>
+                  <th>Brand</th>
+                  <th>Colour</th>
+                  <th>Type</th>
+                  <th>Registration NO</th>
+                  <th>Fuel Type</th>
+                  <th>Transmission Type</th>
+                  <th>No of Passengers</th>
+                  <th>Daily Rate</th>
+                  <th>Monthly Rate</th>
+                  <th>Free KM Per Day</th>
+                  <th>Free KM Per Month</th>
+                  <th>Price For Extra KM</th>
+                  <th>Available Or Not</th>
+                  <th>Damage Or Not</th>
+                  <th>Under Maintain Or Not</th>
+                  <th>Total Distance Travelled</th>
+                  <th>Front View</th>
+                  <th>Back View</th>
+                  <th>Side View</th>
+                  <th>Interior View</th>
+                  <th>Update</th>
+                </tr>
+                </thead>
+                <tbody class="table-light">
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+
+      </div>
+
+      <!--   admin driver dashboard -->
+      <div id="driver_dashboard" style="height: 100%;">
+
+        <!--View Driver Details Page-->
+        <section id="DriverDetailsPage" style="width: 100%; height: 90vh ;">
+
+          <div>
+
+            <div class="text-center" style="position: relative;top: 56px">
+              <h1 class="mt-1 fw-light" style="font-family: 'PT Serif', serif;">~ Driver Details ~</h1>
+            </div>
+
+            <div class="text-center" style="position: relative;top: 81px;">
+              <h1 class="mt-1 fw-light" style="font-family: 'PT Serif', serif; font-size: 25px">
+                <i class="fa-solid fa-people-group text-warning fa-1x"></i>
+                Driver Information
+                <button class="btn btn-success ms-5" id="btnAddDriver">
+                  <i class="fas fa-plus-circle"></i>
+                  Add
+                </button>
+              </h1>
+
+
+            </div>
+
+            <div class="table-responsive text-nowrap"
+                 style="width: 83vw; height: 65vh;position: relative; top: 75px;right: 0;bottom: 0;left: 0;margin: auto">
+
+              <table class="table align-middle mb-0 bg-white table-bordered table table-hover"
+                     id="tblDriver"
+                     style="position: relative;left: 10px;top: 44px;">
+                <thead class="bg-light text-primary">
+                <tr>
+                  <th>Driver Id</th>
+                  <th>Driver Name</th>
+                  <th>Driver Address</th>
+                  <th>Driver Age</th>
+                  <th>Driver Contact</th>
+                  <th>Release Or Not</th>
+                  <th>Update</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+              </table>
+
+            </div>
+
+          </div>
+
+        </section>
+      </div>
+
+      <!--   admin customer dashboard-->
+      <div id="customer_dashboard" style="height: 100%;">
+
+        <!--View Customer Details Page-->
+        <section id="ViewCustomerInformationPage" style="width: 100%;height: 90vh ; ">
+
+          <div>
+
+            <div class="text-center" style="position: relative;top: 80px">
+              <h1 class="mt-1 fw-light" style="font-family: 'PT Serif', serif;">~ Customer Details ~</h1>
+            </div>
+
+            <div class="text-center" style="position: relative;top: 116px;">
+              <h1 class="mt-1 fw-light" style="font-family: 'PT Serif', serif; font-size: 25px">
+                <i class="fas fa-user-friends text-primary"></i>
+                Customer Information
+              </h1>
+
+            </div>
+
+            <div class="table-responsive text-nowrap"
+                 style="width: 80vw; height: 65vh;position: relative; top: 90px;right: 0;bottom: 0;left: 0;margin: auto">
+
+              <table class="table align-middle mb-0 bg-white table table-hover table-bordered"
+                     id="tblCustomers"
+                     style="position: relative;left: -1px;top: 44px;">
+                <thead class="bg-light text-primary">
+                <tr>
+                  <th>Registered Date</th>
+                  <th>Customer Id</th>
+                  <th>Customer Image</th>
+                  <th>Customer Name</th>
+                  <th>Customer Address</th>
+                  <th>Customer Contact</th>
+                  <th>Customer NIC NO</th>
+                  <th>Customer Driving Licence NO</th>
+                  <th>NIC Image</th>
+                  <th>Driving Licence Image</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+              </table>
+
+            </div>
+
+          </div>
+
+        </section>
+
+      </div>
+
+      <!--   admin Reservations dashboard-->
+      <div id="reservation_dashboard" style="height: 100%;">
+
+        <section id="ViewReserveDetailsPage" style="width: 100%; height: 90vh ;">
+
+          <div>
+
+            <div class="text-center" style="position: relative;top: 80px">
+              <h1 class="mt-1 fw-light" style="font-family: 'PT Serif', serif;">~ Reservations ~</h1>
+            </div>
+
+
+            <div class="text-center" style="position: relative;top: 103px; right: 110px;">
+              <h1 class="mt-1 fw-light" style="font-family: 'PT Serif', serif; font-size: 25px">
+                <i class="fas fa-list-alt text-danger"></i>
+                Reservation Information
+              </h1>
+              <button class="btn ms-5 btn-warning" id="btnChangeDriver"
+                      style="left: 246px;position: relative;top: -42px;">
+                <i class="fas fa-edit text-primary"></i>
+                Change Driver
+              </button>
+
+            </div>
+
+            <div class="table-responsive text-nowrap"
+                 style="width: 80vw; height: 60vh;position: relative; top: 67px;right: 0;bottom: 0;left: 0;margin: auto">
+
+              <table class="table align-middle mb-0 bg-white table table-hover table-bordered"
+                     id="tblReserve"
+                     style="position: relative;left: 5px;top: 44px;">
+                <thead class="bg-light text-primary">
+                <tr>
+                  <th>Reserve Date</th>
+                  <th>Reserve Id</th>
+                  <th>Customer</th>
+                  <th>Pickup Date</th>
+                  <th>Pickup Time</th>
+                  <th>Pickup Venue</th>
+                  <th>Return Date</th>
+                  <th>Return Time</th>
+                  <th>Return Venue</th>
+                  <th>Destination</th>
+                  <th>Duration</th>
+                  <th>Request Accept Or Deny</th>
+                  <th>Driver Status</th>
+                  <th>View</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+              </table>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+      </div>
+
+      <!--   schedule Details dashboard-->
+      <div id="schedule_dashboard" style="height: 100%;">
+
+        <!--View Schedule Page-->
+        <section id="SchedulePage" style="width: 100%; height: 90vh ;">
+
+          <div>
+
+            <div class="text-center" style="position: relative;top: 80px">
+              <h1 class="mt-1 fw-light" style="font-family: 'PT Serif', serif;">~ Schedule ~</h1>
+            </div>
+
+            <div class="text-center" style="position: relative;top: 116px;">
+              <h1 class="mt-1 fw-light" style="font-family: 'PT Serif', serif; font-size: 25px">
+                <i class="fas fa-list-ul text-info"></i>
+                Schedule Details
+              </h1>
+            </div>
+
+            <div class="table-responsive text-nowrap"
+                 style="width: 82vw; height: 65vh;position: relative; top: 90px;right: 0;bottom: 0;left: 0;margin: auto">
+
+              <table class="tblSchedule table align-middle mb-0 bg-white table table-hover table-bordered"
+                     style="position: relative;left: 5px;top: 44px;">
+                <thead class="bg-light text-primary">
+                <tr>
+                  <th>Schedule Id</th>
+                  <th>Reserve Id</th>
+                  <th>Car Id</th>
+                  <th>Driver Id</th>
+                  <th>Pickup Date</th>
+                  <th>Pickup Time</th>
+                  <th>Pickup Venue</th>
+                  <th>Return Date</th>
+                  <th>Return Time</th>
+                  <th>Return Venue</th>
+                  <th>Release Or Not</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+              </table>
+
+            </div>
+
+          </div>
+
+        </section>
+
+      </div>
+
+
+      <!--   admin Payment dashboard-->
+      <div id="payment_dashboard" style="height: 100%;">
+        <section id="PaymentPage" style="width: 100%; height: 90vh ;">
+
+          <div>
+
+            <div class="text-center" style="position: relative;top: 70px">
+              <h1 class="mt-1 fw-light" style="font-family: 'PT Serif', serif;">~ Payment ~</h1>
+            </div>
+
+            <div class="text-center" style="position: relative;top: 95px;">
+              <h1 class="mt-1 ms-5 fw-light" style="font-family: 'PT Serif', serif; font-size: 25px">
+                <i class="fas fa-hand-holding-usd text-warning"></i>
+                Payment Details
+                <button class="btn btn-info ms-5" id="btnAddPayment">
+                  <i class="fas fa-plus-circle text-white"></i>
+                  Make Payment
+                </button>
+              </h1>
+            </div>
+
+            <div class="table-responsive text-nowrap"
+                 style="width: 82vw; height: 62vh;position: relative; top: 90px;right: 0;bottom: 0;left: 0;margin: auto">
+
+              <table class="table align-middle mb-0 bg-white table table-hover table-bordered"
+                     id="tblPayment"
+                     style="position: relative;left: 5px;top: 44px;">
+                <thead class="bg-light text-primary">
+                <tr>
+                  <th>Payment Id</th>
+                  <th>Payment Date</th>
+                  <th>Rent Fee</th>
+                  <th>Driver Fee</th>
+                  <th>Lose Damage Waiver Fee</th>
+                  <th>Reduced Lose Damage Fee</th>
+                  <th>Harm Or Not</th>
+                  <th>Travelled Distance</th>
+                  <th>Extra KM</th>
+                  <th>Price For Extra KM</th>
+                  <th>Full Payment</th>
+                  <th>Update</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+              </table>
+
+            </div>
+
+          </div>
+
+        </section>
+
+      </div>
+
+      <!--   admin income dashboard-->
+      <div id="income_dashboard" style="height: 100%;">
+        <!--Income Page-->
+        <section id="IncomePage" style="width: 100%; height: 90vh ;background-color: #ffffff">
+
+          <div>
+
+            <div class="text-center" style="position: relative;top: 10px">
+              <h1 class="mt-1 fw-light" style="font-family: 'PT Serif', serif;">~ Income Report ~</h1>
+            </div>
+
+          </div>
+
+          <div class="container-fluid"
+               style="position: relative;top: 40px;left: 260px;width: 87vw;height: 50px">
+
+            <div class="row text-success ms-2" style="padding: 10px;width: 40vw;right: -30px;position: relative;font-size: 22px; margin: 5px;">
+              <span class="col-3 badge rounded-pill text-bg-light text-primary " id="daily"  style="border: 2px solid dodgerblue;">0.00</span>
+              <span class="col-3 badge rounded-pill text-bg-light text-success " id="weekly" style="border: 2px solid green;">0.00</span>
+              <span class="col-3 badge rounded-pill text-bg-light text-danger " id="monthly" style="border: 2px solid red;">0.00</span>
+              <span class="col-3 badge rounded-pill text-bg-light text-warning " id="yearly" style="border: 2px solid goldenrod;">0.00</span>
+            </div>
+
+            <div class="ms-5">
+              <button type="button" class="btn btn btn-primary" id="btnDailyIncome">Daily Income</button>
+              <button type="button" class="btn btn-success" id="btnWeeklyIncome">Weekly Income</button>
+              <button type="button" class="btn btn-danger" id="btnMonthlyIncome">Monthly Income</button>
+              <button type="button" class="btn btn-warning" id="btnAnnuallyIncome">Annually Income</button>
+            </div>
+
+            <div class="row center-block mt-4  mb-2" style="width: 61%;">
+              <div class="col mb-0 img-responsive">
+                <div aria-label="Basic example" class="btn-group btn-group-xm center-block center-block"style="left:205px; font-size: 35px"
+                     role="group">
+                  <label class="text-primary text-center">Total Income : <span  id="RangeOfIncome">0.00</span></label>
+
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row" style="position: relative; width: 73vw; right: 200px;border-radius: 20px; border: 2px solid deeppink;padding: 10px; margin: 10px">
+
+
+
+              <div class="col-4 mt-2  img-responsive mb-0 ">
+                <label class="text-black" for="startDate" style="font-size: 15px">Start Date</label>
+                <div class="input-group date" style="width: 220px">
+                  <input class="form-control" id="startDate" placeholder="Start Date" type="date">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                </div>
+              </div>
+
+
+              <div class="col-4 mt-2 img-responsive mb-0 ">
+                <label class="text-black" for="endDate" style="font-size: 15px">End Date</label>
+                <div class="input-group date" style="width: 220px">
+                  <input class="form-control" id="endDate" placeholder="End Date" type="date">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                </div>
+
+              </div>
+
+              <div class="col-4 mt-3 mb-0">
+                <button class="btn btn-info btn-lg" id="btnFindAllPaymentDetails" type="button" style="">Find Payments</button>
+              </div>
+            </div>
+
+
+          </div>
+
+
+
+          <div class="table-responsive text-nowrap" style="width: 82vw;height: 41vh;position: relative;top: 255px;right: 0;bottom: 0;left: 0;margin: auto">
+
+            <table class="table align-middle mb-0  table table-hover table-striped table-bordered" style="position: relative;left: 10px;top: 44px;" id="tblIncome">
+              <thead class="bg-secondary text-white">
+              <tr>
+                <th>Reserve Id</th>
+                <th>Reserve Date</th>
+                <th>Rent Fee</th>
+                <th>Driver Fee</th>
+                <th>Extra KM Fee</th>
+                <th>Lose Damage Waiver Payment</th>
+                <th>Full Payment</th>
+              </tr>
+              </thead>
+              <tbody class="table-light">
+
+              </tbody>
+            </table>
+
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</section>
 <script src="../assets/js/jquery-3.6.1.min.js"></script>
 <script src="../assets/js/bootstrap.js"></script>
 </body>
