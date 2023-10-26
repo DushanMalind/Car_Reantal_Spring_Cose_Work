@@ -1,0 +1,22 @@
+#admin_screen{
+  /*display: none;*/
+  font-family: "Open Sans", sans-serif;
+}
+
+#adminPanel_btn>button{
+  background: #636e72;
+  color: black;
+  border-style: none;
+  margin-bottom: 5px;
+  margin-left: 12px;
+  margin-right: 12px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+#adminPanel_btn > button:hover {
+  background: #000;
+  color: crimson;
+}
+
+
