@@ -1,4 +1,5 @@
 
+/*
 
 $('#admin_dashboard').css('display', 'block');
 $("#car_dashboard").css('display', 'none');
@@ -21,4 +22,6 @@ $("#btn_dashboard").click(function(){
   $('#admin_profile').css('display', 'none');
 
 
+
 });
+*/

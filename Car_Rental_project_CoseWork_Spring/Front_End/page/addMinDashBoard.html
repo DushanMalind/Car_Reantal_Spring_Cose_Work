@@ -42,6 +42,307 @@
 
 
 
+<!--Button Controller-->
+
+<section id="CarManagePage">
+
+  <div class="w-75  border border-3 border-white rounded-2 shadow bg-body"
+       style="position: relative;top: 70px;bottom: 0;right: 0;left: 112px;margin: auto;height: 678px;">
+
+    <div class="text-center  border-bottom border-2 " style="position: relative;top: 10px;">
+      <h1 class=" text-danger   mb-0 " style="font-family: 'poppins', sans-serif, serif;">Add Car</h1>
+    </div>
+
+    <div class="mt-0" style="position: relative;top: -3px;">
+      <form class="ms-5 me-5" style="position: relative; top: 50px;">
+
+        <div class="row">
+          <div class="col">
+            <!-- car id -->
+            <div class="form-outline mb-2 ms-4 me-3">
+              <label class="text-center text-primary fw-bold pb-2 fs-4" for="carId">Car Id</label>
+              <input class="form-control bg-white rounded-3" id="carId" style="height: 37px" type="text"/>
+            </div>
+          </div>
+          <div class="col">
+            <!-- brand -->
+            <div class="form-outline mb-2 ms-4 me-3">
+              <label class="text-center text-primary fw-bold pb-2 fs-4" for="brand">Brand</label>
+              <select aria-label="Default select example" class="form-select"
+                      id="brand" style="height: 37px">
+                <option selected value="0">None</option>
+                <option value="1">Suzuki Alto</option>
+                <option value="2">Suzuki Alto K10</option>
+                <option value="3">Perodua (Daihatsu)</option>
+                <option value="4">Toyota Prius/Aqua</option>
+                <option value="5">Suzuki Celerio</option>
+                <option value="6">Toyota Corolla Axio</option>
+                <option value="7">Perodua Bezza Prime Sedan</option>
+                <option value="8">Toyota Allion NZT</option>
+                <option value="9">Toyota Axio NKR</option>
+                <option value="10">Toyota Axio NKR</option>
+                <option value="11">Mercedes</option>
+                <option value="12">BMW i8</option>
+              </select>
+            </div>
+          </div>
+          <div class="col">
+            <!-- colour -->
+            <div class="form-outline mb-2 ms-4 me-3">
+              <label class="text-center text-primary fw-bold pb-2 fs-4 " for="colour">Colour</label>
+              <select aria-label="Default select example" class="form-select "
+                      id="colour" style="height: 37px">
+                <option selected value="0">None</option>
+                <option value="1">White/white pearl</option>
+                <option value="2">Black/black effect</option>
+                <option value="3">Silver</option>
+                <option value="4">Gray</option>
+                <option value="5">Red</option>
+                <option value="6">Blue</option>
+                <option value="7">Brown/beige</option>
+                <option value="8">Yellow/Gold</option>
+                <option value="9">Green</option>
+                <option value="10">Others</option>
+              </select>
+            </div>
+          </div>
+          <div class="col">
+            <!-- type -->
+            <div class="form-outline mb-2 ms-4 me-3">
+              <label class="text-center text-primary fw-bold pb-2 fs-4 " for="type">Type</label>
+              <select aria-label="Default select example" class="form-select"
+                      id="type" style="height: 37px">
+                <option selected value="0">None</option>
+                <option value="1">General</option>
+                <option value="2">Premium</option>
+                <option value="3">Luxury</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <!-- registration no -->
+            <div class="form-outline mb-2 ms-4 me-3">
+              <label class="text-center text-primary fw-bold pb-2 fs-4 " for="registrationNo">Registration NO</label>
+              <input class="form-control  bg-white rounded-3 " id="registrationNo"
+                     style="height: 37px" type="text"/>
+              <p><small class="text-danger  pl-1 mt-0 mb-0 " id="errorRegNo"></small></p>
+            </div>
+          </div>
+          <div class="col">
+            <!-- fuel type -->
+            <div class="form-outline mb-2 ms-4 me-3">
+              <label class="text-center text-primary fw-bold pb-2 fs-4" for="fuelType">Fuel
+                Type</label>
+              <select aria-label="Default select example" class="form-select"
+                      id="fuelType" style="height: 37px">
+                <option selected value="0">None</option>
+                <option value="1">Petrol</option>
+                <option value="2">Diesel</option>
+              </select>
+            </div>
+          </div>
+          <div class="col">
+            <!-- transmission type -->
+            <div class="form-outline mb-2 ms-4 me-3">
+              <label class="text-center text-primary fw-bold pb-2 fs-4 " for="transmissionType">Transmission Type</label>
+              <select aria-label="Default select example" class="form-select"
+                      id="transmissionType" style="height: 37px">
+                <option selected value="0">None</option>
+                <option value="1">Manual</option>
+                <option value="2">Auto</option>
+              </select>
+            </div>
+          </div>
+          <div class="col">
+            <!-- no of passengers -->
+            <div class="form-outline mb-2 ms-4 me-3">
+              <label class="text-center text-primary fw-bold pb-2 fs-4" for="noOfPassengers">NO Of Passenagers</label>
+              <input class="form-control  bg-white rounded-3" id="noOfPassengers"
+                     style="height: 37px" type="number"/>
+              <p><small class="text-danger  pl-1 mt-0 mb-0" id="errorPassengers"></small>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <!-- daily rate price -->
+            <div class="form-outline mb-2 ms-4 me-3">
+              <label class="text-center text-primary fw-bold pb-2 fs-4 " for="dailyRatePrice">Daily
+                Rate Price</label>
+              <input class="form-control bg-white rounded-3" id="dailyRatePrice" style="height: 37px"
+                     type="text"/>
+              <p><small class="text-danger  pl-1 mt-0 mb-0" id="errorDailyRate"></small>
+              </p>
+            </div>
+          </div>
+          <div class="col">
+            <!-- monthly rate price -->
+            <div class="form-outline mb-2 ms-4 me-3">
+              <label class="text-center text-primary fw-bold pb-2 fs-4 " for="monthlyRatePrice">Monthly Rate Price</label>
+              <input class="form-control  bg-white rounded-3" id="monthlyRatePrice"
+                     style="height: 37px " type="text"/>
+              <p><small class="text-danger  pl-1 mt-0 mb-0" id="errorMonthlyRate"></small>
+              </p>
+            </div>
+          </div>
+          <div class="col">
+            <!-- free km per day -->
+            <div class="form-outline mb-2 ms-4 me-3">
+              <label class="text-center text-primary fw-bold pb-2 fs-4" for="freeKMPerDay">Free KM
+                Per Day</label>
+              <input class="form-control  bg-white rounded-3" id="freeKMPerDay"
+                     style="height: 37px" type="number"/>
+              <p><small class="text-danger  pl-1 mt-0 mb-0" id="errorFeeKMDay"></small>
+              </p>
+            </div>
+          </div>
+          <div class="col">
+            <!-- free km per month -->
+            <div class="form-outline mb-2 ms-4 me-3">
+              <label class="text-center text-primary fw-bold pb-2 fs-4 " for="freeKMPerMonth">Free KM
+                Per Month</label>
+              <input class="form-control  bg-white rounded-3" id="freeKMPerMonth"
+                     style="height: 37px" type="number"/>
+              <p><small class="text-danger  pl-1 mt-0 mb-0" id="errorFreeKMMonth"></small>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <!-- price for extra km -->
+            <div class="form-outline mb-2 ms-4 me-3">
+              <label class="text-center text-primary fw-bold pb-2 fs-4 " for="priceForExtraKM">Price For Extra KM</label>
+              <input class="form-control  bg-white rounded-3" id="priceForExtraKM"
+                     style="height: 37px" type="text"/>
+              <p><small class="text-danger  pl-1 mt-0 mb-0"
+                        id="errorExtraKMPrice"></small></p>
+            </div>
+          </div>
+          <div class="col">
+            <!-- available or not -->
+            <div class="form-outline mb-2 ms-4 me-3">
+              <label class="text-center text-primary fw-bold pb-2 fs-4" for="availableOrNot">Available Or Not</label>
+              <select aria-label="Default select example" class="form-select text-dark"
+                      id="availableOrNot" style="height: 37px">
+                <option selected value="0">None</option>
+                <option value="1">Available</option>
+                <option value="2">Not Available</option>
+              </select>
+            </div>
+          </div>
+          <div class="col">
+            <!-- damage or not -->
+            <div class="form-outline mb-2 ms-4 me-3">
+              <label class="text-center text-primary fw-bold pb-2 fs-4" for="damageOrNot">Damage Or Not</label>
+              <select aria-label="Default select example" class="form-select text-dark"
+                      id="damageOrNot" style="height: 37px">
+                <option class="text-dark" selected value="0">None</option>
+                <option class="text-dark" value="1">Damage</option>
+                <option class="text-dark" value="2">Not Damage</option>
+              </select>
+            </div>
+          </div>
+          <div class="col">
+            <!-- under maintain or not -->
+            <div class="form-outline mb-2 ms-4 me-3">
+              <label class="text-center text-primary fw-bold pb-2 fs-4" for="underMaintainOrNot">Under Maintain Or Not</label>
+              <select aria-label="Default select example" class="form-select"
+                      id="underMaintainOrNot" style="height: 37px">
+                <option selected value="0">None</option>
+                <option value="1">Maintained</option>
+                <option value="2">Under Maintain</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-0">
+          <div class="col">
+            <!-- total distance travelled -->
+            <div class="form-outline ms-4 me-3">
+              <label class="text-center text-primary fw-bold pb-2 fs-4" for="totalDistanceTravelled">Total Distance Travelled</label>
+              <input class="form-control bg-white rounded-3" id="totalDistanceTravelled"
+                     style="height: 35px" type="number"/>
+              <p><small class="text-danger  pl-1 mt-0 mb-0"
+                        id="errorTotalDistance"></small></p>
+            </div>
+          </div>
+          <div class="col"></div>
+          <div class="col"></div>
+          <div class="col"></div>
+        </div>
+
+        <div class="row mt-0">
+
+          <div class="col w-25 me-3 ms-3 mb-4 border border-1 border-white">
+            <form class="h-100" style="border: 2px solid white;">
+              <label class="ftext-center text-primary fw-bold pb-2 fs-4" for="uploadFrontView">Upload
+                front view</label>
+              <input class="form-control" id="uploadFrontView" style="height: 32px" type="file"/>
+            </form>
+          </div>
+          <div class="col w-25 me-3 ms-3 mb-4 border border-1 border-white">
+            <form class="h-100">
+              <label class="text-center text-primary fw-bold pb-2 fs-4" for="uploadBackView">Upload
+                back view</label>
+              <input class="form-control" id="uploadBackView" style="height: 32px" type="file"/>
+            </form>
+          </div>
+          <div class="col w-25 me-3 ms-3 mb-4 border border-1 border-white">
+            <form class="h-100">
+              <label class="text-center text-primary fw-bold pb-2 fs-4" for="uploadSideView">Upload
+                side view</label>
+              <input class="form-control" id="uploadSideView" style="height: 32px" type="file"/>
+            </form>
+          </div>
+          <div class="col w-25 me-3 ms-3 mb-4 border border-1 border-white">
+            <form class="h-100">
+              <label class="text-center text-primary fw-bold pb-2 fs-4" for="uploadInteriorView">Upload
+                interior view</label>
+              <input class="form-control" id="uploadInteriorView" style="height: 32px" type="file"/>
+            </form>
+          </div>
+
+        </div>
+
+
+        <!--button panel-->
+        <div class="row">
+          <div class="col text-center">
+
+          </div>
+          <div class="col text-center" style="margin-top: 50px;">
+            <div class="col">
+              <button class="btn btn-warning btn-lg btn-floating ms-2 me-4  shadow"
+                      id="btnUpdateCar"
+                      type="button">Update</button>
+              <button class="btn btn-primary btn-lg btn-floating ms-2 me-4 shadow" id="btnAddNewCar"
+                      type="button">Add New Car</button>
+              <button class="btn btn-danger btn-lg btn-floating ms-2 me-4 shadow"
+                      id="btnCancelAddCar"
+                      type="button">Delete</button>
+            </div>
+          </div>
+          <div class="col text-center">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+
+<!--Button Controller End-->
+
+
 
 <section id="admin_screen" style="height: 90vh; background-image: radial-gradient(circle at top,white,#0a53be)" >
   <div class="d-flex" style="height: 100%; width: 100%;">
