@@ -340,124 +340,6 @@
 </section>
 
 
-<!--Change Driver Page-->
-<section id="ChangeDriver" style="width: 100%; height: 100vh ;background-color: rgba(0, 0, 0, 0.6);">
-
-  <div class="h-75 border border-3 border-white rounded-1 shadow bg-white"
-       style="width: 500px; position: relative;top: 70px;bottom: 0;right: -10px;left: 0;margin: auto;">
-
-    <div class="mb-0 text-center  border-bottom border-2 " style="position: relative;top: 10px;">
-      <h1 class="mt-1 text-dark fw-bold " style="font-family: 'PT Serif', serif;">Change Driver</h1>
-    </div>
-
-    <div class=" mt-0 ms-2 me-2">
-      <form class="ms-4 me-5" style="position: relative; top: 50px;">
-
-        <div class="row">
-          <div class="col">
-            <!-- select reservation number -->
-            <div class="form-outline mb-2 ms-4 me-2">
-              <label class="text-center text-primary fw-bold pb-2 fs-4" for="chooseReservationIds">Reservation Ids</label>
-              <select aria-label="Default select example" class="form-select " id="chooseReservationIds"
-                      style="height: 38px">
-                <option selected value="0">None</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="form-outline mb-2 ms-4 w-100">
-              <label class="text-center text-primary fw-bold pb-2 fs-4" for="CarIds">Car Ids</label>
-              <select aria-label="Default select example" class="form-select " id="CarIds"
-                      style="height: 37px">
-                <option selected value="0"></option>
-              </select>
-
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col">
-            <!-- selected driver id -->
-            <div class="form-outline mb-2 ms-4  mt-3">
-              <label class="text-center text-primary fw-bold pb-2 fs-4" for="selectedDriverId">Old Driver Id</label>
-              <input class="form-control bg-white rounded-3" id="selectedDriverId" type="text"/>
-            </div>
-          </div>
-
-          <div class="col">
-            <!-- selected driver name -->
-            <div class="form-outline mb-2 ms-4  mt-3">
-              <label class="text-center text-primary fw-bold pb-2 fs-4" for="selectedDriverName">Old Name</label>
-              <input class="form-control bg-white rounded-3" id="selectedDriverName" type="text"/>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="row">
-          <!-- select new driver id -->
-          <div class="form-outline mb-2 ms-4 me-4 mt-3">
-            <label class="form-label text-dark fw-light " for="chooseNewDriverIds">Choose New
-              Driver</label>
-            <select aria-label="Default select example" class="form-select " id="chooseNewDriverIds"
-                    style="height: 38px">
-              <option selected value="0">None</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col">
-            <!-- new driver name -->
-            <div class="form-outline mb-2 ms-4  mt-3">
-              <label class="form-label text-dark fw-light " for="changedNewDriverName">New Driver
-                Name</label>
-              <input class="form-control bg-white rounded-3" id="changedNewDriverName" type="text"/>
-            </div>
-          </div>
-
-          <div class="col">
-            <!-- new driver contact -->
-            <div class="form-outline mb-2 ms-4  mt-3">
-              <label class="form-label text-dark fw-light " for="changedNewDriverContact">New Driver
-                Contact</label>
-              <input class="form-control bg-white rounded-3" id="changedNewDriverContact" type="text"/>
-            </div>
-          </div>
-        </div>
-
-        <!--button panel-->
-        <div class="row mt-4">
-          <div class="col text-center">
-
-          </div>
-          <div class="col text-center ">
-            <div class="col" style="width: 250px;">
-              <button class="btn btn-success  btn-floating ms-2 me-2 shadow" type="button">
-                Change
-              </button>
-              <button class="btn btn-danger  btn-floating ms-2 me-2 shadow" id="btnCancelChangeDriver"
-                      type="button">
-                Cancel
-              </button>
-            </div>
-          </div>
-          <div class="col text-center">
-
-          </div>
-        </div>
-
-      </form>
-
-    </div>
-
-  </div>
-
-</section>
-
-
 <!-- Add New Driver Page -->
 <section id="DriverManagePage" style="width: 100%; height: 100vh ;background-color: rgba(0, 0, 0, 0.6);">
 
@@ -579,6 +461,250 @@
 
 </section>
 
+
+<!--Change Driver Page-->
+<section id="ChangeDriver" style="width: 100%; height: 100vh ;background-color: rgba(0, 0, 0, 0.6);">
+
+  <div class="h-75 border border-3 border-white rounded-1 shadow bg-white"
+       style="width: 500px; position: relative;top: 70px;bottom: 0;right: -10px;left: 0;margin: auto;">
+
+    <div class="mb-0 text-center  border-bottom border-2 " style="position: relative;top: 10px;">
+      <h1 class="mt-1 text-dark fw-bold " style="font-family: 'PT Serif', serif;">Change Driver</h1>
+    </div>
+
+    <div class=" mt-0 ms-2 me-2">
+      <form class="ms-4 me-5" style="position: relative; top: 50px;">
+
+        <div class="row">
+          <div class="col">
+            <!-- select reservation number -->
+            <div class="form-outline mb-2 ms-4 me-2">
+              <label class="text-center text-primary fw-bold pb-2 fs-4" for="chooseReservationIds">Reservation Ids</label>
+              <select aria-label="Default select example" class="form-select " id="chooseReservationIds"
+                      style="height: 38px">
+                <option selected value="0">None</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="form-outline mb-2 ms-4 w-100">
+              <label class="text-center text-primary fw-bold pb-2 fs-4" for="CarIds">Car Ids</label>
+              <select aria-label="Default select example" class="form-select " id="CarIds"
+                      style="height: 37px">
+                <option selected value="0"></option>
+              </select>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <!-- selected driver id -->
+            <div class="form-outline mb-2 ms-4  mt-3">
+              <label class="text-center text-primary fw-bold pb-2 fs-4" for="selectedDriverId">Old Driver Id</label>
+              <input class="form-control bg-white rounded-3" id="selectedDriverId" type="text"/>
+            </div>
+          </div>
+
+          <div class="col">
+            <!-- selected driver name -->
+            <div class="form-outline mb-2 ms-4  mt-3">
+              <label class="text-center text-primary fw-bold pb-2 fs-4" for="selectedDriverName">Old Name</label>
+              <input class="form-control bg-white rounded-3" id="selectedDriverName" type="text"/>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <!-- select new driver id -->
+          <div class="form-outline mb-2 ms-4 me-4 mt-3">
+            <label class="form-label text-dark fw-light " for="chooseNewDriverIds">Choose New
+              Driver</label>
+            <select aria-label="Default select example" class="form-select " id="chooseNewDriverIds"
+                    style="height: 38px">
+              <option selected value="0">None</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <!-- new driver name -->
+            <div class="form-outline mb-2 ms-4  mt-3">
+              <label class="form-label text-dark fw-light " for="changedNewDriverName">New Driver
+                Name</label>
+              <input class="form-control bg-white rounded-3" id="changedNewDriverName" type="text"/>
+            </div>
+          </div>
+
+          <div class="col">
+            <!-- new driver contact -->
+            <div class="form-outline mb-2 ms-4  mt-3">
+              <label class="form-label text-dark fw-light " for="changedNewDriverContact">New Driver
+                Contact</label>
+              <input class="form-control bg-white rounded-3" id="changedNewDriverContact" type="text"/>
+            </div>
+          </div>
+        </div>
+
+        <!--button panel-->
+        <div class="row mt-4">
+          <div class="col text-center">
+
+          </div>
+          <div class="col text-center ">
+            <div class="col" style="width: 250px;">
+              <button class="btn btn-success  btn-floating ms-2 me-2 shadow" type="button">
+                Change
+              </button>
+              <button class="btn btn-danger  btn-floating ms-2 me-2 shadow" id="btnCancelChangeDriver"
+                      type="button">
+                Cancel
+              </button>
+            </div>
+          </div>
+          <div class="col text-center">
+
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!--Reserve Detail Page-->
+<section id="ReserveDetailsPage" style="width: 100%; height: 100vh ;background-color: rgba(0, 0, 0, 0.6);">
+
+  <div class=" border border-3 border-white rounded-1 shadow"
+       style="width: 500px; position: relative;top: 90px;bottom: 0;right: 0;left: 0;margin: auto;height: 620px;background-color: white">
+
+    <div class="mb-0 text-center  border-bottom border-2 " style="position: relative;top: 20px;">
+      <h1 class="mt-1 text-dark   " style="font-family: 'poppins', sans-serif">Reserve Details</h1>
+    </div>
+
+    <div class=" mt-0 ms-2 me-5">
+      <form class="ms-5 me-5" style="position: relative; top: 50px;">
+
+        <div class="row">
+          <!-- reserve id -->
+          <div class="form-outline mb-2 ms-4 me-4">
+            <label class="form-label text-dark fw-light" for="viewReserveId">Reserve Id</label>
+            <input class="form-control bg-white rounded-3" id="viewReserveId" type="text"/>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <!-- car id -->
+            <div class="form-outline mb-2 ms-4 w-100">
+              <label class="form-label text-dark fw-light " for="viewCarId">Car Id</label>
+              <select aria-label="Default select example" class="form-select " id="viewCarId"
+                      style="height: 37px">
+                <option selected value="0"></option>
+              </select>
+
+            </div>
+          </div>
+
+          <div class="col">
+            <!-- brand -->
+            <div class="form-outline mb-2 ms-4 w-100">
+              <label class="form-label text-dark fw-light " for="viewBrand">Brand</label>
+              <input class="form-control bg-white rounded-3" id="viewBrand" type="text"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <!-- colour -->
+            <div class="form-outline mb-2 ms-4 w-100">
+              <label class="form-label text-dark fw-light " for="viewColour">Colour</label>
+              <input class="form-control bg-white rounded-3" id="viewColour" type="text"/>
+            </div>
+          </div>
+
+          <div class="col">
+            <!-- type -->
+            <div class="form-outline mb-2 ms-4 w-100">
+              <label class="form-label text-dark fw-light" for="viewType">Type</label>
+              <input class="form-control bg-white rounded-3" id="viewType" type="text"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <!-- driver Id -->
+            <div class="form-outline mb-2 ms-4 w-100">
+              <label class="form-label text-dark fw-light " for="viewDriverId">Driver Id</label>
+              <input class="form-control bg-white rounded-3" id="viewDriverId" type="text"/>
+            </div>
+          </div>
+
+          <div class="col">
+            <!-- driver name -->
+            <div class="form-outline mb-2 ms-4 w-100">
+              <label class="form-label text-dark fw-light " for="viewDriverName">Driver Name</label>
+              <input class="form-control bg-white rounded-3" id="viewDriverName" type="text"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <!-- driver contact -->
+            <div class="form-outline mb-2 ms-4 w-100">
+              <label class="form-label text-dark fw-light " for="viewDriverContact">Driver
+                Contact</label>
+              <input class="form-control bg-white rounded-3" id="viewDriverContact" type="text"/>
+            </div>
+          </div>
+
+          <div class="col">
+            <!-- lose damage payment -->
+            <div class="form-outline mb-2 ms-4 w-100">
+              <label class="form-label text-dark fw-light " for="viewLoseDamagePayment">Lose
+                Damage</label>
+              <input class="form-control bg-white rounded-3" id="viewLoseDamagePayment" type="text"/>
+            </div>
+          </div>
+        </div>
+
+
+        <!--button panel-->
+        <div class="row mt-4">
+          <div class="col text-center">
+
+          </div>
+          <div class="col text-center ">
+            <div class="col" style="width: 200px;">
+              <button class="btn btn-danger btn-lg btn-floating ms-2 me-2 shadow" id="btnExistReDetails"
+                      style="width: 150px!important;" type="button">Delete
+               <!-- <i class="fa-solid fa-delete-left"></i>-->
+              </button>
+            </div>
+          </div>
+          <div class="col text-center">
+
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
 
 <!--Button Controller End-->
 
