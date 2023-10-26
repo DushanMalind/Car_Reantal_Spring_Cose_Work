@@ -45,10 +45,10 @@
 <!--Button Controller-->
 
 <!-- Add New Car Page-->
-<section id="CarManagePage">
+<section id="CarManagePage" style="width: 100%; height: 100vh">
 
   <div class="w-75  border border-3 border-white rounded-2 shadow bg-body"
-       style="position: relative;top: 70px;bottom: 0;right: 0;left: 112px;margin: auto;height: 678px;">
+       style="position: relative;top: 5px;bottom: 0;right: 0;left: 112px;margin: auto;height: 678px;">
 
     <div class="text-center  border-bottom border-2 " style="position: relative;top: 10px;">
       <h1 class=" text-danger   mb-0 " style="font-family: 'poppins', sans-serif, serif;">Add Car</h1>
@@ -61,14 +61,14 @@
           <div class="col">
             <!-- car id -->
             <div class="form-outline mb-2 ms-4 me-3">
-              <label class="text-center text-primary fw-bold pb-2 fs-4" for="carId">Car Id</label>
+              <label class="text-center text-primary fw-bold" for="carId">Car Id</label>
               <input class="form-control bg-white rounded-3" id="carId" style="height: 37px" type="text"/>
             </div>
           </div>
           <div class="col">
             <!-- brand -->
             <div class="form-outline mb-2 ms-4 me-3">
-              <label class="text-center text-primary fw-bold pb-2 fs-4" for="brand">Brand</label>
+              <label class="text-center text-primary fw-bold" for="brand">Brand</label>
               <select aria-label="Default select example" class="form-select"
                       id="brand" style="height: 37px">
                 <option selected value="0">None</option>
@@ -90,7 +90,7 @@
           <div class="col">
             <!-- colour -->
             <div class="form-outline mb-2 ms-4 me-3">
-              <label class="text-center text-primary fw-bold pb-2 fs-4 " for="colour">Colour</label>
+              <label class="text-center text-primary fw-bold  " for="colour">Colour</label>
               <select aria-label="Default select example" class="form-select "
                       id="colour" style="height: 37px">
                 <option selected value="0">None</option>
@@ -110,7 +110,7 @@
           <div class="col">
             <!-- type -->
             <div class="form-outline mb-2 ms-4 me-3">
-              <label class="text-center text-primary fw-bold pb-2 fs-4 " for="type">Type</label>
+              <label class="text-center text-primary fw-bold  " for="type">Type</label>
               <select aria-label="Default select example" class="form-select"
                       id="type" style="height: 37px">
                 <option selected value="0">None</option>
@@ -126,7 +126,7 @@
           <div class="col">
             <!-- registration no -->
             <div class="form-outline mb-2 ms-4 me-3">
-              <label class="text-center text-primary fw-bold pb-2 fs-4 " for="registrationNo">Registration NO</label>
+              <label class="text-center text-primary fw-bold " for="registrationNo">Registration NO</label>
               <input class="form-control  bg-white rounded-3 " id="registrationNo"
                      style="height: 37px" type="text"/>
               <p><small class="text-danger  pl-1 mt-0 mb-0 " id="errorRegNo"></small></p>
@@ -135,7 +135,7 @@
           <div class="col">
             <!-- fuel type -->
             <div class="form-outline mb-2 ms-4 me-3">
-              <label class="text-center text-primary fw-bold pb-2 fs-4" for="fuelType">Fuel
+              <label class="text-center text-primary fw-bold " for="fuelType">Fuel
                 Type</label>
               <select aria-label="Default select example" class="form-select"
                       id="fuelType" style="height: 37px">
@@ -148,7 +148,7 @@
           <div class="col">
             <!-- transmission type -->
             <div class="form-outline mb-2 ms-4 me-3">
-              <label class="text-center text-primary fw-bold pb-2 fs-4 " for="transmissionType">Transmission Type</label>
+              <label class="text-center text-primary fw-bold  " for="transmissionType">Transmission Type</label>
               <select aria-label="Default select example" class="form-select"
                       id="transmissionType" style="height: 37px">
                 <option selected value="0">None</option>
@@ -160,7 +160,7 @@
           <div class="col">
             <!-- no of passengers -->
             <div class="form-outline mb-2 ms-4 me-3">
-              <label class="text-center text-primary fw-bold pb-2 fs-4" for="noOfPassengers">NO Of Passenagers</label>
+              <label class="text-center text-primary fw-bold " for="noOfPassengers">NO Of Passenagers</label>
               <input class="form-control  bg-white rounded-3" id="noOfPassengers"
                      style="height: 37px" type="number"/>
               <p><small class="text-danger  pl-1 mt-0 mb-0" id="errorPassengers"></small>
@@ -173,7 +173,7 @@
           <div class="col">
             <!-- daily rate price -->
             <div class="form-outline mb-2 ms-4 me-3">
-              <label class="text-center text-primary fw-bold pb-2 fs-4 " for="dailyRatePrice">Daily
+              <label class="text-center text-primary fw-bold " for="dailyRatePrice">Daily
                 Rate Price</label>
               <input class="form-control bg-white rounded-3" id="dailyRatePrice" style="height: 37px"
                      type="text"/>
@@ -184,7 +184,7 @@
           <div class="col">
             <!-- monthly rate price -->
             <div class="form-outline mb-2 ms-4 me-3">
-              <label class="text-center text-primary fw-bold pb-2 fs-4 " for="monthlyRatePrice">Monthly Rate Price</label>
+              <label class="text-center text-primary fw-bold " for="monthlyRatePrice">Monthly Rate Price</label>
               <input class="form-control  bg-white rounded-3" id="monthlyRatePrice"
                      style="height: 37px " type="text"/>
               <p><small class="text-danger  pl-1 mt-0 mb-0" id="errorMonthlyRate"></small>
@@ -194,7 +194,7 @@
           <div class="col">
             <!-- free km per day -->
             <div class="form-outline mb-2 ms-4 me-3">
-              <label class="text-center text-primary fw-bold pb-2 fs-4" for="freeKMPerDay">Free KM
+              <label class="text-center text-primary fw-bold " for="freeKMPerDay">Free KM
                 Per Day</label>
               <input class="form-control  bg-white rounded-3" id="freeKMPerDay"
                      style="height: 37px" type="number"/>
@@ -205,7 +205,7 @@
           <div class="col">
             <!-- free km per month -->
             <div class="form-outline mb-2 ms-4 me-3">
-              <label class="text-center text-primary fw-bold pb-2 fs-4 " for="freeKMPerMonth">Free KM
+              <label class="text-center text-primary fw-bold  " for="freeKMPerMonth">Free KM
                 Per Month</label>
               <input class="form-control  bg-white rounded-3" id="freeKMPerMonth"
                      style="height: 37px" type="number"/>
@@ -219,7 +219,7 @@
           <div class="col">
             <!-- price for extra km -->
             <div class="form-outline mb-2 ms-4 me-3">
-              <label class="text-center text-primary fw-bold pb-2 fs-4 " for="priceForExtraKM">Price For Extra KM</label>
+              <label class="text-center text-primary fw-bold " for="priceForExtraKM">Price For Extra KM</label>
               <input class="form-control  bg-white rounded-3" id="priceForExtraKM"
                      style="height: 37px" type="text"/>
               <p><small class="text-danger  pl-1 mt-0 mb-0"
@@ -229,7 +229,7 @@
           <div class="col">
             <!-- available or not -->
             <div class="form-outline mb-2 ms-4 me-3">
-              <label class="text-center text-primary fw-bold pb-2 fs-4" for="availableOrNot">Available Or Not</label>
+              <label class="text-center text-primary fw-bold " for="availableOrNot">Available Or Not</label>
               <select aria-label="Default select example" class="form-select text-dark"
                       id="availableOrNot" style="height: 37px">
                 <option selected value="0">None</option>
@@ -241,7 +241,7 @@
           <div class="col">
             <!-- damage or not -->
             <div class="form-outline mb-2 ms-4 me-3">
-              <label class="text-center text-primary fw-bold pb-2 fs-4" for="damageOrNot">Damage Or Not</label>
+              <label class="text-center text-primary fw-bold " for="damageOrNot">Damage Or Not</label>
               <select aria-label="Default select example" class="form-select text-dark"
                       id="damageOrNot" style="height: 37px">
                 <option class="text-dark" selected value="0">None</option>
@@ -253,7 +253,7 @@
           <div class="col">
             <!-- under maintain or not -->
             <div class="form-outline mb-2 ms-4 me-3">
-              <label class="text-center text-primary fw-bold pb-2 fs-4" for="underMaintainOrNot">Under Maintain Or Not</label>
+              <label class="text-center text-primary fw-bold " for="underMaintainOrNot">Under Maintain Or Not</label>
               <select aria-label="Default select example" class="form-select"
                       id="underMaintainOrNot" style="height: 37px">
                 <option selected value="0">None</option>
@@ -268,7 +268,7 @@
           <div class="col">
             <!-- total distance travelled -->
             <div class="form-outline ms-4 me-3">
-              <label class="text-center text-primary fw-bold pb-2 fs-4" for="totalDistanceTravelled">Total Distance Travelled</label>
+              <label class="text-center text-primary fw-bold " for="totalDistanceTravelled">Total Distance Travelled</label>
               <input class="form-control bg-white rounded-3" id="totalDistanceTravelled"
                      style="height: 35px" type="number"/>
               <p><small class="text-danger  pl-1 mt-0 mb-0"
@@ -284,28 +284,28 @@
 
           <div class="col w-25 me-3 ms-3 mb-4 border border-1 border-white">
             <form class="h-100" style="border: 2px solid white;">
-              <label class="ftext-center text-primary fw-bold pb-2 fs-4" for="uploadFrontView">Upload
+              <label class="ftext-center text-primary fw-bold " for="uploadFrontView">Upload
                 front view</label>
               <input class="form-control" id="uploadFrontView" style="height: 32px" type="file"/>
             </form>
           </div>
           <div class="col w-25 me-3 ms-3 mb-4 border border-1 border-white">
             <form class="h-100">
-              <label class="text-center text-primary fw-bold pb-2 fs-4" for="uploadBackView">Upload
+              <label class="text-center text-primary fw-bold " for="uploadBackView">Upload
                 back view</label>
               <input class="form-control" id="uploadBackView" style="height: 32px" type="file"/>
             </form>
           </div>
           <div class="col w-25 me-3 ms-3 mb-4 border border-1 border-white">
             <form class="h-100">
-              <label class="text-center text-primary fw-bold pb-2 fs-4" for="uploadSideView">Upload
+              <label class="text-center text-primary fw-bold " for="uploadSideView">Upload
                 side view</label>
               <input class="form-control" id="uploadSideView" style="height: 32px" type="file"/>
             </form>
           </div>
           <div class="col w-25 me-3 ms-3 mb-4 border border-1 border-white">
             <form class="h-100">
-              <label class="text-center text-primary fw-bold pb-2 fs-4" for="uploadInteriorView">Upload
+              <label class="text-center text-primary fw-bold " for="uploadInteriorView">Upload
                 interior view</label>
               <input class="form-control" id="uploadInteriorView" style="height: 32px" type="file"/>
             </form>
