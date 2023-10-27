@@ -47,7 +47,7 @@ $("#dailyRatePrice").on("keyup",function (event) {
         $("#dailyRatePrice").css("border","2px solid green");
         $("#errorDailyRate").text("");
         if (event.key === "Enter") {
-            $("#extraKmPrice").focus();
+            $("#monthlyRatePrice").focus();
         }
     }else {
         $("#dailyRatePrice").css("border","2px solid red");
@@ -70,5 +70,34 @@ $("#monthlyRatePrice").on("keyup",function (event) {
   }
 });
 
+
+$("#freeKMPerDay").on("keyup",function (event) {
+  let freeKm=$("#freeKMPerDay").val();
+  if(regFKmDay.test(freeKm)){
+    $("#freeKMPerDay").css("border","2px solid green");
+    $("#errorFreeKm").text("");
+    if (event.key === "Enter") {
+      $("#freeKMPerMonth").focus();
+    }
+  }else {
+    $("#freeKMPerDay").css("border","2px solid red");
+    $("#errorFreeKm").text("Invalid Free Km Per Day");
+  }
+});
+
+
+$("#freeKMPerMonth").on("keyup",function (event) {
+  let freeKmMonth=$("#freeKMPerMonth").val();
+    if(regFKmMonth.test(freeKmMonth)){
+        $("#freeKMPerMonth").css("border","2px solid green");
+        $("#errorFreeKmMonth").text("");
+        if (event.key === "Enter") {
+            $("#priceForExtraKM").focus();
+        }
+    }else {
+        $("#freeKMPerMonth").css("border","2px solid red");
+        $("#errorFreeKmMonth").text("Invalid Free Km Per Month");
+    }
+});
 
 
