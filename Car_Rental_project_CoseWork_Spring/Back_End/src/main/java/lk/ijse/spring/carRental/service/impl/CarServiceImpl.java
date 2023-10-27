@@ -80,42 +80,48 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public String searchRegNumberIsExists(String reg) {
-        return null;
+        return carRepo.searchRegNumberIsExists(reg);
     }
 
     @Override
     public void carAvailableOrNot(String available, String id) {
-
+        carRepo.carAvailableOrNot(available,id);
     }
 
     @Override
     public List<CarDTO> sortAccordingToPassengersByAscending() {
-        return null;
+        List<Car>cars=carRepo.sortAccordingToPassengersByDescending();
+        return mapper.map(cars,new TypeToken<List<CarDTO>>(){}.getType());
     }
 
     @Override
     public List<CarDTO> sortAccordingToPassengersByDescending() {
-        return null;
+       List<Car> cars=carRepo.sortAccordingToPassengersByAscending();
+       return mapper.map(cars,new TypeToken<List<CarDTO>>(){}.getType());
     }
 
     @Override
     public List<CarDTO> sortAccordingToDailyRatePriceByDescending() {
-        return null;
+        List<Car> cars=carRepo.sortAccordingToDailyRatePriceByDescending();
+        return mapper.map(cars,new TypeToken<List<CarDTO>>(){}.getType());
     }
 
     @Override
     public List<CarDTO> sortAccordingToDailyRatePriceByAscending() {
-        return null;
+        List<Car> cars=carRepo.sortAccordingToDailyRatePriceByAscending();
+        return mapper.map(cars,new TypeToken<List<CarDTO>>(){}.getType());
     }
 
     @Override
     public List<CarDTO> sortAccordingToMonthlyRatePriceByAscending() {
-        return null;
+        List<Car>cars=carRepo.sortAccordingToMonthlyRatePriceByAscending();
+        return mapper.map(cars,new TypeToken<List<CarDTO>>(){}.getType());
     }
 
     @Override
     public List<CarDTO> sortAccordingToMonthlyRatePriceByDescending() {
-        return null;
+        List<Car>cars=carRepo.sortAccordingToMonthlyRatePriceByDescending();
+        return mapper.map(cars,new TypeToken<List<CarDTO>>(){}.getType());
     }
 
     @Override
