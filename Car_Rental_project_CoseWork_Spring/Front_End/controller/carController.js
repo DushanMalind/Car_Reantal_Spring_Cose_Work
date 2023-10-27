@@ -190,8 +190,32 @@ function saveCar() {
     data: JSON.stringify(newCarData),
     success: function (response) {
       if (response.code==200){
-
+        clearFieldsFromCarPage();
+        loadAllCars();
       }
     }
   });
+}
+
+
+function clearFieldsFromCarPage(){
+  generateVehicleIds();
+
+  $("#registrationNo").val("");
+  $("#noOfPassengers").val("");
+  $("#freeKMPerDay").val("");
+  $("#freeKMPerMonth").val("");
+  $("#priceForExtraKM").val("");
+  $("#dailyRatePrice").val("");
+  $("#monthlyRatePrice").val("");
+  $("#totalDistanceTravelled").val("");
+
+  $("#registrationNo").css('border', '1px solid #e9ecef');
+  $("#noOfPassengers").css('border', '1px solid #e9ecef');
+  $("#freeKMPerDay").css('border', '1px solid #e9ecef');
+  $("#freeKMPerMonth").css('border', '1px solid #e9ecef');
+  $("#priceForExtraKM").css('border', '1px solid #e9ecef');
+  $("#dailyRatePrice").css('border', '1px solid #e9ecef');
+  $("#monthlyRatePrice").css('border', '1px solid #e9ecef');
+  $("#totalDistanceTravelled").css('border', '1px solid #e9ecef');
 }
