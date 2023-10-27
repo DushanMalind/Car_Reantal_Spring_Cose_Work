@@ -126,36 +126,41 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public List<CarDTO> findByTransmissionType(String type) {
-        return null;
+        List<Car>all=carRepo.findByTransmissionType(type);
+        return mapper.map(all,new TypeToken<List<CarDTO>>(){}.getType());
     }
 
     @Override
     public List<CarDTO> findByBrand(String brand) {
-        return null;
+        List<Car>all=carRepo.findByBrand(brand);
+        return mapper.map(all,new TypeToken<List<CarDTO>>(){}.getType());
     }
 
     @Override
     public List<CarDTO> findByType(String type) {
-        return null;
+        List<Car>all=carRepo.findByType(type);
+        return mapper.map(all,new TypeToken<List<CarDTO>>(){}.getType());
     }
 
     @Override
     public List<CarDTO> findByFuelType(String fuelType) {
-        return null;
+        List<Car>all=carRepo.findByFuelType(fuelType);
+        return mapper.map(all,new TypeToken<List<CarDTO>>(){}.getType());
     }
 
     @Override
     public List<CarDTO> findByColour(String colour) {
-        return null;
+        List<Car>all=carRepo.findByColour(colour);
+        return mapper.map(all,new TypeToken<List<CarDTO>>(){}.getType());
     }
 
     @Override
     public int noOfAvailableOrReservedCars(String availability) {
-        return 0;
+        return carRepo.noOfAvailableOrReservedCars(availability);
     }
 
     @Override
     public int needMaintenanceOrUnderMaintenanceCars(String maintain) {
-        return 0;
+        return carRepo.needMaintenanceOrUnderMaintenanceCars(maintain);
     }
 }
