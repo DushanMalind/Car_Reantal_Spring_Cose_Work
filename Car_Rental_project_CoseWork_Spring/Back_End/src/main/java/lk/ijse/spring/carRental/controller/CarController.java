@@ -131,5 +131,16 @@ public class CarController {
     }
 
 
+    /*********************/
+
+    @GetMapping(path = "/countOfAvailableCars/{availability}")
+    public ResponseUtil noOfAvailableOrReservedCars(@PathVariable("availability") String availability){
+        return new ResponseUtil("Ok","Successfully Searched.",carService.noOfAvailableOrReservedCars(availability));
+    }
+
+    @GetMapping(path = "/carMaintain/{maintain}")
+    public ResponseUtil needMaintenanceOrUnderMaintenanceCars(@PathVariable("maintain") String maintain){
+        return new ResponseUtil("Ok","Successfully Searched.",carService.needMaintenanceOrUnderMaintenanceCars(maintain));
+    }
 
 }
