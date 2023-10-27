@@ -54,6 +54,7 @@ $("#btn_profile").click(function (){
 
 
 $("#btn_car").click(function(){
+  loadAllCars();
   $("#car_dashboard").css('display', 'block');
 
   $('#admin_dashboard').css('display', 'none');
@@ -208,7 +209,7 @@ $("#btn_income").click(function () {
 
 
 $("#btnAddCar").click(function (){
-
+  generateVehicleIds();
   $('#CarManagePage').css('transform', 'scale(1)');
   $("#car_dashboard").css('display', 'block');
 
@@ -230,7 +231,7 @@ $("#btnAddCar").click(function (){
 
 
 $("#btnCancelAddCar").click(function () {
-
+  loadAllCars();
   $('#CarManagePage').css('transform', 'scale(0)');
   $("#car_dashboard").css('display', 'block');
 

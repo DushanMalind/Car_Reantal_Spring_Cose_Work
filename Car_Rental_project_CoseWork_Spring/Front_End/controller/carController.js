@@ -189,9 +189,9 @@ function saveCar() {
     contentType: "application/json",
     data: JSON.stringify(newCarData),
     success: function (response) {
-      if (response.code==200){
-        clearFieldsFromCarPage();
+      if (response.code == 200) {
         loadAllCars();
+        clearFieldsFromCarPage();
       }
     }
   });
@@ -202,10 +202,12 @@ function uploadCarImages() {
   var data = new FormData();
   let file = $("#uploadFrontView")[0].files[0];
   let fileName = $("#uploadFrontView")[0].files[0].name;
+
   data.append("myFile", file, fileName);
 
+
   $.ajax({
-    url: baseUrl + "api/v1/upload",
+    url: basUrl + "api/v1/upload",
     method: 'post',
     async: true,
     contentType: false,
@@ -213,8 +215,8 @@ function uploadCarImages() {
     data: data,
     success: function (resp) {
     },
-    error: function (err) {
-      console.log(err);
+    error: function (error) {
+      console.log(error);
     }
   });
 }
@@ -222,7 +224,7 @@ function uploadCarImages() {
 
 function loadAllCars() {
   $.ajax({
-    url: baseUrl + "car",
+    url: baseUrl +"car",
     method: "GET",
     success: function (response) {
 
@@ -246,16 +248,16 @@ function loadAllCars() {
                             <span class="badge rounded-pill text-bg-warning text-secondary">${responseKey.underMaintainOrNot}</span> </td><td>
                             ${responseKey.totalDistanceTraveled} </td><td>
                             <div class="d-flex align-items-center">
-                                <img src="http://localhost:8081/Back_End_war/uploads/${responseKey.fontViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                                <img src="http://localhost:8081/Back_End_war/upload/${responseKey.fontViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
                              </div></td><td>
                              <div class="d-flex align-items-center">
-                                <img src="http://localhost:8081/Back_End_war/uploads/${responseKey.backViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                                <img src="http://localhost:8081/Back_End_war/upload/${responseKey.backViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
                              </div></td><td>
                              <div class="d-flex align-items-center">
-                                <img src="http://localhost:8081/Back_End_war/uploads/${responseKey.sideViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                                <img src="http://localhost:8081/Back_End_war/upload/${responseKey.sideViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
                              </div></td><td>
                              <div class="d-flex align-items-center">
-                                <img src="http://localhost:8081/Back_End_war/uploads/${responseKey.interiorViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                                <img src="http://localhost:8081/Back_End_war/upload/${responseKey.interiorViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
                              </div></td>
                              <td><button type="button" id="btnEditCar"  class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
                                 <i class="fas fa-pen-alt"></i>
@@ -263,9 +265,84 @@ function loadAllCars() {
         $("#tblCars tbody").append(raw);
 
       }
-      generateVehicleIds();
-      BindRowClickEvent();
+
+      /*BindRowClickEvent();*/
       clearFieldsFromCarPage();
+
+    },
+    error: function (error) {
+      alert(error);
+    }
+  });
+}
+
+
+$("#btnAddNewCar").click(function () {
+  $("#tblCars tbody > tr").off('click');
+
+  /*swal({
+    title: "Are you sure? Add Ths Car Details",
+    text: "Once Added, You will not be able to recover this Car Details!",
+    type: "success",
+    showCancelButtonClass: "btn-danger",
+    confirmButtonClass: "btn-success",
+  });*/
+
+  let text = "Are you sure? Add Ths Car Details";
+
+  /* if (confirm() == true) {*/
+  if ($("#brand option:selected").val() == "" || $("#colour option:selected").val() == "" || $("#type option:selected").val() == "" ||
+    $("#fuelType option:selected").val() == "" || $("#registrationNo").val() == "" || $("#noOfPassengers").val() == "" ||
+    $("#transmissionType option:selected").val() == "" || $("#dailyRatePrice").val() == "" || $("#monthlyRatePrice").val() == "" ||
+    $("#freeKMPerDay").val() == "" || $("#freeKMPerMonth").val() == "" || $("#priceForExtraKM").val() == "" || $("#damageOrNot option:selected").val() == "" ||
+    $("#underMaintainOrNot option:selected").val() == "" || $("#totalDistanceTravelled").val() == "" || $("#availableOrNot option:selected").val() == "") {
+
+    swal({
+      title: "Please Fill All Fields",
+      text: "message!",
+      type: "warning",
+      showCancelButtonClass: "btn-primary",
+      confirmButtonClass: "btn-danger",
+    });
+  } else {
+    if ($("#errorRegNo").text() != "" || $("#errorPassengers").text() != "" || $("#errorDailyRate").text() != "" || $("#errorMonthlyRate").text() != "" ||
+      $("#errorFeeKMDay").text() != "" || $("#errorFreeKMMonth").text() != "" || $("#errorExtraKMPrice").text() != "" || $("#errorTotalDistance").text() != "") {
+      alert("Check Input Fields Whether Correct !");
+    } else {
+      if ($('#uploadFrontView').get(0).files.length === 0 || $('#uploadBackView').get(0).files.length === 0 || $('#uploadSideView').get(0).files.length === 0 || $('#uploadInteriorView').get(0).files.length === 0) {
+        alert("No Images Inserted !");
+      } else {
+        isExistsRegistrationNumber();
+        uploadCarImages();
+
+      }
+      swal({
+        title: "Successfully Register Car Details",
+        text: "message!",
+        type: "success",
+        showCancelButtonClass: "btn-primary",
+        confirmButtonClass: "btn-danger",
+      });
+    }
+
+  }
+
+  /* }*/
+
+});
+
+
+function isExistsRegistrationNumber() {
+  $.ajax({
+    url: baseUrl + "car/SEARCH/" + $("#registrationNo").val(),
+    method: "GET",
+    success: function (response) {
+      if (response.data == $("#registrationNo").val()) {
+        alert("This Registration Number Already Exists !");
+      } else {
+        saveCar();
+
+      }
 
     },
     error: function (error) {
@@ -279,8 +356,8 @@ function BindRowClickEvent() {
 
 }
 
-function clearFieldsFromCarPage(){
-  generateVehicleIds();
+function clearFieldsFromCarPage() {
+
 
   $("#registrationNo").val("");
   $("#noOfPassengers").val("");
