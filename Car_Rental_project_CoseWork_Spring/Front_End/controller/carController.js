@@ -24,3 +24,18 @@ $("#registrationNo").on("keyup",function (event) {
     $("#errorRegNo").text("Invalid Registration No");
   }
 });
+
+
+$("#noOfPassengers").on("keyup",function (event) {
+  let passengers=$("#noOfPassengers").val();
+  if(regPassengers.test(passengers)){
+    $("#noOfPassengers").css("border","2px solid green");
+    $("#errorPassengers").text("");
+    if (event.key === "Enter") {
+      $("#dailyRatePrice").focus();
+    }
+  }else {
+    $("#noOfPassengers").css("border","2px solid red");
+    $("#errorPassengers").text("Invalid No Of Passengers");
+  }
+});
