@@ -67,4 +67,38 @@ public class CarController {
         return new ResponseUtil("Ok", "Successfully Searched.",null);
     }
 
+
+    @GetMapping(path = "/sortPassengerAsc/{passengerAscending}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil sortAccordingToPassengersByAscending(@PathVariable("passengerAscending") String passengerAscending) {
+        return new ResponseUtil("Ok", "Successfully Searched.",carService.sortAccordingToPassengersByAscending());
+    }
+
+
+    @GetMapping(path = "/sortPassengerDsc/{passengerDscending}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil sortAccordingToPassengersByDescending(@PathVariable("passengerDscending") String passengerDscending) {
+        return new ResponseUtil("Ok", "Successfully Searched.",carService.sortAccordingToPassengersByDescending());
+    }
+
+
+    @GetMapping(path = "/sortDailyRateAsc/{dailyRateAsc}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil sortAccordingToDailyRatePriceByAscending(@PathVariable("dailyRateAsc") String dailyRateAsc) {
+        return new ResponseUtil("Ok", "Successfully Searched.",carService.sortAccordingToDailyRatePriceByAscending());
+    }
+
+    @GetMapping(path = "/sortDailyRateDsc/{dailyRateDsc}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil sortAccordingToDailyRatePriceByDescending(@PathVariable("dailyRateDsc") String dailyRateDsc) {
+        return new ResponseUtil("Ok", "Successfully Searched.",carService.sortAccordingToDailyRatePriceByDescending());
+    }
+
+    @GetMapping(path = "/sortMonthlyRateAsc/{monthlyRateAsc}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil sortAccordingToMonthlyRatePriceByAscending(@PathVariable("monthlyRateAsc") String monthlyRateAsc) {
+        return new ResponseUtil("Ok", "Successfully Searched.",carService.sortAccordingToMonthlyRatePriceByAscending());
+    }
+
+
+    @GetMapping(path = "/sortMonthlyRateDsc/{monthlyRateDsc}" ,produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil sortAccordingToMonthlyRatePriceByDescending(@PathVariable("monthlyRateDsc") String monthlyRateDsc){
+        return new ResponseUtil("Ok","Successfully Searched.",carService.sortAccordingToMonthlyRatePriceByDescending());
+    }
+
 }
