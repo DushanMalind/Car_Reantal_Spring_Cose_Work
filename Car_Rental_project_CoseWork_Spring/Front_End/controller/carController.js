@@ -131,3 +131,29 @@ $("#totalDistanceTravelled").on("keyup",function (event) {
 });
 
 
+function generateVehicleIds(){
+  $("#carId").val("V00-0001");
+  var test="id";
+
+  $.ajax({
+    url:baseUrl+"car?test="+test,
+    method:"GET",
+    success: function (response) {
+      var carId = response.data;
+      var tempId = parseInt(carId.split("-")[1]);
+      tempId = tempId + 1;
+      if (tempId <= 9) {
+        $("#carId").val("V00-000" + tempId);
+      } else if (tempId <= 99) {
+        $("#carId").val("V00-00" + tempId);
+      } else if (tempId <= 999) {
+        $("#carId").val("V00-0" + tempId);
+      } else {
+        $("#carId").val("V00-" + tempId);
+      }
+    },
+    error: function (error) {
+      console.log(error);
+    }
+  });
+}
