@@ -1,7 +1,11 @@
 package lk.ijse.spring.carRental.service.impl;
 
 import lk.ijse.spring.carRental.dto.CarDTO;
+import lk.ijse.spring.carRental.entity.Car;
+import lk.ijse.spring.carRental.repo.CarRepo;
 import lk.ijse.spring.carRental.service.CarService;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,14 +23,28 @@ import java.util.List;
 @Transactional
 public class CarServiceImpl implements CarService {
 
+    @Autowired
+    CarRepo carRepo;
+
+    @Autowired
+    ModelMapper mapper;
+
     @Override
     public void saveCar(CarDTO dto) {
-
+        if (!carRepo.existsById(dto.getCarId())) {
+            carRepo.save(mapper.map(dto, Car.class));
+        } else {
+            throw new RuntimeException(dto.getCarId() + " " + "Car Already Exists..!");
+        }
     }
 
     @Override
     public void updateCar(CarDTO dto) {
-
+        if (carRepo.existsById(dto.getCarId())) {
+            carRepo.save(mapper.map(dto, Car.class));
+        } else {
+            throw new RuntimeException(dto.getCarId() + " " + "No Such Car..! Please Check The Car ..!");
+        }
     }
 
     @Override
