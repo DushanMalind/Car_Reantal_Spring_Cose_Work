@@ -198,6 +198,27 @@ function saveCar() {
 }
 
 
+function uploadCarImages() {
+  var data = new FormData();
+  let file = $("#uploadFrontView")[0].files[0];
+  let fileName = $("#uploadFrontView")[0].files[0].name;
+  data.append("myFile", file, fileName);
+
+  $.ajax({
+    url: baseUrl + "api/v1/upload",
+    method: 'post',
+    async: true,
+    contentType: false,
+    processData: false,
+    data: data,
+    success: function (resp) {
+    },
+    error: function (err) {
+      console.log(err);
+    }
+  });
+}
+
 
 function loadAllCars() {
   $.ajax({
