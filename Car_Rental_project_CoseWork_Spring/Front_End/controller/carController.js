@@ -116,4 +116,18 @@ $("#priceForExtraKM").on("keyup",function (event) {
 });
 
 
+$("#totalDistanceTravelled").on("keyup",function (event) {
+    let totalDistance=$("#totalDistanceTravelled").val();
+        if(regExDistance.test(totalDistance)){
+            $("#totalDistanceTravelled").css("border","2px solid green");
+            $("#errorTotalDistance").text("");
+            if (event.key === "Enter") {
+                $("#btnAddCar").focus();
+            }
+        }else {
+            $("#totalDistanceTravelled").css("border","2px solid red");
+            $("#errorTotalDistance").text("Invalid Total Distance Travelled");
+        }
+});
+
 
