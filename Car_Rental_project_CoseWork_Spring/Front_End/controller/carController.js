@@ -39,3 +39,18 @@ $("#noOfPassengers").on("keyup",function (event) {
     $("#errorPassengers").text("Invalid No Of Passengers");
   }
 });
+
+
+$("#dailyRatePrice").on("keyup",function (event) {
+  let daliRate=$("#dailyRatePrice").val();
+    if(regDailyRatePrice.test(daliRate)){
+        $("#dailyRatePrice").css("border","2px solid green");
+        $("#errorDailyRate").text("");
+        if (event.key === "Enter") {
+            $("#extraKmPrice").focus();
+        }
+    }else {
+        $("#dailyRatePrice").css("border","2px solid red");
+        $("#errorDailyRate").text("Invalid Daily Rate Price");
+    }
+});
