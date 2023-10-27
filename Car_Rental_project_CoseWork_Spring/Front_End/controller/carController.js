@@ -54,3 +54,21 @@ $("#dailyRatePrice").on("keyup",function (event) {
         $("#errorDailyRate").text("Invalid Daily Rate Price");
     }
 });
+
+
+$("#monthlyRatePrice").on("keyup",function (event) {
+  let monthlyRate=$("#monthlyRatePrice").val();
+  if(regDailyRatePrice.test(monthlyRate)){
+    $("#monthlyRatePrice").css("border","2px solid green");
+    $("#errorMonthlyRate").text("");
+    if (event.key === "Enter") {
+      $("#freeKMPerDay").focus();
+    }
+  }else {
+    $("#monthlyRatePrice").css("border","2px solid red");
+    $("#errorMonthlyRate").text("Invalid Monthly Rate Price");
+  }
+});
+
+
+
