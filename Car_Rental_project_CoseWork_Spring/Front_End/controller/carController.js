@@ -198,6 +198,66 @@ function saveCar() {
 }
 
 
+
+function loadAllCars() {
+  $.ajax({
+    url: baseUrl + "car",
+    method: "GET",
+    success: function (response) {
+
+      $("#tblCars tbody").empty();
+      for (var responseKey of response.data) {
+        let raw = `<tr><td> ${responseKey.carId} </td><td>
+                            ${responseKey.brand} </td><td>
+                            ${responseKey.colour} </td><td>
+                            ${responseKey.type} </td><td>
+                            ${responseKey.registrationNo} </td><td>
+                            ${responseKey.fuelType} </td><td>
+                            ${responseKey.transmissionType} </td><td>
+                            ${responseKey.noOfPassengers} </td><td>
+                            ${responseKey.dailyRatePrice} </td><td>
+                            ${responseKey.monthlyRatePrice} </td><td>
+                            ${responseKey.freeKmForDay} </td><td>
+                            ${responseKey.freeKmForMonth} </td><td>
+                            ${responseKey.pricePerExtraKM} </td><td>
+                            <span class="badge rounded-pill text-bg-success text-white">${responseKey.availableOrNot}</span></td><td>
+                            <span class="badge rounded-pill text-bg-danger text-white">${responseKey.damageOrNot}</span></td><td>
+                            <span class="badge rounded-pill text-bg-warning text-secondary">${responseKey.underMaintainOrNot}</span> </td><td>
+                            ${responseKey.totalDistanceTraveled} </td><td>
+                            <div class="d-flex align-items-center">
+                                <img src="http://localhost:8081/Back_End_war/uploads/${responseKey.fontViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                             </div></td><td>
+                             <div class="d-flex align-items-center">
+                                <img src="http://localhost:8081/Back_End_war/uploads/${responseKey.backViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                             </div></td><td>
+                             <div class="d-flex align-items-center">
+                                <img src="http://localhost:8081/Back_End_war/uploads/${responseKey.sideViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                             </div></td><td>
+                             <div class="d-flex align-items-center">
+                                <img src="http://localhost:8081/Back_End_war/uploads/${responseKey.interiorViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                             </div></td>
+                             <td><button type="button" id="btnEditCar"  class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
+                                <i class="fas fa-pen-alt"></i>
+                              </button></td></tr>`;
+        $("#tblCars tbody").append(raw);
+
+      }
+      generateVehicleIds();
+      BindRowClickEvent();
+      clearFieldsFromCarPage();
+
+    },
+    error: function (error) {
+      alert(error);
+    }
+  });
+}
+
+
+function BindRowClickEvent() {
+
+}
+
 function clearFieldsFromCarPage(){
   generateVehicleIds();
 
