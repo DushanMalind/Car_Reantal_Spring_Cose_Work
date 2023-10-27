@@ -5,6 +5,7 @@ import lk.ijse.spring.carRental.entity.Car;
 import lk.ijse.spring.carRental.repo.CarRepo;
 import lk.ijse.spring.carRental.service.CarService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -49,22 +50,32 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public void deleteCar(String id) {
-
+        if (carRepo.existsById(id)) {
+            carRepo.deleteById(id);
+        } else {
+            throw new RuntimeException(id + " " + "No Such Car..! Please Check The Correct Id..!");
+        }
     }
 
     @Override
     public CarDTO searchCar(String id) {
-        return null;
+        if (carRepo.existsById(id)) {
+            Car car = carRepo.findById(id).get();
+            return mapper.map(car, CarDTO.class);
+        } else {
+            throw new RuntimeException(id + " " + "No Such Car..! Please Check The Correct Id..!");
+        }
     }
 
     @Override
     public List<CarDTO> getAllCars() {
-        return null;
+        List<Car> carList = carRepo.findAll();
+        return mapper.map(carList,new TypeToken<List<CarDTO>>(){}.getType());
     }
 
     @Override
     public String generateCarIds() {
-        return null;
+        return carRepo.generateCarId();
     }
 
     @Override
