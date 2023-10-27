@@ -101,3 +101,19 @@ $("#freeKMPerMonth").on("keyup",function (event) {
 });
 
 
+$("#priceForExtraKM").on("keyup",function (event) {
+  let priceForExtraKm=$("#priceForExtraKM").val();
+    if(regExtraPrice.test(priceForExtraKm)){
+        $("#priceForExtraKM").css("border","2px solid green");
+        $("#errorExtraKm").text("");
+        if (event.key === "Enter") {
+            $("#totalDistanceTravelled").focus();
+        }
+    }else {
+        $("#priceForExtraKM").css("border","2px solid red");
+        $("#errorExtraKm").text("Invalid Price For Extra Km");
+    }
+});
+
+
+
