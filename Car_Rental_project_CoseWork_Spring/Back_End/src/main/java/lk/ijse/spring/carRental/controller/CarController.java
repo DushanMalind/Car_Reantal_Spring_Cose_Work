@@ -101,4 +101,35 @@ public class CarController {
         return new ResponseUtil("Ok","Successfully Searched.",carService.sortAccordingToMonthlyRatePriceByDescending());
     }
 
+        /**********/
+    @GetMapping(path = "/schByTransmission/{type}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil findByTransmissionType(@PathVariable("type") String type){
+        return new ResponseUtil("Ok","Successfully Searched.",carService.findByTransmissionType(type));
+    }
+
+
+    @GetMapping(path = "/schByCarType/{type}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil findByType(@PathVariable("type") String type){
+        return new ResponseUtil("Ok","Successfully Searched.",carService.findByType(type));
+    }
+
+
+    @GetMapping(path = "/schByCarBrand/{brand}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil findByBrand(@PathVariable("brand") String brand){
+        return new ResponseUtil("Ok","Successfully Searched.",carService.findByBrand(brand));
+    }
+
+
+    @GetMapping(path = "/schByFuelType/{fuelType}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil findByFuelType(@PathVariable("fuelType") String fuelType){
+        return new ResponseUtil("Ok","Successfully Searched.",carService.findByFuelType(fuelType));
+    }
+
+    @GetMapping(path = "/schByColour/{colour}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil findByColour(@PathVariable("colour") String colour){
+        return new ResponseUtil("Ok","Successfully Searched.",carService.findByColour(colour));
+    }
+
+
+
 }
