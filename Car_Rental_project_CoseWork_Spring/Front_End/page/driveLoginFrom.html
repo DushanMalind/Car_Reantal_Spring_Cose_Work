@@ -18,6 +18,7 @@
   <title>AddMin Drive From</title>
   <link rel="stylesheet" href="../assets/css/bootstrap.css">
 
+
 </head>
 <body>
 <header>
@@ -93,27 +94,27 @@
             <div class="card-body" style="background-image: radial-gradient(circle at top,white,#0a53be)">
 
               <div class="pt-4 pb-2">
-                <h5 class="card-title text-center pb-0 fs-4">Login to Your Account Driver</h5>
-                <p class="text-center small">Enter your username & password to login</p>
+                <h5 class="card-title text-center pb-0 fs-4 font-monospace">Login to Your Account Driver</h5>
+                <p class="text-center small font-monospace">Enter your username & password to login</p>
               </div>
 
               <form class="row g-3 needs-validation" id="loginPageFrom" novalidate>
 
                 <div class="col-12">
-                  <label class="form-label" for="loginUsername">Username</label>
+                  <label class="form-label font-monospace" for="loginUsername">Username</label>
                   <div class="input-group has-validation">
                     <span class="input-group-text" id="inputGroupPrepend">@</span>
                     <input class="form-control" id="loginUsername" name="loginUsernameDrive" required
                            type="text">
-                    <div class="invalid-feedback">Please enter your username.</div>
+                    <div class="invalid-feedback font-monospace">Please enter your username.</div>
                   </div>
                 </div>
 
                 <div class="col-12">
-                  <label class="form-label" for="loginPassword">Password</label>
+                  <label class="form-label font-monospace" for="loginPassword">Password</label>
                   <input class="form-control" id="loginPassword" name="loginPasswordDrive" required
                          type="password">
-                  <div class="invalid-feedback">Please enter your password!</div>
+                  <div class="invalid-feedback font-monospace">Please enter your password!</div>
                 </div>
 
                 <!-- <div class="col-12">
@@ -129,15 +130,15 @@
                     <!-- Checkbox -->
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-                      <label class="form-check-label text-black" for="flexCheckDefault" style="font-size: 18px">Remember
+                      <label class="form-check-label text-black font-monospace" for="flexCheckDefault" style="font-size: 18px">Remember
                         Me</label>
                     </div>
                   </div>
 
-                  <div class="col">
+                  <div class="col font-monospace">
                     <!-- Simple link -->
                     <a href="#ForgotPasswordPage" id="btnForgotPW"
-                       style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;color: #6f42c1;text-decoration: none">Forgot
+                       style="font-size: 18px;color: #6f42c1;text-decoration: none">Forgot
                       password?</a>
                   </div>
                 </div>
@@ -145,13 +146,13 @@
 
                 <!--submit btn-->
                 <div class="col-12">
-                  <button class="btn btn-primary w-100" type="button" id="btnLogToSystem">Login</button>
+                  <button class="btn btn-primary w-100 font-monospace" type="button" id="btnLogToSystem">Login</button>
                 </div>
 
                 <div class="text-center">
-                  <p class="text-black" style="font-size: 18px">Not a member? <a href="#RegisterPage" id="btnRegisterInDrive" style="font-family: 'Edu VIC WA NT Beginner', cursive;font-size: 18px;color: #6f42c1;text-decoration: none">
+                  <p class="text-black font-monospace" style="font-size: 18px">Not a member? <a href="#RegisterPage" id="btnRegisterInDrive" style="font-size: 18px;color: #6f42c1;text-decoration: none">
                     Register</a></p>
-                  <p class="text-black" style="font-size: 18px">or sign up with:</p>
+                  <p class="text-black font-monospace" style="font-size: 18px">or sign up with:</p>
 
                   <button type="button" class="btn btn-dark btn-floating mx-1">
                     <i class="fab fa-google"></i>
@@ -184,7 +185,7 @@
 <script src="../assets/js/bootstrap.js"></script>
 <script src="../assets/js/bootstrap.bundle.min.js"></script>
 <script src="../assets/js/jquery-3.6.1.min.js"></script>
-
+<script src="../controller/driverLoginFrom.js"></script>
 
 </body>
 </html>
