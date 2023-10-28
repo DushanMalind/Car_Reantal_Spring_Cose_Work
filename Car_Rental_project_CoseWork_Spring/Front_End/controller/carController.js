@@ -221,13 +221,11 @@ function uploadCarImages() {
   });
 }
 
-
 function loadAllCars() {
   $.ajax({
     url: baseUrl +"car",
     method: "GET",
     success: function (response) {
-
       $("#tblCars tbody").empty();
       for (var responseKey of response.data) {
         let raw = `<tr><td> ${responseKey.carId} </td><td>
@@ -243,14 +241,14 @@ function loadAllCars() {
                             ${responseKey.freeKmForDay} </td><td>
                             ${responseKey.freeKmForMonth} </td><td>
                             ${responseKey.pricePerExtraKM} </td><td>
-                            <span class="badge rounded-pill text-bg-success text-white">${responseKey.availableOrNot}</span></td><td>
-                            <span class="badge rounded-pill text-bg-danger text-white">${responseKey.damageOrNot}</span></td><td>
-                            <span class="badge rounded-pill text-bg-warning text-secondary">${responseKey.underMaintainOrNot}</span> </td><td>
+                            <span class="badge rounded-pill text-black">${responseKey.availableOrNot}</span></td><td>
+                            <span class="badge rounded-pill text-black">${responseKey.damageOrNot}</span></td><td>
+                            <span class="badge rounded-pill text-black">${responseKey.underMaintainOrNot}</span> </td><td>
                             ${responseKey.totalDistanceTraveled} </td><td>
                             <div class="d-flex align-items-center">
                                 <!--<img src="../assets/img/two.jpg${responseKey.fontViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>*/-->
                                 <!-- <img src="../assets/img/one.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>-->
-                                  <img src="http://localhost:8081/Back_End_war/uploads/${responseKey.fontViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                                <img src="http://localhost:8081/Back_End_war/api/v1/upload/myFile" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
                              </div></td><td>
                              <div class="d-flex align-items-center">
                                  <img src="../assets/img/two.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
@@ -519,4 +517,25 @@ function clearFieldsFromCarPage() {
   $("#dailyRatePrice").css('border', '1px solid #e9ecef');
   $("#monthlyRatePrice").css('border', '1px solid #e9ecef');
   $("#totalDistanceTravelled").css('border', '1px solid #e9ecef');
+}
+
+function base64ToUint8Array(base64) {
+  const binaryString = window.atob(base64);
+  const length = binaryString.length;
+  const uint8Array = new Uint8Array(length);
+
+  for (let i = 0; i < length; i++) {
+    uint8Array[i] = binaryString.charCodeAt(i);
+  }
+
+  return uint8Array;
+}
+
+
+function byteArrayToImage(byteArray) {
+  const blob = new Blob([base64ToUint8Array(byteArray)], { type: 'image/jpeg' });
+  const imageUrl = URL.createObjectURL(blob);
+
+  return imageUrl;
+
 }

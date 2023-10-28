@@ -1,4 +1,4 @@
-let baseUrl="http://localhost:8081/Back_End_war/";
+let baseUrlDriver="http://localhost:8081/Back_End_war/";
 
 
 var regExDriverUsername = /^[A-Z|a-z\s]{3,20}$/;
