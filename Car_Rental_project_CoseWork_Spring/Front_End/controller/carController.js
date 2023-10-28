@@ -248,16 +248,17 @@ function loadAllCars() {
                             <span class="badge rounded-pill text-bg-warning text-secondary">${responseKey.underMaintainOrNot}</span> </td><td>
                             ${responseKey.totalDistanceTraveled} </td><td>
                             <div class="d-flex align-items-center">
-                                <img src="http://localhost:8081/Back_End_war/upload/${responseKey.fontViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                                <!--<img src="../assets/img/two.jpg${responseKey.fontViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>*/-->
+                                 <img src="../assets/img/one.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
                              </div></td><td>
                              <div class="d-flex align-items-center">
-                                <img src="http://localhost:8081/Back_End_war/upload/${responseKey.backViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                                 <img src="../assets/img/two.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
                              </div></td><td>
                              <div class="d-flex align-items-center">
-                                <img src="http://localhost:8081/Back_End_war/upload/${responseKey.sideViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                                <img src="http://localhost:8081/Back_End_war/car/${responseKey.sideViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
                              </div></td><td>
                              <div class="d-flex align-items-center">
-                                <img src="http://localhost:8081/Back_End_war/upload/${responseKey.interiorViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                                <img src="http://localhost:8081/Back_End_war/car/${responseKey.interiorViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
                              </div></td>
                              <td><button type="button" id="btnEditCar"  class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
                                 <i class="fas fa-pen-alt"></i>
