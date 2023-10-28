@@ -352,9 +352,60 @@ function isExistsRegistrationNumber() {
   });
 }
 
-
+var tblClickRow=-1;
 function BindRowClickEvent() {
+  $("#tblCars tbody > tr").click(function () {
 
+    tblClickRow = $(this);
+
+    swal({
+      title: "Do you want to Edit cars ?",
+      text: "message!",
+      type: "info",
+      showCancelButtonClass: "btn-success",
+      confirmButtonClass: "btn-success",
+    });
+
+      $('#CarManagePage').css('transform','scale(1)');
+
+      var carId = $.trim(tblClickRow.children(':nth-child(1)').text());
+      var regNo = $.trim(tblClickRow.children(':nth-child(5)').text());
+      var passengers = $.trim(tblClickRow.children(':nth-child(8)').text());
+      var dailyRate = $.trim(tblClickRow.children(':nth-child(9)').text());
+      var monthlyRate = $.trim(tblClickRow.children(':nth-child(10)').text());
+      var freeKMDay = $.trim(tblClickRow.children(':nth-child(11)').text());
+      var freeKmMonth = $.trim(tblClickRow.children(':nth-child(12)').text());
+      var extraKm = $.trim(tblClickRow.children(':nth-child(13)').text());
+      var totalDistance = $.trim(tblClickRow.children(':nth-child(17)').text());
+
+
+
+      $("#brand").append($("<option selected></option>").attr("value", 14).text($.trim(tblClickRow.children(':nth-child(2)').text())));
+      $("#colour").append($("<option selected></option>").attr("value", 11).text($.trim(tblClickRow.children(':nth-child(3)').text())));
+      $("#type").append($("<option selected></option>").attr("value", 4).text($.trim(tblClickRow.children(':nth-child(4)').text())));
+      $("#transmissionType").append($("<option selected></option>").attr("value", 3).text($.trim(tblClickRow.children(':nth-child(7)').text())));
+      $("#fuelType").append($("<option selected></option>").attr("value", 3).text($.trim(tblClickRow.children(':nth-child(6)').text())));
+      $("#availableOrNot").append($("<option selected></option>").attr("value", 3).text($.trim(tblClickRow.children(':nth-child(14)').text())));
+      $("#damageOrNot").append($("<option selected></option>").attr("value", 3).text($.trim(tblClickRow.children(':nth-child(15)').text())));
+      $("#underMaintainOrNot").append($("<option selected></option>").attr("value", 3).text($.trim(tblClickRow.children(':nth-child(16)').text())));
+
+      $("#carId").val(carId);
+      $("#registrationNo").val(regNo);
+      $("#noOfPassengers").val(passengers);
+      $("#dailyRatePrice").val(dailyRate);
+      $("#monthlyRatePrice").val(monthlyRate);
+      $("#freeKMPerDay").val(freeKMDay);
+      $("#freeKMPerMonth").val(freeKmMonth);
+      $("#priceForExtraKM").val(extraKm);
+      $("#totalDistanceTravelled").val(totalDistance);
+      $("#transmissionType option:selected").val($.trim(tblClickRow.children(':nth-child(7)').text()));
+      $("#uploadFrontView").val('');
+      $("#uploadBackView").val('');
+      $("#uploadSideView").val('');
+      $("#uploadInteriorView").val('');
+
+
+  });
 }
 
 function clearFieldsFromCarPage() {
