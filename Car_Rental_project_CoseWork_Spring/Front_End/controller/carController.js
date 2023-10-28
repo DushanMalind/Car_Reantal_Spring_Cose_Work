@@ -228,8 +228,6 @@ function loadAllCars() {
     method: "GET",
     success: function (response) {
 
-      let imageFront=byteArrayToBase64(response.data[0].fontViewImage);
-
       $("#tblCars tbody").empty();
       for (var responseKey of response.data) {
         let raw = `<tr><td> ${responseKey.carId} </td><td>
@@ -251,7 +249,8 @@ function loadAllCars() {
                             ${responseKey.totalDistanceTraveled} </td><td>
                             <div class="d-flex align-items-center">
                                 <!--<img src="../assets/img/two.jpg${responseKey.fontViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>*/-->
-                                 <img src="../assets/img/one.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                                <!-- <img src="../assets/img/one.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>-->
+                                  <img src="http://localhost:8081/Back_End_war/uploads/${responseKey.fontViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
                              </div></td><td>
                              <div class="d-flex align-items-center">
                                  <img src="../assets/img/two.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
