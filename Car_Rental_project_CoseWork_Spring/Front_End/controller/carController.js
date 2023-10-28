@@ -267,7 +267,7 @@ function loadAllCars() {
 
       }
 
-      /*BindRowClickEvent();*/
+      BindRowClickEvent();
       clearFieldsFromCarPage();
 
     },
