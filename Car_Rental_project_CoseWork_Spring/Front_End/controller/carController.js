@@ -228,6 +228,8 @@ function loadAllCars() {
     method: "GET",
     success: function (response) {
 
+      let imageFront=byteArrayToBase64(response.data[0].fontViewImage);
+
       $("#tblCars tbody").empty();
       for (var responseKey of response.data) {
         let raw = `<tr><td> ${responseKey.carId} </td><td>
