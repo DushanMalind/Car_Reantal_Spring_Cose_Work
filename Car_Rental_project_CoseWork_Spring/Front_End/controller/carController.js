@@ -459,9 +459,13 @@ $("#btnUpdateCar").click(function () {
 
  /* if (confirm(text) == true) {*/
 
-  swal({
-
-  });
+ /* swal({
+    title: "Do you want to update this cars ?",
+    text: "message!",
+    type: "info",
+    showCancelButtonClass: "btn-primary",
+    confirmButtonClass: "btn-success",
+  });*/
 
     if ($("#brand option:selected").val() == "" || $("#colour option:selected").val() == "" || $("#type option:selected").val() == "" ||
       $("#fuelType option:selected").val() == "" || $("#registrationNo").val() == "" || $("#noOfPassengers").val() == "" ||
@@ -480,6 +484,13 @@ $("#btnUpdateCar").click(function () {
           updateCar();
           uploadCarImages();
         }
+        swal({
+          title: "Successfully Update Car Details",
+          text: "message!",
+          type: "success",
+          showCancelButtonClass: "btn-primary",
+          confirmButtonClass: "btn-danger",
+        });
       }
     }
   /*}else {}*/
