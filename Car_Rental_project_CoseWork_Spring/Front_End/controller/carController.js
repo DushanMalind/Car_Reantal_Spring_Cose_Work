@@ -408,6 +408,56 @@ function BindRowClickEvent() {
   });
 }
 
+
+function updateCar() {
+  var carDetails = {
+    carId: $("#carId").val(),
+    registrationNo:$("#registrationNo").val(),
+    colour: $("#colour option:selected").text(),
+    brand: $("#brand option:selected").text(),
+    type: $("#type option:selected").text(),
+    fuelType: $("#fuelType option:selected").text(),
+    transmissionType: $("#transmissionType option:selected").text(),
+    noOfPassengers: $("#noOfPassengers").val(),
+    freeKmForDay: $("#freeKMPerDay").val(),
+    freeKmForMonth: $("#freeKMPerMonth").val(),
+    pricePerExtraKM: $("#priceForExtraKM").val(),
+    dailyRatePrice: $("#dailyRatePrice").val(),
+    monthlyRatePrice: $("#monthlyRatePrice").val(),
+    totalDistanceTraveled: $("#totalDistanceTravelled").val(),
+    availableOrNot:$("#availableOrNot option:selected").text(),
+    damageOrNot: $("#damageOrNot option:selected").text(),
+    underMaintainOrNot: $("#underMaintainOrNot option:selected").text(),
+    fontViewImage: $('#uploadFrontView')[0].files[0].name,
+    backViewImage: $('#uploadBackView')[0].files[0].name,
+    sideViewImage: $('#uploadSideView')[0].files[0].name,
+    interiorViewImage: $('#uploadInteriorView')[0].files[0].name
+  }
+
+  $.ajax({
+    url: baseUrl+"car",
+    method: "PUT",
+    contentType: "application/json",
+    data: JSON.stringify(carDetails),
+    success: function (response) {
+      if (response.code == 200) {
+        alert($("#carId").val() + " " + response.message);
+      }
+      clearFieldsFromCarPage()
+      loadAllCars();
+    },
+    error: function (error) {
+      alert(JSON.parse(error.responseText).message);
+    }
+  });
+}
+
+
+
+
+
+
+
 function clearFieldsFromCarPage() {
 
 
