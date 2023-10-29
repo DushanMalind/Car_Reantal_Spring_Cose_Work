@@ -230,6 +230,8 @@ function addNewDriver() {
   });
 }
 
+
+
 function loadAllDrivers() {
   $.ajax({
     url: baseUrlDriver+"driver",
@@ -238,19 +240,17 @@ function loadAllDrivers() {
 
       $("#tblDriver tbody").empty();
       for (var responseKey of response.data) {
-        let raw = `<tr><td> ${responseKey.driverId} </td><td> ${responseKey.driverName} </td><td> ${responseKey.driverAddress} </td><td> ${responseKey.driverAge} </td><td> ${responseKey.driverContact} </td><td> <span class="badge rounded-pill text-bg-success fs-6">${responseKey.releaseOrNot}</span> </td>
+        let raw = `<tr><td> ${responseKey.driverId} </td><td> ${responseKey.driverName} </td><td> ${responseKey.driverAddress} </td><td> ${responseKey.driverAge} </td><td> ${responseKey.driverContact} </td><td> <span class="badge rounded-pill text-black">${responseKey.releaseOrNot}</span> </td>
                 <td><button type="button" id="btnEditDriver"  class="btn btn-danger btn-sm px-3" data-ripple-color="dark">
                      <i class="fas fa-pen-alt"></i>
                 </button></td></tr>`;
         $("#tblDriver tbody").append(raw);
       }
-
-
       clearDriverFields();
       clickDriverTableRow();
     },
-    error: function (ob) {
-      alert(ob.responseJSON.message);
+    error: function (error) {
+      alert(error)
     }
   });
 }
@@ -304,6 +304,65 @@ function findUserNameAndPassword(driverId) {
   });
 }
 
+$("#btnEditPreDriver").click(function () {
+  $("#tblDriver tbody > tr").off("click");
+
+  let text = "Do you want to update this driver ?";
+
+  if (confirm(text) == true) {
+    if ($("#driverUsername").val() == "" || $("#driverPassword").val() == "" || $("#driverName").val() == "" || $("#driverAddress").val() == "" ||
+      $("#driverAge").val() == "" || $("#driverContact").val() == "" || $("#driverReleaseOrNot option:selected").val() == ""){
+      alert("All Fields Are Required !");
+    }else {
+      if ($("#errorDriverUsername").text() != "" || $("#errorDName").text() != "" || $("#errorDPassword").text() != "" || $("#errorDAddress").text() != "" ||
+        $("#errorDAge").text() != "" || $("#errorDContact").text() != ""){
+        alert("Check Input Fields Whether Correct !");
+      }else {
+        updateDriver();
+      }
+    }
+  }else {}
+
+});
+
+function updateDriver() {
+  var user={
+    userId:$("#driverUserId").text(),
+    username:$("#driverUsername").val(),
+    password: $("#driverPassword").val()
+  }
+
+  var driverDetail = {
+    driverId: $("#driverId").val(),
+    users:user,
+    driverName: $("#driverName").val(),
+    driverAddress: $("#driverAddress").val(),
+    driverAge: $("#driverAge").val(),
+    driverContact: $("#driverContact").val(),
+    releaseOrNot: $("#driverReleaseOrNot option:selected").text()
+  }
+
+  $.ajax({
+    url: baseUrlDriver+"driver",
+    method: "PUT",
+    contentType: "application/json",
+    data: JSON.stringify(driverDetail),
+    success: function (response) {
+      if (response.code == 200) {
+        alert($("#driverId").val() + " " + response.message);
+      }
+      clearDriverFields();
+      loadAllDrivers();
+    },
+    error: function (ob) {
+      alert(ob.responseJSON.message);
+    }
+  });
+}
+
+function clearDriverAfterUpdate() {
+  $('#driverReleaseOrNot').find('option:last').remove();
+}
 
 
 function clearDriverFields(){

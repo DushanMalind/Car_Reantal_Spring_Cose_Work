@@ -74,7 +74,7 @@ $("#btn_car").click(function(){
 
 
 $("#btn_driver").click(function(){
-
+  loadAllDrivers();
   $("#driver_dashboard").css('display', 'block');
 
   $('#admin_dashboard').css('display', 'none');
@@ -278,7 +278,7 @@ $("#btnAddDriver").click(function () {
 
 
 $("#btnCancelAddDriver").click(function () {
-
+  clearDriverAfterUpdate();
 
   $('#CarManagePage').css('transform', 'scale(0)');
   $("#driver_dashboard").css('display', 'block');
