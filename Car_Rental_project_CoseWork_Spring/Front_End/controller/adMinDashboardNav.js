@@ -251,7 +251,8 @@ $("#btnCancelAddCar").click(function () {
 
 
 $("#btnAddDriver").click(function () {
-
+  generateDriverIds();
+  generateUserIds();
   $('#DriverManagePage').css('transform', 'scale(1)');
   $("#driver_dashboard").css('display', 'block');
 

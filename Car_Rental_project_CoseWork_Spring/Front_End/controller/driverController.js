@@ -97,3 +97,68 @@ $("#driverContact").on("keyup", function (event) {
     $("#errorDContact").text("Invalid Contact Number");
   }
 });
+
+
+function generateDriverIds() {
+  $("#driverId").val("D00-0001");
+  var test = "id";
+
+  $.ajax({
+    url: baseUrlDriver+"driver?test="+test,
+    method: "GET",
+    success: function (response) {
+      var driverId = response.data;
+      var tempId = parseInt(driverId.split("-")[1]);
+      tempId = tempId + 1;
+      if (tempId <= 9) {
+        $("#driverId").val("D00-000" + tempId);
+      } else if (tempId <= 99) {
+        $("#driverId").val("D00-00" + tempId);
+      } else if (tempId <= 999) {
+        $("#driverId").val("D00-0" + tempId);
+      } else {
+        $("#driverId").val("D00-" + tempId);
+      }
+
+    },
+    error: function (ob, statusText, error) {
+    }
+
+  });
+}
+
+
+$("#btnAddNewDriver").click(function () {
+  $("#tblDriver tbody > tr").off("click");
+
+
+    if ($("#driverUsername").val() == "" || $("#driverPassword").val() == "" || $("#driverName").val() == "" || $("#driverAddress").val() == "" ||
+      $("#driverAge").val() == "" || $("#driverContact").val() == "" || $("#driverReleaseOrNot option:selected").val() == ""){
+      swal({
+        title: "Please Fill All Fields",
+        text: "message!",
+        type: "warning",
+        showCancelButtonClass: "btn-primary",
+        confirmButtonClass: "btn-danger",
+      });
+    }else {
+      if ($("#errorDriverUsername").text() != "" || $("#errorDName").text() != "" || $("#errorDPassword").text() != "" || $("#errorDAddress").text() != "" ||
+        $("#errorDAge").text() != "" || $("#errorDContact").text() != ""){
+        alert("Check Input Fields Whether Correct !");
+      }else {
+        addNewDriver();
+
+        swal({
+          title: "Successfully Register Driver Details",
+          text: "message!",
+          type: "success",
+          showCancelButtonClass: "btn-primary",
+          confirmButtonClass: "btn-danger",
+        });
+
+      }
+    }
+
+});
+
+
