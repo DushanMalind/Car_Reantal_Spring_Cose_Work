@@ -54,7 +54,7 @@ $("#btn_profile").click(function (){
 
 
 $("#btn_car").click(function(){
-  /*loadAllCars();*/
+  loadAllCars();
   $("#car_dashboard").css('display', 'block');
 
   $('#admin_dashboard').css('display', 'none');

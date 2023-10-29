@@ -192,15 +192,14 @@ function saveCar() {
       if (response.code == 200) {
         loadAllCars();
         clearFieldsFromCarPage();
-
-        swal({
-          title: "Successfully Register Car Details",
-          text: "message!",
-          type: "success",
-          showCancelButtonClass: "btn-primary",
-          confirmButtonClass: "btn-danger",
-        });
       }
+      swal({
+        title: "Successfully Register Car Details",
+        text: "message!",
+        type: "success",
+        showCancelButtonClass: "btn-primary",
+        confirmButtonClass: "btn-danger",
+      });
     }
   });
 }
@@ -234,6 +233,8 @@ function loadAllCars() {
     url: baseUrl +"car",
     method: "GET",
     success: function (response) {
+
+
       $("#tblCars tbody").empty();
       for (var responseKey of response.data) {
         let raw = `<tr><td> ${responseKey.carId} </td><td>
@@ -253,11 +254,11 @@ function loadAllCars() {
                             <span class="badge rounded-pill text-black">${responseKey.damageOrNot}</span></td><td>
                             <span class="badge rounded-pill text-black">${responseKey.underMaintainOrNot}</span> </td><td>
                             ${responseKey.totalDistanceTraveled} </td><td>
-                            <div class="d-flex align-items-center">
-                                <img src="http://localhost:8081/Back_End_war/uploads/${responseKey.fontViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                             <div class="d-flex align-items-center">
+                                <img src="../assets/img/one.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
                              </div></td><td>
                              <div class="d-flex align-items-center">
-                                   <img src="http://localhost:8081/Back_End_war/uploads/${responseKey.backViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                                <img src="http://localhost:8081/Back_End_war/uploads/${responseKey.backViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
                              </div></td><td>
                              <div class="d-flex align-items-center">
                                 <img src="http://localhost:8081/Back_End_war/uploads/${responseKey.sideViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
@@ -265,6 +266,9 @@ function loadAllCars() {
                              <div class="d-flex align-items-center">
                                 <img src="http://localhost:8081/Back_End_war/uploads/${responseKey.interiorViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
                              </div></td>
+
+
+
                              <td><button type="button" id="btnEditCar"  class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
                                 <i class="fas fa-pen-alt"></i>
                               </button></td></tr>`;
@@ -281,9 +285,10 @@ function loadAllCars() {
     }
   });
 }
-<!--<img src="../assets/img/two.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>-->
 
-loadAllCars();
+
+
+/*loadAllCars();*/
 $("#btnAddNewCar").click(function () {
   $("#tblCars tbody > tr").off('click');
 
@@ -543,7 +548,11 @@ function clearFieldsFromCarPage() {
   $("#totalDistanceTravelled").css('border', '1px solid #e9ecef');
 }
 
-function base64ToUint8Array(base64) {
+$("#btnClerar").click(function (){
+  clearFieldsFromCarPage();
+});
+
+/*function base64ToUint8Array(base64) {
   const binaryString = window.atob(base64);
   const length = binaryString.length;
   const uint8Array = new Uint8Array(length);
@@ -562,4 +571,4 @@ function byteArrayToImage(byteArray) {
 
   return imageUrl;
 
-}
+}*/
