@@ -440,3 +440,29 @@ function clearTextFields(){
   $("#registerPassword").val("");
   $("#upLoadImage").val("");
 }
+
+
+function loadAllCustomer() {
+
+  $.ajax({
+    url: basUrl+"customer",
+    method: "GET",
+    success: function (response) {
+
+      $("#tblCustomers tbody").empty();
+      for (var responseKey of response.data) {
+        let raw = `<tr><td>${responseKey.customerId}</td><td>${responseKey.customerName}</td>
+                            <td>${responseKey.registeredDate}</td><td>${responseKey.customerEmail}</td><td>${responseKey.customerNIC}</td>
+                            <td>${responseKey.customerAddress}</td><td>${responseKey.customerContact}</td><td>${responseKey.customerDrivingLicenseId}</td>
+                             <div class="d-flex align-items-center"><td>
+                                <img src="https://www.americanpress.com/wp-content/uploads/sites/65/2021/12/Autism-license.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                                </div></td> </tr>`;
+        $("#tblCustomers tbody").append(raw);
+      }
+    },
+    error: function (error) {
+      alert(JSON.parse(error.responseText).message);
+    }
+  });
+
+}
