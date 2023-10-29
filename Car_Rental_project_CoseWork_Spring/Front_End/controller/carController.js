@@ -234,7 +234,6 @@ function loadAllCars() {
     method: "GET",
     success: function (response) {
 
-
       $("#tblCars tbody").empty();
       for (var responseKey of response.data) {
         let raw = `<tr><td> ${responseKey.carId} </td><td>
@@ -254,20 +253,10 @@ function loadAllCars() {
                             <span class="badge rounded-pill text-black">${responseKey.damageOrNot}</span></td><td>
                             <span class="badge rounded-pill text-black">${responseKey.underMaintainOrNot}</span> </td><td>
                             ${responseKey.totalDistanceTraveled} </td><td>
-                             <div class="d-flex align-items-center">
-                                <img src="../assets/img/one.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
-                             </div></td><td>
-                             <div class="d-flex align-items-center">
-                                <img src="http://localhost:8081/Back_End_war/uploads/${responseKey.backViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
-                             </div></td><td>
-                             <div class="d-flex align-items-center">
-                                <img src="http://localhost:8081/Back_End_war/uploads/${responseKey.sideViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
-                             </div></td><td>
-                             <div class="d-flex align-items-center">
-                                <img src="http://localhost:8081/Back_End_war/uploads/${responseKey.interiorViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
-                             </div></td>
-
-
+                            <img src="http://localhost:8081/Back_End_war/uploads/${responseKey.fontViewImage}" width="50px" height="50px"  class="rounded-circle"></td><td>
+                            <img src="http://localhost:8081/Back_End_war/uploads/${responseKey.backViewImage}" width="50px" height="50px"  class="rounded-circle"></td><td>
+                            <img src="http://localhost:8081/Back_End_war/uploads/${responseKey.sideViewImage}" width="50px" height="50px"  class="rounded-circle"></td><td>
+                            <img src="http://localhost:8081/Back_End_war/uploads/${responseKey.interiorViewImage}" width="50px" height="50px"  class="rounded-circle"></td><td>
 
                              <td><button type="button" id="btnEditCar"  class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
                                 <i class="fas fa-pen-alt"></i>
@@ -285,9 +274,9 @@ function loadAllCars() {
     }
   });
 }
+/**/
 
-
-
+/* <img src="http://localhost:8081/Back_End_war/uploads/${responseKey.fontViewImage}" width="50px" height="50px" alt="Front View Image" class="rounded-circle"></td><td>*/
 /*loadAllCars();*/
 $("#btnAddNewCar").click(function () {
   $("#tblCars tbody > tr").off('click');
