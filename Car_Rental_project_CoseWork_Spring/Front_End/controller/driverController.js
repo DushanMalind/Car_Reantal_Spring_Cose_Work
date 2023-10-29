@@ -1,14 +1,16 @@
 let baseUrlDriver="http://localhost:8081/Back_End_war/";
 
 
-var regExDriverUsername = /^[A-Z|a-z\s]{3,20}$/;
+/*var regExDriverUsername = /^[A-Z|a-z\s]{3,20}$/;
 var regExDriverPassword = /^[A-Z|a-z\s|@|#|$|0-9]{6,10}$/;
 var regExDriverName = /^[A-Z|a-z\s]{3,20}$/;
 var regExDriverContact = /^(071-|077-|075-|078-|)[0-9]{7}$/;
+var regExContact = /^(071|077|075|078|076)[0-9]{7}$/;
 var regExDriverAge = /^[1-9]{1,2}$/;
-var regExDriverAddress = /^[0-9A-Z a-z,/:]{4,50}$/;
+var regExDriverAddress = /^[0-9A-Z a-z,/:]{4,50}$/;*/
 
 
+/*
 $("#driverUsername").on("keyup", function (event) {
   let driverUsername= $("#driverUsername").val();
   if (regExDriverUsername.test(driverUsername)) {
@@ -97,6 +99,7 @@ $("#driverContact").on("keyup", function (event) {
     $("#errorDContact").text("Invalid Contact Number");
   }
 });
+*/
 
 
 function generateDriverIds() {
@@ -126,6 +129,9 @@ function generateDriverIds() {
 
   });
 }
+
+
+
 
 
 $("#btnAddNewDriver").click(function () {
@@ -161,6 +167,32 @@ $("#btnAddNewDriver").click(function () {
 
 });
 
+function registerUser1(users){
+  var user={
+    userId:users.userId,
+    username:users.username,
+    password:users.password,
+  }
+
+  $.ajax({
+    url:basUrl+"user",
+    method:"POST",
+    contentType:"application/json",
+    data: JSON.stringify(user),
+    success:function (resp) {
+      /*  alert(resp.message);*/
+      console.log(resp);
+      if (resp.message==200){
+        clearTextFields();
+      }
+
+    },
+    error:function (error) {
+      alert(JSON.parse(error.responseText).message);
+    }
+  });
+}
+
 
 function addNewDriver() {
   var user={
@@ -186,10 +218,8 @@ function addNewDriver() {
     data: JSON.stringify(driverDetail),
     success: function (response) {
       if (response.code == 200){
-        registerUser(user);
+        registerUser1(user);
         alert($("#driverId").val() + " "+ response.message);
-        generateDriverIds();
-        generateUserIds();
         loadAllDrivers();
         clearDriverFields();
       }
@@ -200,6 +230,79 @@ function addNewDriver() {
   });
 }
 
+function loadAllDrivers() {
+  $.ajax({
+    url: baseUrlDriver+"driver",
+    method: "GET",
+    success: function (response) {
+
+      $("#tblDriver tbody").empty();
+      for (var responseKey of response.data) {
+        let raw = `<tr><td> ${responseKey.driverId} </td><td> ${responseKey.driverName} </td><td> ${responseKey.driverAddress} </td><td> ${responseKey.driverAge} </td><td> ${responseKey.driverContact} </td><td> <span class="badge rounded-pill text-bg-success fs-6">${responseKey.releaseOrNot}</span> </td>
+                <td><button type="button" id="btnEditDriver"  class="btn btn-danger btn-sm px-3" data-ripple-color="dark">
+                     <i class="fas fa-pen-alt"></i>
+                </button></td></tr>`;
+        $("#tblDriver tbody").append(raw);
+      }
+
+
+      clearDriverFields();
+      clickDriverTableRow();
+    },
+    error: function (ob) {
+      alert(ob.responseJSON.message);
+    }
+  });
+}
+
+var tblDriverRow =-1;
+
+function clickDriverTableRow() {
+  $("#tblDriver tbody > tr").click(function () {
+
+    tblDriverRow = $(this);
+
+    let text = "Do you want to update driver ?";
+
+    if (confirm(text) == true) {
+      $('#DriverManagePage').css('transform','scale(1)');
+
+      var driverId = $.trim(tblDriverRow.children(':nth-child(1)').text());
+      var driverName = $.trim(tblDriverRow.children(':nth-child(2)').text());
+      var driverAddress = $.trim(tblDriverRow.children(':nth-child(3)').text());
+      var driverAge = $.trim(tblDriverRow.children(':nth-child(4)').text());
+      var driverContact = $.trim(tblDriverRow.children(':nth-child(5)').text());
+
+      $("#driverReleaseOrNot").append($("<option selected></option>").attr("value", 3).text($.trim(tblDriverRow.children(':nth-child(6)').text())));
+
+      $("#driverId").val(driverId);
+      $("#driverName").val(driverName);
+      $("#driverAddress").val(driverAddress);
+      $("#driverAge").val(driverAge);
+      $("#driverContact").val(driverContact);
+
+      findUserNameAndPassword(driverId);
+
+    } else {}
+  });
+}
+
+/*findUserNameAndPassword();*/
+
+function findUserNameAndPassword(driverId) {
+  $.ajax({
+    url: baseUrlDriver+"driver/" + driverId,
+    method: "GET",
+    success: function (response) {
+      $("#driverUsername").val(response.data.users.username);
+      $("#driverPassword").val(response.data.users.password);
+      $("#driverUserId").val(response.data.users.userId);
+    },
+    error: function (ob) {
+
+    }
+  });
+}
 
 
 

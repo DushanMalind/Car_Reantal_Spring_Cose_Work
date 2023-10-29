@@ -74,6 +74,7 @@ $("#btn_car").click(function(){
 
 
 $("#btn_driver").click(function(){
+
   $("#driver_dashboard").css('display', 'block');
 
   $('#admin_dashboard').css('display', 'none');
@@ -256,6 +257,8 @@ $("#btnAddDriver").click(function () {
   $('#DriverManagePage').css('transform', 'scale(1)');
   $("#driver_dashboard").css('display', 'block');
 
+  /*generateDriverIds();*/
+  /*generateUserIds();*/
   $('#DriverManagePage').css('display', 'block');
 
   $("#car_dashboard").css('display', 'none');
