@@ -192,6 +192,14 @@ function saveCar() {
       if (response.code == 200) {
         loadAllCars();
         clearFieldsFromCarPage();
+
+        swal({
+          title: "Successfully Register Car Details",
+          text: "message!",
+          type: "success",
+          showCancelButtonClass: "btn-primary",
+          confirmButtonClass: "btn-danger",
+        });
       }
     }
   });
@@ -246,18 +254,16 @@ function loadAllCars() {
                             <span class="badge rounded-pill text-black">${responseKey.underMaintainOrNot}</span> </td><td>
                             ${responseKey.totalDistanceTraveled} </td><td>
                             <div class="d-flex align-items-center">
-                                <!--<img src="../assets/img/two.jpg${responseKey.fontViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>*/-->
-                                <!-- <img src="../assets/img/one.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>-->
-                                <img src="http://localhost:8081/Back_End_war/api/v1/upload/myFile" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                                <img src="http://localhost:8081/Back_End_war/uploads/${responseKey.fontViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
                              </div></td><td>
                              <div class="d-flex align-items-center">
-                                 <img src="../assets/img/two.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                                   <img src="http://localhost:8081/Back_End_war/uploads/${responseKey.backViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
                              </div></td><td>
                              <div class="d-flex align-items-center">
-                                <img src="http://localhost:8081/Back_End_war/car/${responseKey.sideViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                                <img src="http://localhost:8081/Back_End_war/uploads/${responseKey.sideViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
                              </div></td><td>
                              <div class="d-flex align-items-center">
-                                <img src="http://localhost:8081/Back_End_war/car/${responseKey.interiorViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
+                                <img src="http://localhost:8081/Back_End_war/uploads/${responseKey.interiorViewImage}" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>
                              </div></td>
                              <td><button type="button" id="btnEditCar"  class="btn btn-warning btn-sm px-3" data-ripple-color="dark">
                                 <i class="fas fa-pen-alt"></i>
@@ -275,8 +281,9 @@ function loadAllCars() {
     }
   });
 }
+<!--<img src="../assets/img/two.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle"/>-->
 
-
+loadAllCars();
 $("#btnAddNewCar").click(function () {
   $("#tblCars tbody > tr").off('click');
 
@@ -315,14 +322,16 @@ $("#btnAddNewCar").click(function () {
         isExistsRegistrationNumber();
         uploadCarImages();
 
+        swal({
+          title: "Successfully Register Car Details",
+          text: "message!",
+          type: "success",
+          showCancelButtonClass: "btn-primary",
+          confirmButtonClass: "btn-danger",
+        });
+
       }
-      swal({
-        title: "Successfully Register Car Details",
-        text: "message!",
-        type: "success",
-        showCancelButtonClass: "btn-primary",
-        confirmButtonClass: "btn-danger",
-      });
+
     }
 
   }
@@ -444,6 +453,13 @@ function updateCar() {
       }
       clearFieldsFromCarPage()
       loadAllCars();
+      swal({
+        title: "Successfully Update Car Details",
+        text: "message!",
+        type: "success",
+        showCancelButtonClass: "btn-primary",
+        confirmButtonClass: "btn-danger",
+      });
     },
     error: function (error) {
       alert(JSON.parse(error.responseText).message);
@@ -471,7 +487,14 @@ $("#btnUpdateCar").click(function () {
       $("#transmissionType option:selected").val() == "" || $("#dailyRatePrice").val() == "" || $("#monthlyRatePrice").val() == "" ||
       $("#freeKMPerDay").val() == "" || $("#freeKMPerMonth").val() == "" || $("#priceForExtraKM").val() == "" || $("#damageOrNot option:selected").val() == "" ||
       $("#underMaintainOrNot option:selected").val() == "" || $("#totalDistanceTravelled").val() == "" ||  $("#availableOrNot option:selected").val() == ""){
-      alert("All Fields Are Required !");
+      /*alert("All Fields Are Required !");*/
+      swal({
+        title: "Please Fill All Fields",
+        text: "message!",
+        type: "warning",
+        showCancelButtonClass: "btn-primary",
+        confirmButtonClass: "btn-danger",
+      });
     } else {
       if ($("#errorRegNo").text() != "" || $("#errorPassengers").text() != "" || $("#errorDailyRate").text() != "" || $("#errorMonthlyRate").text() != "" ||
         $("#errorFeeKMDay").text() != "" || $("#errorFreeKMMonth").text() != "" || $("#errorExtraKMPrice").text() != "" || $("#errorTotalDistance").text() != ""){
@@ -482,15 +505,16 @@ $("#btnUpdateCar").click(function () {
         }else {
           updateCar();
           uploadCarImages();
+          swal({
+            title: "Successfully Update Car Details",
+            text: "message!",
+            type: "success",
+            showCancelButtonClass: "btn-primary",
+            confirmButtonClass: "btn-danger",
+          });
         }
-        swal({
-          title: "Successfully Update Car Details",
-          text: "message!",
-          type: "success",
-          showCancelButtonClass: "btn-primary",
-          confirmButtonClass: "btn-danger",
-        });
       }
+
     }
   /*}else {}*/
 });
