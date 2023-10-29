@@ -162,3 +162,54 @@ $("#btnAddNewDriver").click(function () {
 });
 
 
+function addNewDriver() {
+  var user={
+    userId:$("#generateUserId").text(),
+    username:$("#driverUsername").val(),
+    password: $("#driverPassword").val()
+  }
+
+  var driverDetail = {
+    driverId: $("#driverId").val(),
+    users:user,
+    driverName: $("#driverName").val(),
+    driverAddress: $("#driverAddress").val(),
+    driverAge: $("#driverAge").val(),
+    driverContact: $("#driverContact").val(),
+    releaseOrNot: $("#driverReleaseOrNot option:selected").text()
+  }
+
+  $.ajax({
+    url: baseUrlDriver+"driver",
+    method: "POST",
+    contentType: "application/json",
+    data: JSON.stringify(driverDetail),
+    success: function (response) {
+      if (response.code == 200){
+        registerUser(user);
+        alert($("#driverId").val() + " "+ response.message);
+        generateDriverIds();
+        generateUserIds();
+        loadAllDrivers();
+        clearDriverFields();
+      }
+    },
+    error: function (ob) {
+      alert(ob.responseJSON.message);
+    }
+  });
+}
+
+
+
+
+function clearDriverFields(){
+    $("#driverId").val("");
+    $("#driverUsername").val("");
+    $("#driverPassword").val("");
+    $("#driverName").val("");
+    $("#driverAddress").val("");
+    $("#driverAge").val("");
+    $("#driverContact").val("");
+    $("#driverReleaseOrNot").val("");
+}
