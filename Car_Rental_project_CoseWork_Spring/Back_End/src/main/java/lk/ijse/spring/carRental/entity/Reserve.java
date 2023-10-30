@@ -5,8 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * `@authority` DUSHAN MALINDA
@@ -35,4 +35,13 @@ public class Reserve {
     private String returnDate;
     private String returnTime;
     private String requestAcceptOrDeny;
+
+
+    @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
+    @JoinColumn(name = "customerId", referencedColumnName = "customerId", nullable = false)
+    private Customer customer;
+
+    @OneToMany(mappedBy = "reserve",cascade = CascadeType.ALL)
+    private List<ReserveDetails> reserveDetails;
+
 }
