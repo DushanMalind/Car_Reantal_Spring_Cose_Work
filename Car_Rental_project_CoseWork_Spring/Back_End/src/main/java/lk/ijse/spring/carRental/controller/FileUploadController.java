@@ -32,12 +32,12 @@ public class FileUploadController {
 
     @PutMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity uploadFile(@RequestPart("myFile") MultipartFile myFile, @RequestPart("myFile") byte[] isFile, @RequestPart("myFile") Part myPart) {
-        System.out.println(isFile);
-        System.out.println(myPart.getSubmittedFileName());
+        System.out.println("My File 0:"+isFile);
+        System.out.println("My File 1:"+myPart.getSubmittedFileName());
 
 
-        System.out.println(myFile.getOriginalFilename());
-        System.out.println(myPart.getSubmittedFileName());
+        System.out.println("My File 2:"+myFile.getOriginalFilename());
+        System.out.println("My File 3:"+myPart.getSubmittedFileName());
 
         try {
             String projectPath = (new File(this.getClass().getProtectionDomain().getCodeSource().getLocation().toURI())).getParentFile().getParentFile().getAbsolutePath();

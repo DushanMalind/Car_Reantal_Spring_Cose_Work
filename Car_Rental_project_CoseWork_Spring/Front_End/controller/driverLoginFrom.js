@@ -15,7 +15,7 @@ function isExistsAdmin(username, password) {
       if (response.data.username == $("#loginUsername").val() && response.data.password == $("#loginPassword").val()) {
         searchAdminTable(response.data.userId);
       }
-      window.location.href = 'addMinDashBoard.html';
+      window.location.href = 'driveDashBoard.html';
     },
     error: function (ob) {
       alert("Wrong Username And Password !");
