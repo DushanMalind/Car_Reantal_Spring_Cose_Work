@@ -260,9 +260,17 @@ function clickDriverTableRow() {
 
     tblDriverRow = $(this);
 
-    let text = "Do you want to update driver ?";
+   /* let text = "Do you want to update driver ?";*/
 
-    if (confirm(text) == true) {
+    swal({
+      title: "Do you want to update driver ?",
+      text: "message!",
+      type: "warning",
+      showCancelButtonClass: "btn-primary",
+      confirmButtonClass: "btn-danger",
+    });
+
+    /*if (confirm(text) == true) {*/
       $('#DriverManagePage').css('transform','scale(1)');
 
       var driverId = $.trim(tblDriverRow.children(':nth-child(1)').text());
@@ -281,7 +289,7 @@ function clickDriverTableRow() {
 
       findUserNameAndPassword(driverId);
 
-    } else {}
+  /*  } else {}*/
   });
 }
 
@@ -305,9 +313,16 @@ function findUserNameAndPassword(driverId) {
 $("#btnEditPreDriver").click(function () {
   $("#tblDriver tbody > tr").off("click");
 
-  let text = "Do you want to update this driver ?";
+  /*let text = "Do you want to update this driver ?";*/
+  /*swal({
+    title: "Do you want to update this driver ?",
+    text: "message!",
+    type: "warning",
+    showCancelButtonClass: "btn-primary",
+    confirmButtonClass: "btn-danger",
+  });*/
 
-  if (confirm(text) == true) {
+  /*if (confirm(text) == true) {*/
     if ($("#driverUsername").val() == "" || $("#driverPassword").val() == "" || $("#driverName").val() == "" || $("#driverAddress").val() == "" ||
       $("#driverAge").val() == "" || $("#driverContact").val() == "" || $("#driverReleaseOrNot option:selected").val() == ""){
       alert("All Fields Are Required !");
@@ -317,9 +332,17 @@ $("#btnEditPreDriver").click(function () {
         alert("Check Input Fields Whether Correct !");
       }else {
         updateDriver();
+
+        swal({
+          title: "Successfully Update Driver Details",
+          text: "message!",
+          type: "success",
+          showCancelButtonClass: "btn-primary",
+          confirmButtonClass: "btn-danger",
+        });
       }
     }
-  }else {}
+ /* }else {}*/
 
 });
 
