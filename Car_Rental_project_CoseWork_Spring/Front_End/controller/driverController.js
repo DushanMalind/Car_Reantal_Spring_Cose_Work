@@ -1,16 +1,15 @@
 let baseUrlDriver="http://localhost:8081/Back_End_war/";
 
 
-/*var regExDriverUsername = /^[A-Z|a-z\s]{3,20}$/;
+var regExDriverUsername = /^[A-Z|a-z\s]{3,20}$/;
 var regExDriverPassword = /^[A-Z|a-z\s|@|#|$|0-9]{6,10}$/;
 var regExDriverName = /^[A-Z|a-z\s]{3,20}$/;
 var regExDriverContact = /^(071-|077-|075-|078-|)[0-9]{7}$/;
 var regExContact = /^(071|077|075|078|076)[0-9]{7}$/;
 var regExDriverAge = /^[1-9]{1,2}$/;
-var regExDriverAddress = /^[0-9A-Z a-z,/:]{4,50}$/;*/
+var regExDriverAddress = /^[0-9A-Z a-z,/:]{4,50}$/;
 
 
-/*
 $("#driverUsername").on("keyup", function (event) {
   let driverUsername= $("#driverUsername").val();
   if (regExDriverUsername.test(driverUsername)) {
@@ -90,7 +89,7 @@ $("#driverContact").on("keyup", function (event) {
   let driverContact= $("#driverContact").val();
   if (regExDriverContact.test(driverContact)) {
     $("#driverContact").css("border", "2px solid green");
-    $("#errorContact").text("");
+    $("#errorDContact").text("");
     if (event.key === "Enter") {
       $("#btnAddNewDriver").focus();
     }
@@ -99,7 +98,6 @@ $("#driverContact").on("keyup", function (event) {
     $("#errorDContact").text("Invalid Contact Number");
   }
 });
-*/
 
 
 function generateDriverIds() {
