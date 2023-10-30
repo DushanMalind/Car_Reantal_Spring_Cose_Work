@@ -234,6 +234,7 @@ $("#btnAddCar").click(function (){
 
 $("#btnCancelAddCar").click(function () {
   /*loadAllCars();*/
+  clearCarUpdateFields();
   $('#CarManagePage').css('transform', 'scale(0)');
   $("#car_dashboard").css('display', 'block');
 

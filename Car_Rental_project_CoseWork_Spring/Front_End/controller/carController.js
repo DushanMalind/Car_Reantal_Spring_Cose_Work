@@ -514,6 +514,16 @@ $("#btnUpdateCar").click(function () {
 });
 
 
+function clearCarUpdateFields() {
+  $("#brand").find('option:last').remove();
+  $("#colour").find('option:last').remove();
+  $("#type").find('option:last').remove();
+  $("#transmissionType").find('option:last').remove();
+  $("#fuelType").find('option:last').remove();
+  $("#availableOrNot").find('option:last').remove();
+  $("#damageOrNot").find('option:last').remove();
+  $("#underMaintainOrNot").find('option:last').remove();
+}
 
 function clearFieldsFromCarPage() {
 
