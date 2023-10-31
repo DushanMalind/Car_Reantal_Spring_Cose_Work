@@ -203,10 +203,8 @@ function gotoSeeCars() {
 
 }
 function openBookingPage() {
-/*
   generateVReserveIds();
-  generateScheduleIds();
-*/
+
 
   $("#nav_bar").css('display', 'none');
   $("#Reservation").css('display','block');
