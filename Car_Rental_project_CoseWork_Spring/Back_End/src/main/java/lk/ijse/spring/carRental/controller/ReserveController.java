@@ -1,10 +1,9 @@
 package lk.ijse.spring.carRental.controller;
 
 import lk.ijse.spring.carRental.service.ReserveService;
+import lk.ijse.spring.carRental.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * `@authority` DUSHAN MALINDA
@@ -21,5 +20,8 @@ public class ReserveController {
     @Autowired
     ReserveService reserveService;
 
-
+    @GetMapping(params = {"tempId"})
+    public ResponseUtil generateReserveId(@RequestParam String tempId){
+        return new ResponseUtil("Ok","Successfully Searched.",reserveService.generateReserveId());
+    }
 }
