@@ -103,11 +103,11 @@ public class ReserveServiceImpl implements ReserveService {
 
     @Override
     public int activeReservationPerDay(String date, String accept) {
-        return 0;
+        return reserveRepo.activeReservationPerDay(date,accept);
     }
 
     @Override
     public int countAllReservation() {
-        return 0;
+        return reserveRepo.countAllReservation();
     }
 }
