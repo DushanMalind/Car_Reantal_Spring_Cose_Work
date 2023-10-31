@@ -1,10 +1,9 @@
 package lk.ijse.spring.carRental.controller;
 
 import lk.ijse.spring.carRental.service.ScheduleService;
+import lk.ijse.spring.carRental.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * `@authority` DUSHAN MALINDA
@@ -20,6 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class ScheduleController {
     @Autowired
     ScheduleService scheduleService;
+
+    @GetMapping(params = {"tempId"})
+    public ResponseUtil generateScheduleId(@RequestBody String tempId){
+        return new ResponseUtil("Ok","Schedule Id Generated",scheduleService.generateScheduleId());
+    }
 
 
 }
