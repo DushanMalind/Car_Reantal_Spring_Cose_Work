@@ -90,3 +90,32 @@ function generateVReserveIds() {
     }
   });
 }
+
+function generateScheduleIds() {
+  $("#scheduleId").val("S00-0001");
+  var tempId = "id";
+
+  $.ajax({
+    url: baseURLForReservation+"schedule?tempId=" + tempId,
+    method: "GET",
+    success: function (response) {
+      var scheduleId = response.data;
+      if(scheduleId){
+        var tempId = parseInt(scheduleId.split("-")[1]);
+        tempId = tempId + 1;
+        if (tempId <= 9) {
+          $("#scheduleId").val("S00-000" + tempId);
+        } else if (tempId <= 99) {
+          $("#scheduleId").val("S00-00" + tempId);
+        } else if (tempId <= 999) {
+          $("#scheduleId").val("S00-0" + tempId);
+        } else {
+          $("#scheduleId").val("S00-" + tempId);
+        }
+      }
+    },
+    error: function (ob, statusText, error) {
+    }
+
+  });
+}
