@@ -1,9 +1,11 @@
 package lk.ijse.spring.carRental.service.impl;
 
 import lk.ijse.spring.carRental.dto.ScheduleDTO;
+import lk.ijse.spring.carRental.entity.Schedule;
 import lk.ijse.spring.carRental.repo.ScheduleRepo;
 import lk.ijse.spring.carRental.service.ScheduleService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,16 +31,21 @@ public class ScheduleServiceImpl implements ScheduleService {
 
     @Override
     public String generateScheduleId() {
-        return null;
+        return scheduleRepo.generateScheduleId();
     }
 
     @Override
     public void saveSchedule(ScheduleDTO scheduleDTO) {
-
+        if (!scheduleRepo.existsById(scheduleDTO.getScheduleId())) {
+            scheduleRepo.save(mapper.map(scheduleDTO, Schedule.class));
+        }else {
+            throw new RuntimeException(scheduleDTO.getScheduleId()+" Schedule Already Exists..!");
+        }
     }
 
     @Override
     public List<ScheduleDTO> getAllSchedules() {
-        return null;
+        List<Schedule>scheduleList=scheduleRepo.findAll();
+        return mapper.map(scheduleList,new TypeToken<List<ScheduleDTO>>(){}.getType());
     }
 }
