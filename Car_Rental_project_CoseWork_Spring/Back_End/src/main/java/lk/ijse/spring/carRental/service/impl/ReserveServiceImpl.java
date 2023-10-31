@@ -1,7 +1,14 @@
 package lk.ijse.spring.carRental.service.impl;
 
 import lk.ijse.spring.carRental.dto.ReserveDTO;
+import lk.ijse.spring.carRental.repo.CarRepo;
+import lk.ijse.spring.carRental.repo.DriverRepo;
+import lk.ijse.spring.carRental.repo.ReserveRepo;
 import lk.ijse.spring.carRental.service.ReserveService;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -13,7 +20,21 @@ import java.util.List;
  * Back_End
  * lk.ijse.spring.carRental.service.impl
  */
+@Service
+@Transactional
 public class ReserveServiceImpl implements ReserveService {
+    @Autowired
+    ReserveRepo reserveRepo;
+
+    @Autowired
+    ModelMapper modelMapper;
+
+    @Autowired
+    CarRepo carRepo;
+
+    @Autowired
+    DriverRepo driverRepo;
+
     @Override
     public String generateReserveId() {
         return null;
