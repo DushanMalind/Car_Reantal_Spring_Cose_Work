@@ -508,3 +508,27 @@ function findDriverData() {
     }
   });
 }
+
+
+var driverName;
+var driverContact;
+var driverId;
+
+
+/*Load driver release or not and load available release driver */
+function load(id,name, contact) {
+  driverName = name;
+  driverContact = contact;
+  driverId = id;
+  $(".checkDriverIfWant").click(function () {
+    $("#tblSelectedCars tbody > tr").click(function () {
+      if ($('.checkDriverIfWant').is(':checked')) {
+        if ($(this).find(".checkDriverIfWant").is(":checked")) {
+          $(this).find("td:eq(6)").text(driverId);
+          $(this).find("td:eq(7)").text(driverName);
+          $(this).find("td:eq(8)").text(driverContact);
+        }
+      }
+    });
+  });
+}
