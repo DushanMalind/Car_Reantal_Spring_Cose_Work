@@ -15,3 +15,21 @@ import java.util.List;
  * Back_End
  * lk.ijse.spring.carRental.service.impl
  */
+@Service
+@Transactional
+public class ScheduleServiceImpl implements ScheduleService {
+    @Override
+    public String generateScheduleId() {
+        return null;
+    }
+
+    @Override
+    public void saveSchedule(ScheduleDTO scheduleDTO) {
+
+    }
+
+    @Override
+    public List<ScheduleDTO> getAllSchedules() {
+        return null;
+    }
+}
