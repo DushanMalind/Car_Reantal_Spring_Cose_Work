@@ -140,3 +140,18 @@ function pasteDate() {
   $("#destinationEdit").prop("disabled", true);
   $("#durationEdit").prop("disabled", true);
 }
+
+function pasteDataToReservationFields() {
+  $("#BPickupDate").val($("#pickUpDateEdit").val());
+  $("#BPickupTime").val($("#pickUpTimeEdit").val());
+  $("#BReturnDate").val($("#returnDateEdit").val());
+  $("#BReturnTime").val($("#returnTimeEdit").val());
+  $("#BPickupLocation").val($("#pickUpLocationEdit").val());
+  $("#BReturnLocation").val($("#returnLocationEdit").val());
+  $("#BDestination").val($("#destinationEdit").val());
+  $("#BDuration").val($("#durationEdit").val());
+}
+
+
+
+
