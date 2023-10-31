@@ -98,7 +98,7 @@ public class ReserveServiceImpl implements ReserveService {
 
     @Override
     public int countDailyReservation(String date) {
-        return 0;
+        return reserveRepo.countDailyReservation(date);
     }
 
     @Override
