@@ -33,4 +33,11 @@ public class ReserveController {
         return new ResponseUtil("Ok","Successfully Saved.",null);
     }
 
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil getAllReservations(){
+        return new ResponseUtil("Ok","Successfully Searched.",reserveService.getAllReservations());
+    }
+
+
+
 }
