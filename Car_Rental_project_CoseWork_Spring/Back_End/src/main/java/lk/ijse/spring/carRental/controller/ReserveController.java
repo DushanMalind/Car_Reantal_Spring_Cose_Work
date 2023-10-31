@@ -1,8 +1,10 @@
 package lk.ijse.spring.carRental.controller;
 
+import lk.ijse.spring.carRental.dto.ReserveDTO;
 import lk.ijse.spring.carRental.service.ReserveService;
 import lk.ijse.spring.carRental.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -24,4 +26,11 @@ public class ReserveController {
     public ResponseUtil generateReserveId(@RequestParam String tempId){
         return new ResponseUtil("Ok","Successfully Searched.",reserveService.generateReserveId());
     }
+
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil saveReservation(@RequestBody ReserveDTO dto){
+        reserveService.saveReservationCars(dto);
+        return new ResponseUtil("Ok","Successfully Saved.",null);
+    }
+
 }
