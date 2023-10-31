@@ -1,6 +1,10 @@
 package lk.ijse.spring.carRental.service.impl;
 
 import lk.ijse.spring.carRental.dto.ReserveDTO;
+import lk.ijse.spring.carRental.entity.Car;
+import lk.ijse.spring.carRental.entity.Driver;
+import lk.ijse.spring.carRental.entity.Reserve;
+import lk.ijse.spring.carRental.entity.ReserveDetails;
 import lk.ijse.spring.carRental.repo.CarRepo;
 import lk.ijse.spring.carRental.repo.DriverRepo;
 import lk.ijse.spring.carRental.repo.ReserveRepo;
@@ -41,8 +45,38 @@ public class ReserveServiceImpl implements ReserveService {
     }
 
     @Override
-    public void saveReservationCars(ReserveDTO reserveDTO) {
+    public void saveReservationCars(ReserveDTO dto) {
+        Reserve reserve = modelMapper.map(dto, Reserve.class);
 
+        if (!reserveRepo.existsById(dto.getReserveId())) {
+            if (dto.getReserveDetails().size() < 1) {
+                throw new RuntimeException("No Such Cars In Reservation..!");
+            }else{
+                reserveRepo.save(reserve);
+
+                for (ReserveDetails details : reserve.getReserveDetails()) {
+
+                    /*find reserve car and Change available status using carRepo*/
+                    Car foundCar = carRepo.findById(details.getCarId()).get();
+                    carRepo.save(foundCar);
+
+                    /*find reserve Driver and Change his Release or Not status using driverRepo*/
+                    if (driverRepo.existsById(details.getDriverId())) {
+                        Driver driver = driverRepo.findById(details.getDriverId()).get();
+                        /*for customer choose a driver, change driver status */
+                        driver.setReleaseOrNot("Not Release");
+                        driverRepo.save(driver);
+
+                    }else if (details.getDriverId().equals("none")){
+
+                        /*choose a driver situation */
+                        reserveRepo.updateDriverId("none",reserve.getReserveId(),details.getCarId());
+                    }
+                }
+            }
+        }else{
+            throw new RuntimeException(dto.getReserveId()+" Reservation Already Exist !!!");
+        }
     }
 
     @Override
