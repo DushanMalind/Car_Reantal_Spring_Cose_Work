@@ -33,6 +33,9 @@ public class ScheduleController {
         return new ResponseUtil("Ok","Schedule Saved",null);
     }
 
-
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil getAllSchedules(){
+        return new ResponseUtil("Ok","Schedule Loaded",scheduleService.getAllSchedules());
+    }
 
 }
