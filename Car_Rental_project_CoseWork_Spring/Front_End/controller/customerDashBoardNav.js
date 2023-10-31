@@ -241,7 +241,7 @@ function openBookingPage() {
 
 
 function searchAvailableCars() {
- /* loadAllCarsToDisplay();*/
+  loadAllCarsToDisplay();
 
   $("#nav_bar").css('display', 'block');
   $("#CustomerDashBoard").css('display', 'block');
