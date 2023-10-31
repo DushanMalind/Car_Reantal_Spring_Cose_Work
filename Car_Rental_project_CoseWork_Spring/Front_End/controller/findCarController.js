@@ -394,3 +394,117 @@ function loadAllCarsToDisplay() {
     }
   });
 }
+
+
+
+var lossPayment = 0;
+var tblRow = -1;
+var count = 1;
+var clickId="none";
+var clickName="none";
+var clickContact="none";
+
+function loadSelectedCars(carId) {
+  $.ajax({
+    url: baseURLForReservation+"car/" + carId,
+    method: "GET",
+    success: function (response) {
+
+      if (response.data.type == "General") {
+        lossPayment += 10000.00;
+      } else if (response.data.type == "Premium") {
+        lossPayment += 15000.00;
+      } else if (response.data.type == "Luxury") {
+        lossPayment += 20000.00;
+      }
+
+      let raw = `<tr>
+                                    <td id="scope">
+                                        ${count}
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+
+                                            <img  src="http://localhost:8081/Back_End_war/uploads/${response.data.fontViewImage}"
+                                             alt=""
+                                             style="width: 50px; height: 50px" class=""/>
+                                        </div>
+                                        <h6  id="id" class="id text-white">${response.data.carId}</h6>
+                                    </td>
+                                    <td>
+                                       ${response.data.brand}
+                                    </td>
+                                    <td>
+                                        ${response.data.colour}
+                                    </td>
+                                    <td>
+                                        ${response.data.type}
+                                    </td>
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input checkDriverIfWant text-danger" type="checkbox" value="" id="checkDriverIfWant" />
+                                            <label class="form-check-label text-primary" for="checkDriverIfWant">Click Me: Need a Driver</label>
+                                        </div>
+                                    </td>
+                                     <td id="did" class="text-white" style="font-size: 2px">
+                                        ${clickId}
+                                    </td>
+                                    <td id="dname">
+                                        ${clickName}
+                                    </td>
+                                    <td id="dcontact">
+                                        ${clickContact}
+                                    </td>
+                                    <td>
+                                        ${lossPayment}
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger btn-sm px-3 btnCancelCar" data-ripple-color="dark" id="btnCancelCar">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </td>
+                                </tr>`;
+      $("#tblSelectedCars tbody").append(raw);
+      count += 1;
+
+      /* Load ReserveID And Schedule ids */
+      openBookingPage();
+
+      $(".checkDriverIfWant").off("click");
+
+      findDriverData();
+
+      $("#tblSelectedCars tbody").on('click', '#btnCancelCar', function () {
+        $("#tblSelectedCars tbody > tr").off("click");
+
+        $("#tblSelectedCars tbody > tr").click(function () {
+          let text = "Do you want to remove this car ?";
+
+          if (confirm(text) == true) {
+            tblRow = $(this);
+            tblRow.remove();
+          }else {
+
+          }
+        });
+      });
+    },
+    error: function (ob) {
+      alert(ob.responseJSON.message);
+    }
+  });
+}
+
+
+function findDriverData() {
+  $.ajax({
+    url: baseURLForReservation+"driver/status/" + "Release",
+    method: "GET",
+    success: function (response) {
+      load(response.data.driverId,response.data.driverName, response.data.driverContact);
+    },
+    error: function (ob) {
+      alert(ob.responseJSON.message);
+    }
+  });
+}
