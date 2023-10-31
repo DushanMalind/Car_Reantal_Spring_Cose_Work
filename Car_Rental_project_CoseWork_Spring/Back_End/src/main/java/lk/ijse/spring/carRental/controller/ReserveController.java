@@ -38,6 +38,10 @@ public class ReserveController {
         return new ResponseUtil("Ok","Successfully Searched.",reserveService.getAllReservations());
     }
 
+    @GetMapping(path = "/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil searchReservation(@PathVariable String id){
+        return new ResponseUtil("Ok","Successfully Searched.",reserveService.searchReservation(id));
+    }
 
 
 }
