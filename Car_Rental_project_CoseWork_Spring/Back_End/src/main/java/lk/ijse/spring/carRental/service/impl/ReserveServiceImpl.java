@@ -10,6 +10,7 @@ import lk.ijse.spring.carRental.repo.DriverRepo;
 import lk.ijse.spring.carRental.repo.ReserveRepo;
 import lk.ijse.spring.carRental.service.ReserveService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -81,7 +82,8 @@ public class ReserveServiceImpl implements ReserveService {
 
     @Override
     public List<ReserveDTO> getAllReservations() {
-        return null;
+        List<Reserve>reserveList=reserveRepo.findAll();
+        return modelMapper.map(reserveList,new TypeToken<List<ReserveDTO>>(){}.getType());
     }
 
     @Override
