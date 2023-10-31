@@ -121,3 +121,22 @@ function generateScheduleIds() {
 }
 
 
+function pasteDate() {
+  $("#pickUpDateEdit").val($("#pickUpDate").val());
+  $("#pickUpTimeEdit").val($("#pickUpTime").val());
+  $("#returnDateEdit").val($("#returnDate").val());
+  $("#returnTimeEdit").val($("#returnTime").val());
+  $("#pickUpLocationEdit").val($("#pickUpLocation").val());
+  $("#returnLocationEdit").val($("#returnLocation").val());
+  $("#destinationEdit").val($("#destination").val());
+  $("#durationEdit").val($("#duration").val());
+
+  $("#pickUpDateEdit").prop("disabled", true);
+  $("#pickUpTimeEdit").prop("disabled", true);
+  $("#returnDateEdit").prop("disabled", true);
+  $("#returnTimeEdit").prop("disabled", true);
+  $("#pickUpLocationEdit").prop("disabled", true);
+  $("#returnLocationEdit").prop("disabled", true);
+  $("#destinationEdit").prop("disabled", true);
+  $("#durationEdit").prop("disabled", true);
+}
