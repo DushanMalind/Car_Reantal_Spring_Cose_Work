@@ -122,3 +122,28 @@ $("#duration").keyup(function (event) {
     $("#errorDuration").text("Check this field Duration !");
   }
 });
+
+
+$("#btnSearchForRent").click(function () {
+  if ($("#pickUpDate").val() == "" || $("#pickUpTime").val() == "" || $("#pickUpLocation").val() == "" || $("#returnDate").val() == "" ||
+    $("#returnTime").val() == "" || $("#returnLocation").val() == "" || $("#duration").val() == "" || $("#destination").val() == ""){
+    swal({
+      title: "Check Input Fields Whether Correct !",
+      text: "You clicked the button!",
+      type: "warning",
+      showCancelButtonClass: "btn-danger",
+      confirmButtonClass: "btn-info",
+    });
+    /* searchAvailableCars();*/
+    $('#btnSearchForRent').prop('disabled', false);
+  }else {
+    if ($("#errorPickupDate").text() != "" ||  $("#errorPickupTime").text() != "" || $("#errorPickupLocation").text() != "" || $("#errorReturnDate").text() != "" ||
+      $("#errorReturnTime").text() != "" || $("#errorReturnLocation").text() != "" || $("#errorDuration").text() != "" || $("#errorDestination").text() != ""){
+      alert("Check Input Fields Whether Correct !");
+    }else {
+      searchAvailableCars();
+
+
+    }
+  }
+});
