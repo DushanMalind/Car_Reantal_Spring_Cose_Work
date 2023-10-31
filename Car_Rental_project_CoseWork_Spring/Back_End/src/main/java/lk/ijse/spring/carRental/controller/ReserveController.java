@@ -49,4 +49,9 @@ public class ReserveController {
     }
 
 
+    @GetMapping(path ="{date}/{accept}")
+    public ResponseUtil activeReservationPerDay(@PathVariable("date") String date, @PathVariable("accept") String accept){
+        return new ResponseUtil("Ok","Successfully Searched.",reserveService.activeReservationPerDay(date,accept));
+    }
+
 }
