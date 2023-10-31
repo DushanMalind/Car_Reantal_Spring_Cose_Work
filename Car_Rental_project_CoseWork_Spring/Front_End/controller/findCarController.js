@@ -39,3 +39,19 @@ $("#PNIC").keyup(function (event) {
 
 
 $("#noResult").css('display', 'none');
+
+
+countAvailableCars();
+
+function countAvailableCars() {
+  $.ajax({
+    url: baseURLForReservation+"car/countOfAvailableCars/" + "Available",
+    method: "GET",
+    success: function (response) {
+      $("#availableCars").text(response.data);
+    },
+    error: function (ob) {
+      alert(ob.responseJSON.message);
+    }
+  });
+}
