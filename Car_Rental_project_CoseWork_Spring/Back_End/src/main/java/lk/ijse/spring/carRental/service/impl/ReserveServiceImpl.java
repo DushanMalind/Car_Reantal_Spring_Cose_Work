@@ -37,7 +37,7 @@ public class ReserveServiceImpl implements ReserveService {
 
     @Override
     public String generateReserveId() {
-        return null;
+        return reserveRepo.generateReserveId();
     }
 
     @Override
