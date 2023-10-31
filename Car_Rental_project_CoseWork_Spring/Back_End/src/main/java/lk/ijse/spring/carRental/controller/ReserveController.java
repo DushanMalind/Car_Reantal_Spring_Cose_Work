@@ -54,4 +54,9 @@ public class ReserveController {
         return new ResponseUtil("Ok","Successfully Searched.",reserveService.activeReservationPerDay(date,accept));
     }
 
+
+    @GetMapping(path ="/ReservationCount/{countAll}")
+    public ResponseUtil countAllReservation(@PathVariable("countAll") String countAll){
+        return new ResponseUtil("Ok","Successfully Searched.",reserveService.countAllReservation());
+    }
 }
