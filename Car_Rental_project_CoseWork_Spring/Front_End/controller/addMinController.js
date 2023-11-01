@@ -12,6 +12,7 @@ function isExistsAdmin(username, password) {
     url: "http://localhost:8081/Back_End_war/user/" + password + "/" + username,
     method: "GET",
     success: function (response) {
+      loadAllAdminPanelData();
       if (response.data.username == $("#loginUsernameAdmin").val() && response.data.password == $("#loginPasswordAdmin").val()) {
         searchAdminTable(response.data.userId);
       }

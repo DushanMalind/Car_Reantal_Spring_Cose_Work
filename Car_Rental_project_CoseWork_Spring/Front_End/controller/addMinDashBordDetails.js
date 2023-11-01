@@ -231,3 +231,17 @@ function TotalIncome() {
 
 
 
+function loadAllAdminPanelData() {
+  AvailableCars();
+  ReservedCars();
+  MaintainedCars();
+  UnderMaintainedCars();
+  AvailableDrivers();
+  UnAvailableDrivers();
+  AllReservation();
+  totalNewUsers();
+  totalRegisterUsers();
+  TodayAllReservations();
+  TodayActiveBookings();
+  TotalIncome();
+}
