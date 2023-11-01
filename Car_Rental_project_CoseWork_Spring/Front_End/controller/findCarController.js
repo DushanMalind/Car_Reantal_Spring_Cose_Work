@@ -889,7 +889,27 @@ function findDailyRateAsc(dailyRateAsc) {
 
       }
 
+      $(".btnRent").click(function () {
+        let text = "Do you want to rent this car?";
+        if (confirm(text)) {
 
+          let availableStatus = $(this).closest('li').find('data.year').text();
+
+          if (availableStatus == "Not Available") {
+            alert("This car is not available now! Choose another one!...");
+          }else {
+            pasteDataToReservationFields();
+            loadSelectedCars($(this).closest('li').find('span.cid').text());
+          }
+        }
+        else {
+
+        }
+      });
+    },
+    error: function (ob) {
+      alert(ob.responseJSON.message);
+    }
   });
 }
 
