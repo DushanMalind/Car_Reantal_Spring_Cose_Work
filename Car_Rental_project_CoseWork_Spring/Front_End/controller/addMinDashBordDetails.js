@@ -211,3 +211,23 @@ function UnAvailableDrivers() {
 }
 
 
+
+function TotalIncome() {
+  $.ajax({
+    url: baseURLAdminPanel+"payment/AllIncome/" + "amount",
+    method: "GET",
+    success: function (response) {
+      if (response.data == ""){
+        $("#totalIncome").text("Rs."+0.00);
+      }else {
+        $("#totalIncome").text("Rs. "+response.data);
+      }
+    },
+    error: function (ob) {
+      /* alert(ob.responseJSON.message);*/
+    }
+  });
+}
+
+
+
