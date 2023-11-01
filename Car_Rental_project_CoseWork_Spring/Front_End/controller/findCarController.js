@@ -2308,3 +2308,12 @@ $("#btnSearchCarsToSort").click(function () {
   findFuelType($("#searchCarsToSort").val());
   findColour($("#searchCarsToSort").val());
 });
+
+
+var bookingDenyOrAccept;
+
+$("#btnBook").click(function () {
+
+
+
+});
