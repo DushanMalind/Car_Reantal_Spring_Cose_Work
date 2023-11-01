@@ -2335,3 +2335,22 @@ $("#btnBook").click(function () {
   }
 
 });
+
+
+function findCustomerToReserve(bookingDenyOrAccept) {
+
+  $.ajax({
+    url: baseURLForReservation+"customer/findValidNic/" + $("#PNIC").val(),
+    method: "GET",
+    success: function (response) {
+      reserve(response.data,bookingDenyOrAccept);
+    },
+    error: function (ob) {
+      if (ob.responseJSON && ob.responseJSON.message) {
+        alert("Please check Your NIC number is Correct !!! ("+ob.responseJSON.message+")");
+      } else {
+        alert("Something went Wrong !!! while processing your request.");
+      }
+    }
+  });
+}
