@@ -709,7 +709,7 @@ function findPassengersAsc(passengerAscending) {
 
       }
 
-      $(".btnRent").click(function () {
+   /*   $(".btnRent").click(function () {
         let text = "Do you want to rent this car?";
         if (confirm(text)) {
 
@@ -725,6 +725,31 @@ function findPassengersAsc(passengerAscending) {
         else {
 
         }
+      });*/
+      $(".btnRent").click(function () {
+        let text = "Do you want to rent this car?";
+
+        Swal.fire({
+          title: 'Confirmation',
+          text: text,
+          icon: 'question',
+          showCancelButton: true,
+          confirmButtonText: 'Yes',
+          cancelButtonText: 'No'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            let availableStatus = $(this).closest('li').find('data.year').text();
+
+            if (availableStatus === "Not Available") {
+              Swal.fire('Car Not Available', 'This car is not available now! Choose another one!', 'error');
+            } else {
+              pasteDataToReservationFields();
+              loadSelectedCars($(this).closest('li').find('span.cid').text());
+            }
+          } else {
+            // Handle the case when the user clicks "No" or dismisses the dialog
+          }
+        });
       });
     },
     error: function (ob) {
