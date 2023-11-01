@@ -78,3 +78,21 @@ function TodayActiveBookings() {
     }
   });
 }
+
+
+function AllReservation() {
+  $.ajax({
+    url: baseURLAdminPanel+"reserve/ReservationCount/" + "countAll",
+    method: "GET",
+    success: function (response) {
+      if (response.data == ""){
+        $("#allReservation").text(0);
+      }else {
+        $("#allReservation").text(response.data);
+      }
+    },
+    error: function (ob) {
+      alert(ob.responseJSON.message);
+    }
+  });
+}
