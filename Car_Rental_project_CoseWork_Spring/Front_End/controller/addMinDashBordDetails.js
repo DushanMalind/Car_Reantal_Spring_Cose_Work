@@ -60,3 +60,21 @@ function TodayAllReservations() {
     }
   });
 }
+
+
+function TodayActiveBookings() {
+  $.ajax({
+    url: baseURLAdminPanel+"reserve/" + today+ "/"+"Accept",
+    method: "GET",
+    success: function (response) {
+      if (response.data == ""){
+        $("#todayActiveBookings").text(0);
+      }else {
+        $("#todayActiveBookings").text(response.data);
+      }
+    },
+    error: function (ob) {
+      alert(ob.responseJSON.message);
+    }
+  });
+}
