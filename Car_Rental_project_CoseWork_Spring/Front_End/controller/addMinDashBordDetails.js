@@ -26,3 +26,19 @@ function totalNewUsers() {
 }
 
 
+function totalRegisterUsers() {
+  $.ajax({
+    url: baseURLAdminPanel + "customer/COUNT/" + "count",
+    method: "GET",
+    success: function (response) {
+      if (response.data == "") {
+        $("#totalRegUsers").text(0);
+      } else {
+        $("#totalRegUsers").text(response.data);
+      }
+    },
+    error: function (ob) {
+      alert(ob.responseJSON.message);
+    }
+  });
+}
