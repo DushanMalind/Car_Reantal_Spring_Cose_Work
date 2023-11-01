@@ -1525,3 +1525,21 @@ function findMonthlyRateDsc(monthlyRateDsc) {
   });
 }
 
+
+$("#sort").click(function () {
+  if ($("#sort option:selected").text() == "Passengers - Ascending") {
+    findPassengersAsc($("#sort option:selected").text());
+  } else if ($("#sort option:selected").text() == "Passengers - Descending") {
+    findPassengersDsc($("#sort option:selected").text());
+  } else if ($("#sort option:selected").text() == "Daily Rate Price - Ascending") {
+    findDailyRateAsc($("#sort option:selected").text());
+  } else if ($("#sort option:selected").text() == "Daily Rate Price - Descending") {
+    findDailyRateDsc($("#sort option:selected").text());
+  } else if ($("#sort option:selected").text() == "Monthly Rate Price - Ascending") {
+    findMonthlyRateAsc($("#sort option:selected").text());
+  } else if ($("#sort option:selected").text() == "Monthly Rate Price - Descending") {
+    findMonthlyRateDsc($("#sort option:selected").text());
+  } else if ($("#sort option:selected").text() == "Recommended") {
+    loadAllCarsToDisplay();
+  }
+});
