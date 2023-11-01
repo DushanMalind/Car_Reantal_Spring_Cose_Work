@@ -2299,3 +2299,12 @@ function findColour(colour) {
     }
   });
 }
+
+
+$("#btnSearchCarsToSort").click(function () {
+  findTransmissionType($("#searchCarsToSort").val());
+  findType($("#searchCarsToSort").val());
+  findBrand($("#searchCarsToSort").val());
+  findFuelType($("#searchCarsToSort").val());
+  findColour($("#searchCarsToSort").val());
+});
