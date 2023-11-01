@@ -249,7 +249,7 @@ $("#durationEdit").keyup(function (event) {
   }
 });
 
-$("#editRentData").click(function () {
+/*$("#editRentData").click(function () {
   let text = "Do you want to Edit Data?";
 
   if (confirm(text) == true) {
@@ -262,6 +262,30 @@ $("#editRentData").click(function () {
     $("#destinationEdit").prop("disabled", false);
     $("#durationEdit").prop("disabled", false);
   }
+});*/
+
+$("#editRentData").click(function () {
+  let text = "Do you want to Edit Data?";
+
+  Swal.fire({
+    title: 'Confirmation',
+    text: text,
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Yes',
+    cancelButtonText: 'No'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      $("#pickUpDateEdit").prop("disabled", false);
+      $("#pickUpTimeEdit").prop("disabled", false);
+      $("#returnDateEdit").prop("disabled", false);
+      $("#returnTimeEdit").prop("disabled", false);
+      $("#pickUpLocationEdit").prop("disabled", false);
+      $("#returnLocationEdit").prop("disabled", false);
+      $("#destinationEdit").prop("disabled", false);
+      $("#durationEdit").prop("disabled", false);
+    }
+  });
 });
 
 
