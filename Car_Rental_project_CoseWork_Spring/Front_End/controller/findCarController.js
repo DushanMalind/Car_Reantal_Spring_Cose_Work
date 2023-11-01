@@ -2314,6 +2314,24 @@ var bookingDenyOrAccept;
 
 $("#btnBook").click(function () {
 
-
+  if ($("#PName").val() == "" || $("#PContact").val() == "" || $("#PNIC").val() == "") {
+    alert("Some personal details are not completed. So your booking is deny!..");
+    bookingDenyOrAccept = "Deny";
+  }else if ($('#uploadpaymentSlip').get(0).files.length === 0){
+    alert("Your Payment Slip are not Upload. So your booking is deny!..");
+    bookingDenyOrAccept = "Deny";
+  }else if (!regExFullName.test($("#PName").val()) || !regExContact.test($("#PContact").val()) || !regExNIC.test($("#PNIC").val())) {
+    alert("Some fields are not in correct format. So your booking is deny!..");
+    bookingDenyOrAccept = "Deny";
+  } else if ($("#BPickupDate").val() == "" || $("#BPickupTime").val() == "" || $("#BPickupLocation").val() == "" || $("#BReturnDate").val() == "" || $("#BReturnTime").val() == "" || $("#BReturnLocation").val() == "" || $("#BDestination").val() == "" || $("#BDuration").val() == "") {
+    alert("Some booking details fields are not completed. So your booking is deny!..");
+    bookingDenyOrAccept = "Deny";
+  } else if ($("#tblSelectedCars tbody tr").length == 0) {
+    alert("Table is empty. So your booking is deny!..");
+    bookingDenyOrAccept = "Deny";
+  } else {
+    bookingDenyOrAccept = "Accept";
+    findCustomerToReserve(bookingDenyOrAccept)
+  }
 
 });
