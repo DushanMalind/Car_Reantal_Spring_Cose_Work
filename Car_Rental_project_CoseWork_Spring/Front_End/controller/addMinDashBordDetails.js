@@ -135,3 +135,21 @@ function ReservedCars() {
     }
   });
 }
+
+
+function MaintainedCars() {
+  $.ajax({
+    url: baseURLAdminPanel+"car/carMaintain/"+"Maintained",
+    method: "GET",
+    success: function (response) {
+      if (response.data == ""){
+        $("#maintainedCars").text(0);
+      }else {
+        $("#maintainedCars").text(response.data);
+      }
+    },
+    error: function (ob) {
+      alert(ob.responseJSON.message);
+    }
+  });
+}
