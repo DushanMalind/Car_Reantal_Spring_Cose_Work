@@ -2314,6 +2314,8 @@ var bookingDenyOrAccept;
 
 $("#btnBook").click(function () {
 
+
+
   if ($("#PName").val() == "" || $("#PContact").val() == "" || $("#PNIC").val() == "") {
     alert("Some personal details are not completed. So your booking is deny!..");
     bookingDenyOrAccept = "Deny";
@@ -2333,6 +2335,7 @@ $("#btnBook").click(function () {
     bookingDenyOrAccept = "Accept";
     findCustomerToReserve(bookingDenyOrAccept)
   }
+
 
 });
 
@@ -2408,13 +2411,21 @@ function reserve(customer,bookingDenyOrAccept) {
     contentType: "application/json",
     data: JSON.stringify(reserveDetail),
     success: function (response) {
-      alert(response.message);
+      /*alert(response.message);*/
+      swal({
+        title: "Successfully Resvered!",
+        text: "You clicked the button!",
+        type: "success",
+        showCancelButtonClass: "btn-danger",
+        confirmButtonClass: "btn-success",
+      });
       /** load Driver Schedule */
       loadDriverSchedule();
-      gotoMainPage();
+     /* gotoMainPage();*/
+      window.location.href = 'page/index.html';
     },
-    error: function (ob) {
-      alert(ob.responseJSON.message);
+    error: function (error) {
+      alert(error);
     }
   });
 

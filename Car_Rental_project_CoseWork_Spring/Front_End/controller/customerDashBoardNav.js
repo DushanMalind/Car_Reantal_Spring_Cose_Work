@@ -164,6 +164,26 @@ function bookingPage() {
   $("#Reservation").css('display','none');
 }
 
+$(".btnRentNow").click(function () {
+
+  searchAvailableCars();
+  pasteDate();
+
+});
+
+
+$("#newCar").click(function () {
+
+  let text = "Do you want to rent another car ?";
+
+  if (confirm(text) == true) {
+    gotoSeeCars();
+  }
+});
+
+$("#btnBack").click(function () {
+  gotoSeeCars();
+});
 
 
 function gotoSeeCars() {

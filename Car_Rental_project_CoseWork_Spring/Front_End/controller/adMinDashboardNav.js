@@ -115,6 +115,7 @@ $("#btn_customer").click(function(){
 
 
 $("#btn_reservation").click(function(){
+  loadAllReservations();
   $("#reservation_dashboard").css('display', 'block');
 
   $('#admin_dashboard').css('display', 'none');
@@ -303,7 +304,8 @@ $("#btnCancelAddDriver").click(function () {
 
 
 $("#btnChangeDriver").click(function () {
-
+  relevantReservations();
+  chooseDriverIds();
   $('#ChangeDriver').css('transform', 'scale(1)');
   $("#reservation_dashboard").css('display', 'block');
 

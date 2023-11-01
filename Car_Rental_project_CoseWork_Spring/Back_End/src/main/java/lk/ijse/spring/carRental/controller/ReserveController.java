@@ -28,9 +28,9 @@ public class ReserveController {
     }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil saveReservation(@RequestBody ReserveDTO dto){
-        reserveService.saveReservationCars(dto);
-        return new ResponseUtil("Ok","Successfully Saved.",null);
+    public ResponseUtil saveReservation(@RequestBody ReserveDTO reserveDTO){
+        reserveService.saveReservationCars(reserveDTO);
+        return new ResponseUtil("Ok","Your Booking Successfully.",null);
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
