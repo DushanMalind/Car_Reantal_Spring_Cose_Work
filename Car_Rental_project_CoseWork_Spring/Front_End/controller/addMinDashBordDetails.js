@@ -115,3 +115,23 @@ function AvailableCars() {
     }
   });
 }
+
+
+
+
+function ReservedCars() {
+  $.ajax({
+    url: baseURLAdminPanel+"car/countOfAvailableCars/"+"Not Available",
+    method: "GET",
+    success: function (response) {
+      if (response.data == ""){
+        $("#reservedCars").text(0);
+      }else {
+        $("#reservedCars").text(response.data);
+      }
+    },
+    error: function (ob) {
+      alert(ob.responseJSON.message);
+    }
+  });
+}
