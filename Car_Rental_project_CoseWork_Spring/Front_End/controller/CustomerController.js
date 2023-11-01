@@ -7,7 +7,7 @@ var regExFullName = /^[A-Z|a-z\s]{3,20}$/;
 var regExContact = /^(071|077|075|078|076)[0-9]{7}$/;
 var regExAddress = /^[0-9A-Z a-z,/:]{4,50}$/;
 var regExEmail = /^[0-9A-Z a-z$&#]{3,10}(@gmail.com)|/;
-var regExNIC = /^[0-9]{9}(v)$/;
+var regExNIC = /^[0-9]{10}$/;
 var regExDrivingLNO = /^[1-9]{1,10}$/;
 
 
