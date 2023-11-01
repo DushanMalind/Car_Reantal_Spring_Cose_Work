@@ -42,3 +42,21 @@ function totalRegisterUsers() {
     }
   });
 }
+
+
+function TodayAllReservations() {
+  $.ajax({
+    url: baseURLAdminPanel+"reserve/DailyReservation/" + today,
+    method: "GET",
+    success: function (response) {
+      if (response.data == "") {
+        $("#todayReservations").text(0);
+      } else {
+        $("#todayReservations").text(response.data);
+      }
+    },
+    error: function (ob) {
+      alert(ob.responseJSON.message);
+    }
+  });
+}
