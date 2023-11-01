@@ -190,3 +190,24 @@ function AvailableDrivers() {
     }
   });
 }
+
+
+
+function UnAvailableDrivers() {
+  $.ajax({
+    url: baseURLAdminPanel+"driver/countOfAvailableDrivers/"+"Not Release",
+    method: "GET",
+    success: function (response) {
+      if (response.data == ""){
+        $("#occupiedDrivers").text(0);
+      }else {
+        $("#occupiedDrivers").text(response.data);
+      }
+    },
+    error: function (ob) {
+      alert(ob.responseJSON.message);
+    }
+  });
+}
+
+
