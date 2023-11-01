@@ -525,7 +525,7 @@ function loadSelectedCars(carId) {
 
       findDriverData();
 
-      $("#tblSelectedCars tbody").on('click', '#btnCancelCar', function () {
+      /*$("#tblSelectedCars tbody").on('click', '#btnCancelCar', function () {
         $("#tblSelectedCars tbody > tr").off("click");
 
         $("#tblSelectedCars tbody > tr").click(function () {
@@ -538,7 +538,28 @@ function loadSelectedCars(carId) {
 
           }
         });
+      });*/
+
+      $("#tblSelectedCars tbody > tr").click(function () {
+        let text = "Do you want to remove this car?";
+
+        Swal.fire({
+          title: 'Confirmation',
+          text: text,
+          icon: 'question',
+          showCancelButton: true,
+          confirmButtonText: 'Yes',
+          cancelButtonText: 'No'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            let tblRow = $(this);
+            tblRow.remove();
+          } else {
+            // Handle the case when the user clicks "No" or dismisses the dialog
+          }
+        });
       });
+
     },
     error: function (ob) {
       alert(ob.responseJSON.message);
