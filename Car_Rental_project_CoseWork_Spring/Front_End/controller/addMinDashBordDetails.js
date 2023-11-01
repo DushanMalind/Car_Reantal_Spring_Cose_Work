@@ -229,6 +229,7 @@ function TotalIncome() {
   });
 }
 
+loadAllAdminPanelData();
 
 
 function loadAllAdminPanelData() {
