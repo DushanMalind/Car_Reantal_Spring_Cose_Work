@@ -164,3 +164,34 @@ function chooseDriverIds() {
   });
 }
 
+$("#chooseNewDriverIds").click(function () {
+  $.ajax({
+    url: baseURLForReserveDetails+"driver/" + $("#chooseNewDriverIds option:selected").text(),
+    method: "GET",
+    success: function (response) {
+      $("#changedNewDriverName").val(response.data.driverName);
+      $("#changedNewDriverContact").val(response.data.driverContact);
+    },
+    error: function (ob) {
+    }
+  });
+});
+
+
+function clearReFields(){
+  $("#viewBrand").val("");
+  $("#viewColour").val("");
+  $("#viewType").val("");
+  $("#viewDriverId").val("");
+  $("#viewDriverName").val("");
+  $("#viewDriverContact").val("");
+  $("#viewLoseDamagePayment").val("");
+
+  $("#viewBrand").css('border', '1px solid #e9ecef');
+  $("#viewColour").css('border', '1px solid #e9ecef');
+  $("#viewType").css('border', '1px solid #e9ecef');
+  $("#viewDriverId").css('border', '1px solid #e9ecef');
+  $("#viewDriverName").css('border', '1px solid #e9ecef');
+  $("#viewDriverContact").css('border', '1px solid #e9ecef');
+  $("#viewLoseDamagePayment").css('border', '1px solid #e9ecef');
+}
