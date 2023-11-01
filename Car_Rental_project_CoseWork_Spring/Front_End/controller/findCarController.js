@@ -789,5 +789,22 @@ function findPassengersDsc(passengerDscending) {
 }
 
 
+function findDailyRateAsc(dailyRateAsc) {
+  $.ajax({
+
+    url: baseURLForReservation + "car/sortDailyRateAsc/"+dailyRateAsc,
+    method: "GET",
+
+    success: function (resp) {
+      if (resp.data.length == 0) {
+        $("#noResult").css('display', 'block');
+      } else {
+        $("#noResult").css('display', 'none');
+      }
+
+
+}
+
+
 
 
