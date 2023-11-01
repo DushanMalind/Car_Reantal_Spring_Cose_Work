@@ -173,7 +173,7 @@ $("#btn_payment").click(function(){
 
 
 $("#btn_shedule").click(function () {
-
+  loadSchedule();
   $("#schedule_dashboard").css('display', 'block');
 
   $('#admin_dashboard').css('display', 'none');
