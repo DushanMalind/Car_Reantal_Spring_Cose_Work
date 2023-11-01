@@ -153,3 +153,23 @@ function MaintainedCars() {
     }
   });
 }
+
+
+
+function UnderMaintainedCars() {
+  $.ajax({
+    url: baseURLAdminPanel+"car/carMaintain/"+"Under Maintain",
+    method: "GET",
+    success: function (response) {
+      if (response.data == ""){
+        $("#underMaintainedCars").text(0);
+      }else {
+        $("#underMaintainedCars").text(response.data);
+      }
+    },
+    error: function (ob) {
+      alert(ob.responseJSON.message);
+    }
+  });
+}
+
