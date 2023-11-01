@@ -173,3 +173,20 @@ function UnderMaintainedCars() {
   });
 }
 
+
+function AvailableDrivers() {
+  $.ajax({
+    url: baseURLAdminPanel+"driver/countOfAvailableDrivers/"+"Release",
+    method: "GET",
+    success: function (response) {
+      if (response.data == ""){
+        $("#availableDrivers").text(0);
+      }else {
+        $("#availableDrivers").text(response.data);
+      }
+    },
+    error: function (ob) {
+      alert(ob.responseJSON.message);
+    }
+  });
+}
