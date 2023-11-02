@@ -258,3 +258,139 @@ $("#reserveCarId").change(function () {
   });
 
 });
+
+$("#extraKm").on('keydown keyup', function (event) {
+  let kmCount = $("#extraKm").val();
+  let pricePerOneKm = $("#pricePerExKm").val();
+
+  $("#priceForTravelledExtraKm").val(kmCount * pricePerOneKm);
+
+});
+
+
+$("#fullPayment").prop("readonly", true);
+$("#loseDamageWaiverPayment").prop("readonly", true);
+$("#pricePerExKm").prop("readonly", true);
+$("#priceForTravelledExtraKm").prop("readonly", true);
+$("#reducedLoseDamageWaiverPayment").prop("readonly", true);
+
+
+
+$("#cal_full_Tot").click(function () {
+
+  calculateTotalPrice();
+});
+
+
+
+function calculateTotalPrice() {
+  /* for subtraction */
+  let loseDamagePayment = parseFloat($("#loseDamageWaiverPayment").val());
+
+  /* for addition */
+  let rentPrice = parseFloat($("#rentFee").val());
+  let drivePrice = parseFloat($("#driverFee").val());
+  let reduceLosDamage = parseFloat($("#reducedLoseDamageWaiverPayment").val());
+  let totalOfExKmPrice = parseFloat($("#priceForTravelledExtraKm").val());
+
+  let totPrice = rentPrice + drivePrice + reduceLosDamage + totalOfExKmPrice - loseDamagePayment;
+
+  $("#fullPayment").val(totPrice.toString());
+
+  if ($("#fullPayment").val().length > 0){
+    $("#vehicle_Return").prop("disabled", false);
+  }
+}
+
+
+
+
+var tempuser;
+var UpdateDriver;
+let releaseStatus = "Release";
+
+$("#vehicle_Return").click(function () {
+  let dId = $("#rentDriverId").val();
+  $.ajax({
+    url: baseUrlDriver + "driver/" + dId,
+    method: "GET",
+    success: function (response) {
+      var driverDetail = {
+        driverId: response.data.driverId,
+        users: response.data.users,
+        driverName: response.data.driverName,
+        driverAddress: response.data.driverAddress,
+        driverAge: response.data.driverAge,
+        driverContact: response.data.driverContact,
+        releaseOrNot: releaseStatus,
+      };
+      UpdateDriver = driverDetail;
+      updateDriver1(); // call updateDriver function here
+    },
+    error: function (ob) {
+      alert(ob.responseJSON.message);
+    },
+  });
+});
+
+
+function updateDriver1() {
+
+  $.ajax({
+    url: baseUrlDriver+ "driver",
+    method: "PUT",
+    contentType: "application/json",
+    data: JSON.stringify(UpdateDriver),
+    success: function (response) {
+      if (response.code == 200) {
+        alert($("#driverId").val() + " " + response.message);
+      }
+    },
+    error: function (error) {
+     alert(error);
+    }
+  });
+}
+
+
+function calculateIncome() {
+  var rDetail= {
+    carId:$("#reserveCarId option:selected").text(),
+    driverId:$("#rentDriverId").val(),
+    reserveId:$("#rentalId option:selected").text()
+  }
+  var paymentDetail = {
+    paymentId: $("#paymentId").val(),
+    paymentDate: $("#paymentDate").val(),
+    rentFee: $("#rentFee").val(),
+    harmOrNot: $("#driverReleaseOrNot option:selected").text(),
+    loseDamagePayment: $("#loseDamageWaiverPayment").val(),
+    reduceLoseDamagePayment: $("#reducedLoseDamageWaiverPayment").val(),
+    driverFee: $("#driverFee").val(),
+    travelledDistance: $("#travelledDistance").val(),
+    extraKm: $("#extraKm").val(),
+    extraKmPrice: $("#priceForTravelledExtraKm").val(),
+    fullPayment: $("#fullPayment").val(),
+    reserveDetails:rDetail
+  }
+
+  $.ajax({
+    url: baseURLForPayment + "payment",
+    method: "POST",
+    contentType: "application/json",
+    data: JSON.stringify(paymentDetail),
+    success: function (response) {
+      if (response.code == 200) {
+        alert($("#paymentId").val() + " " + response.message);
+        generatePaymentIds();
+        loadPayments();
+
+      }
+    },
+    error: function (ob) {
+      alert(ob.responseJSON.message);
+    }
+  });
+}
+
+

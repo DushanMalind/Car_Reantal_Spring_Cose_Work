@@ -255,12 +255,12 @@ function loadAllDrivers() {
 
 var tblDriverRow =-1;
 
-function clickDriverTableRow() {
+/*function clickDriverTableRow() {
   $("#tblDriver tbody > tr").click(function () {
 
     tblDriverRow = $(this);
 
-   /* let text = "Do you want to update driver ?";*/
+   /!* let text = "Do you want to update driver ?";*!/
 
     swal({
       title: "Do you want to update driver ?",
@@ -270,7 +270,7 @@ function clickDriverTableRow() {
       confirmButtonClass: "btn-danger",
     });
 
-    /*if (confirm(text) == true) {*/
+    /!*if (confirm(text) == true) {*!/
       $('#DriverManagePage').css('transform','scale(1)');
 
       var driverId = $.trim(tblDriverRow.children(':nth-child(1)').text());
@@ -289,9 +289,48 @@ function clickDriverTableRow() {
 
       findUserNameAndPassword(driverId);
 
-  /*  } else {}*/
+  /!*  } else {}*!/
+  });
+}*/
+
+
+function clickDriverTableRow() {
+  $("#tblDriver tbody > tr").click(function () {
+
+    tblDriverRow = $(this);
+
+    Swal.fire({
+      title: "Do you want to update driver ?",
+      text: "message!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes",
+      cancelButtonText: "No",
+      confirmButtonClass: "btn-danger",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        $('#DriverManagePage').css('transform', 'scale(1)');
+
+        var driverId = $.trim(tblDriverRow.children(':nth-child(1)').text());
+        var driverName = $.trim(tblDriverRow.children(':nth-child(2)').text());
+        var driverAddress = $.trim(tblDriverRow.children(':nth-child(3)').text());
+        var driverAge = $.trim(tblDriverRow.children(':nth-child(4)').text());
+        var driverContact = $.trim(tblDriverRow.children(':nth-child(5)').text());
+
+        $("#driverReleaseOrNot").append($("<option selected></option>").attr("value", 3).text($.trim(tblDriverRow.children(':nth-child(6)').text())));
+
+        $("#driverId").val(driverId);
+        $("#driverName").val(driverName);
+        $("#driverAddress").val(driverAddress);
+        $("#driverAge").val(driverAge);
+        $("#driverContact").val(driverContact);
+
+        findUserNameAndPassword(driverId);
+      }
+    });
   });
 }
+
 
 /*findUserNameAndPassword();*/
 
@@ -310,19 +349,19 @@ function findUserNameAndPassword(driverId) {
   });
 }
 
-$("#btnEditPreDriver").click(function () {
+/*$("#btnEditPreDriver").click(function () {
   $("#tblDriver tbody > tr").off("click");
 
-  /*let text = "Do you want to update this driver ?";*/
-  /*swal({
+  /!*let text = "Do you want to update this driver ?";*!/
+  /!*swal({
     title: "Do you want to update this driver ?",
     text: "message!",
     type: "warning",
     showCancelButtonClass: "btn-primary",
     confirmButtonClass: "btn-danger",
-  });*/
+  });*!/
 
-  /*if (confirm(text) == true) {*/
+  /!*if (confirm(text) == true) {*!/
     if ($("#driverUsername").val() == "" || $("#driverPassword").val() == "" || $("#driverName").val() == "" || $("#driverAddress").val() == "" ||
       $("#driverAge").val() == "" || $("#driverContact").val() == "" || $("#driverReleaseOrNot option:selected").val() == ""){
       alert("All Fields Are Required !");
@@ -342,9 +381,33 @@ $("#btnEditPreDriver").click(function () {
         });
       }
     }
- /* }else {}*/
+ /!* }else {}*!/
+
+});*/
+
+$("#btnEditPreDriver").click(function () {
+  $("#tblDriver tbody > tr").off("click");
+
+  /*let text = "Do you want to update this driver ?";*/
+
+  /*if (confirm(text) == true) {*/
+  if ($("#driverUsername").val() == "" || $("#driverPassword").val() == "" || $("#driverName").val() == "" || $("#driverAddress").val() == "" ||
+    $("#driverAge").val() == "" || $("#driverContact").val() == "" || $("#driverReleaseOrNot option:selected").val() == "") {
+    Swal.fire('Error', 'All Fields Are Required!', 'error');
+  } else {
+    if ($("#errorDriverUsername").text() != "" || $("#errorDName").text() != "" || $("#errorDPassword").text() != "" || $("#errorDAddress").text() != "" ||
+      $("#errorDAge").text() != "" || $("#errorDContact").text() != "") {
+      Swal.fire('Error', 'Check Input Fields Whether Correct!', 'error');
+    } else {
+      updateDriver();
+
+      Swal.fire('Success', 'Successfully Update Driver Details', 'success');
+    }
+  }
+  /* }else {}*/
 
 });
+
 
 function updateDriver() {
   var user={
