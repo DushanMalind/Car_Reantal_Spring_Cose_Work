@@ -5,6 +5,7 @@ import lk.ijse.spring.carRental.entity.Payment;
 import lk.ijse.spring.carRental.repo.PaymentRepo;
 import lk.ijse.spring.carRental.service.PaymentService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -44,7 +45,9 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     public List<PaymentDTO> getAllPayments() {
-        return null;
+        List<Payment> paymentList = paymentRepo.findAll();
+        return mapper.map(paymentList,new TypeToken<List<PaymentDTO>>(){}.getType());
+
     }
 
     @Override
