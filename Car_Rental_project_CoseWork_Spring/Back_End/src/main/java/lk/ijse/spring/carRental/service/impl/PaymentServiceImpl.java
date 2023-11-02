@@ -52,31 +52,32 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     public double totalIncome() {
-        return 0;
+        return paymentRepo.totalIncome();
     }
 
     @Override
     public List<PaymentDTO> getPaymentsBetweenDates(String startDate, String endDate) {
-        return null;
+        List<Payment>allPaymentsBetweenDates=paymentRepo.findAllPaymentsBetweenDates(startDate,endDate);
+        return mapper.map(allPaymentsBetweenDates,new TypeToken<List<PaymentDTO>>(){}.getType());
     }
 
     @Override
     public double dailyIncome() {
-        return 0;
+        return paymentRepo.dailyIncome();
     }
 
     @Override
     public double weeklyIncome() {
-        return 0;
+        return paymentRepo.weeklyIncome();
     }
 
     @Override
     public double monthlyIncome() {
-        return 0;
+        return paymentRepo.monthlyIncome();
     }
 
     @Override
     public double yearlyIncome() {
-        return 0;
+        return paymentRepo.yearlyIncome();
     }
 }
