@@ -25,4 +25,10 @@ public interface PaymentRepo extends JpaRepository<Payment,String> {
 
     @Query(value = "SELECT * FROM Payment WHERE paymentDate BETWEEN :startDate AND :endDate", nativeQuery = true)
     List<Payment> findAllPaymentsBetweenDates(@Param("startDate") String startDate, @Param("endDate") String endDate);
+
+    @Query(value = "SELECT COALESCE(SUM(fullPayment), 0) FROM Payment WHERE paymentDate = DATE(NOW())", nativeQuery = true)
+    double dailyIncome();
+
+
+
 }
