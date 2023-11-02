@@ -52,7 +52,10 @@ public class PaymentController {
         return new ResponseUtil("Ok","Successfully Loaded",paymentService.getPaymentsBetweenDates(startDate,endDate));
     }
 
-
+    @GetMapping(path = "/daily")
+    public ResponseUtil dailyIncome(){
+        return new ResponseUtil("Ok","Successfully Loaded",paymentService.dailyIncome());
+    }
 
 
 }
