@@ -154,6 +154,8 @@ $("#btnExistReDetails").click(function () {
 
 
 $("#btn_payment").click(function(){
+  generatePaymentIds();
+
   $("#payment_dashboard").css('display', 'block');
 
   $('#admin_dashboard').css('display', 'none');
@@ -349,7 +351,7 @@ $("#btnCancelChangeDriver").click(function () {
 
 
 $("#btnAddPayment").click(function () {
-
+  generatePaymentIds();
 
   $('#PaymentAddPage').css('transform', 'scale(1)');
   $("#payment_dashboard").css('display', 'block');

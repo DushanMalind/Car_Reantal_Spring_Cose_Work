@@ -81,3 +81,39 @@ $("#extraKm").keyup(function (event) {
     $("#errorTravelledExtraKM").text("Check this field whether correct !");
   }
 });
+
+
+$(document).ready(function() {
+  $("#vehicle_Return").prop("disabled", true);
+});
+
+
+function generatePaymentIds() {
+  $("#paymentId").val("P00-0001");
+  var test = "id";
+
+  $.ajax({
+    url: baseURLForPayment + "payment?test=" + test,
+    method: "GET",
+    success: function (response) {
+      var paymentId = response.data;
+      var tempId = parseInt(paymentId.split("-")[1]);
+      tempId = tempId + 1;
+      if (tempId <= 9) {
+        $("#paymentId").val("P00-000" + tempId);
+      } else if (tempId <= 99) {
+        $("#paymentId").val("P00-00" + tempId);
+      } else if (tempId <= 999) {
+        $("#paymentId").val("P00-0" + tempId);
+      } else {
+        $("#paymentId").val("P00-" + tempId);
+      }
+
+    },
+    error: function (ob, statusText, error) {
+    }
+
+  });
+}
+
+
