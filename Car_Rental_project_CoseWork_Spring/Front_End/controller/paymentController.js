@@ -51,3 +51,18 @@ $("#driverFee").keyup(function (event) {
     $("#errorDriverFee").text("Check this field whether correct !");
   }
 });
+
+
+$("#travelledDistance").keyup(function (event) {
+  let distance = $("#travelledDistance").val();
+  if (regExDistance.test(distance)) {
+    $("#travelledDistance").css('border', '2px solid #31d2f2');
+    $("#errorTravelledDistance").text("");
+    if (event.key == "Enter") {
+      $("#extraKm").focus();
+    }
+  } else {
+    $("#travelledDistance").css('border', '2px solid red');
+    $("#errorTravelledDistance").text("Check this field whether correct !");
+  }
+});
