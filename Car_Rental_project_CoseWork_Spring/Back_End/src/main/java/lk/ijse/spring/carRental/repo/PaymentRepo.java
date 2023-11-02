@@ -16,4 +16,7 @@ public interface PaymentRepo extends JpaRepository<Payment,String> {
 
     @Query(value = "SELECT paymentId FROM Payment ORDER BY paymentId DESC LIMIT 1", nativeQuery = true)
     String generatePaymentId();
+
+    @Query(value = "SELECT SUM(fullPayment) FROM Payment", nativeQuery = true)
+    double totalIncome();
 }
