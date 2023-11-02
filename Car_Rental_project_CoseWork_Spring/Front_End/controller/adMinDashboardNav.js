@@ -352,7 +352,7 @@ $("#btnCancelChangeDriver").click(function () {
 
 $("#btnAddPayment").click(function () {
   generatePaymentIds();
-
+  loadReservationsIds();
   $('#PaymentAddPage').css('transform', 'scale(1)');
   $("#payment_dashboard").css('display', 'block');
 
