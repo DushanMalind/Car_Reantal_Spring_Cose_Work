@@ -100,4 +100,9 @@ public class CustomerServiceImpl implements CustomerService {
         Customer customer = customerRepo.findCustomerToReserve(nic);
         return mapper.map(customer, CustomerDTO.class);
     }
+
+    @Override
+    public CustomerDTO availableCustomer(String userName) {
+        return customerRepo.availableCustomer(userName);
+    }
 }

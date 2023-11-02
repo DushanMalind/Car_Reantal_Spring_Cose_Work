@@ -1,5 +1,6 @@
 package lk.ijse.spring.carRental.repo;
 
+import lk.ijse.spring.carRental.dto.CustomerDTO;
 import lk.ijse.spring.carRental.entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -29,5 +30,8 @@ public interface CustomerRepo extends JpaRepository<Customer,String> {
 
     @Query(value = "SELECT * FROM Customer WHERE customerNIC=:nic", nativeQuery = true)
     Customer findCustomerToReserve(@Param("nic") String nic);
+
+    @Query(value = "SELECT Customer.customerId,Customer.customerNIC,Customer.customerName,Customer.customerAddress,Customer.customerContact,Customer.customerEmail,Customer.registeredDate,Customer.customerStatus FROM Customer JOIN Users ON Users.userId = Customer.users_userId WHERE Users.userName=:userName", nativeQuery = true)
+    CustomerDTO availableCustomer(String userName);
 
 }

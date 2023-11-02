@@ -32,4 +32,6 @@ public interface CustomerService {
     CustomerDTO searchUserFromCustomer(String id);
 
     CustomerDTO findCustomerToReserve(String nic);
+
+    CustomerDTO availableCustomer(String userName);
 }

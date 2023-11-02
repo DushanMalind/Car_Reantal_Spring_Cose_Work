@@ -428,6 +428,46 @@ $("#btnSignIn").click(function () {
   }
 });
 
+
+function updateCutomer(){
+  var user={
+    userId:$("#generateUserId").text(),
+    username:$("#registerUsername").val(),
+    password:$("#registerPassword").val(),
+  }
+
+  var cusDetails={
+    customerId:$("#generateCusId").text(),
+    users:user,
+    registeredDate:today.toString(),
+    customerName:$("#nameSignIn").val(),
+    customerEmail:$("#emailSignIn").val(),
+    customerNIC:$("#nicSignIn").val(),
+    customerAddress:$("#addressSignIn").val(),
+    customerContact:$("#contactSignIn").val(),
+    customerDrivingLicenseId:$("#drivingLicenseSignIn").val(),
+    customerDrivingLicenseImage:$("#upLoadImage")[0].files[0].name
+  }
+
+  $.ajax({
+    url:basUrl+"customer/update",
+    method:"PUT",
+    contentType:"application/json",
+    data: JSON.stringify(cusDetails),
+    success:function (resp) {
+      if (resp.message==200){
+        registerUser(user);
+        generateUserIds();
+        generateRegisterIds();
+      }
+
+    },
+    error:function (error) {
+      console.log(error);
+    }
+  });
+}
+
 function clearTextFields(){
   generateUserIds();
   $("#nameSignIn").val("");

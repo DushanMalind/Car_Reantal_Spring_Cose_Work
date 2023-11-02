@@ -1,6 +1,7 @@
 package lk.ijse.spring.carRental.controller;
 
 import lk.ijse.spring.carRental.dto.CustomerDTO;
+import lk.ijse.spring.carRental.dto.UsersDTO;
 import lk.ijse.spring.carRental.service.CustomerService;
 import lk.ijse.spring.carRental.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,9 +36,10 @@ public class CustomerController {
     }
 
 
-    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil updateCustomer(@RequestBody CustomerDTO dto){
-        customerService.updateCustomer(dto);
+    @PutMapping(path = "/update",consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil updateCustomer(@ModelAttribute CustomerDTO customerDTO, @ModelAttribute UsersDTO usersDTO){
+        customerDTO.setUsers(usersDTO);
+        customerService.updateCustomer(customerDTO);
         return new ResponseUtil("Ok", "Successfully Updated.",null);
     }
 
