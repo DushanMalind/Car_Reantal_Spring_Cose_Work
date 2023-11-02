@@ -36,4 +36,11 @@ public class PaymentController {
         return new ResponseUtil("Ok","Successfully Saved",null);
     }
 
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil getAllPayments(){
+        return new ResponseUtil("Ok","Successfully Loaded",paymentService.getAllPayments());
+    }
+
+
+
 }
