@@ -46,5 +46,13 @@ public class PaymentController {
         return new ResponseUtil("Ok","Successfully Loaded",paymentService.totalIncome());
     }
 
+    @GetMapping("/payments")
+    public ResponseUtil calculateIncomeDetails(@RequestParam("startDate") String startDate,
+                                               @RequestParam("endDate") String endDate) {
+        return new ResponseUtil("Ok","Successfully Loaded",paymentService.getPaymentsBetweenDates(startDate,endDate));
+    }
+
+
+
 
 }
