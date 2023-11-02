@@ -1,8 +1,10 @@
 package lk.ijse.spring.carRental.controller;
 
+import lk.ijse.spring.carRental.dto.PaymentDTO;
 import lk.ijse.spring.carRental.service.PaymentService;
 import lk.ijse.spring.carRental.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -25,6 +27,13 @@ public class PaymentController {
     @GetMapping(params = {"test"})
     public ResponseUtil generatePaymentIds(@RequestParam String test){
         return new ResponseUtil("Ok","Successfully Generated",paymentService.generatePaymentIds());
-
     }
+
+
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil savePayment(@RequestBody PaymentDTO paymentDTO){
+        paymentService.savePayment(paymentDTO);
+        return new ResponseUtil("Ok","Successfully Saved",null);
+    }
+
 }
