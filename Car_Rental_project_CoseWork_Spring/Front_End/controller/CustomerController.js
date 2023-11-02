@@ -429,6 +429,30 @@ $("#btnSignIn").click(function () {
 });
 
 
+function uploadCarImagesUpdate() {
+  var data = new FormData();
+  let file = $("#uploadFrontView")[0].files[0];
+  let fileName = $("#uploadFrontView")[0].files[0].name;
+
+  data.append("myFile", file, fileName);
+
+
+  $.ajax({
+    url: basUrl + "api/v1/upload",
+    method: 'POST',
+    async: true,
+    contentType: false,
+    processData: false,
+    data: data,
+    success: function (resp) {
+    },
+    error: function (error) {
+      console.log(error);
+    }
+  });
+}
+
+
 function updateCutomer(){
   var user={
     userId:$("#generateUserId").text(),
@@ -459,6 +483,7 @@ function updateCutomer(){
         registerUser(user);
         generateUserIds();
         generateRegisterIds();
+        uploadCarImagesUpdate();
       }
 
     },
@@ -508,6 +533,7 @@ $("#btnSignInUpdate").click(function () {
   }*/
   updateCutomer();
   setTextFieldValues();
+  uploadCarImagesUpdate();
   loadAllCustomer();
 });
 
