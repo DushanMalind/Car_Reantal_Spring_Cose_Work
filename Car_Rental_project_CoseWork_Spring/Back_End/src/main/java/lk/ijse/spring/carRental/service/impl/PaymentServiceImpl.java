@@ -1,6 +1,7 @@
 package lk.ijse.spring.carRental.service.impl;
 
 import lk.ijse.spring.carRental.dto.PaymentDTO;
+import lk.ijse.spring.carRental.entity.Payment;
 import lk.ijse.spring.carRental.repo.PaymentRepo;
 import lk.ijse.spring.carRental.service.PaymentService;
 import org.modelmapper.ModelMapper;
@@ -29,12 +30,16 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     public String generatePaymentIds() {
-        return null;
+        return paymentRepo.generatePaymentId();
     }
 
     @Override
     public void savePayment(PaymentDTO paymentDTO) {
-
+        if (!paymentRepo.existsById(paymentDTO.getPaymentId())) {
+            paymentRepo.save(mapper.map(paymentDTO, Payment.class));
+        } else {
+            throw new RuntimeException(paymentDTO.getPaymentId() + " Payment Already Exists..!");
+        }
     }
 
     @Override
