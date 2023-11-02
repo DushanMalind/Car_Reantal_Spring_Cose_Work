@@ -41,6 +41,10 @@ public class PaymentController {
         return new ResponseUtil("Ok","Successfully Loaded",paymentService.getAllPayments());
     }
 
+    @GetMapping(path = "/AllIncome/{income}")
+    public ResponseUtil totalIncome(@PathVariable("income") String income){
+        return new ResponseUtil("Ok","Successfully Loaded",paymentService.totalIncome());
+    }
 
 
 }
