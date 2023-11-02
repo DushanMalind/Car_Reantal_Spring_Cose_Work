@@ -63,4 +63,9 @@ public class PaymentController {
         return new ResponseUtil("Ok","Successfully Loaded",paymentService.weeklyIncome());
     }
 
+    @GetMapping(path = "/monthly")
+    public ResponseUtil monthlyIncome(){
+        return new ResponseUtil("Ok","Successfully Loaded",paymentService.monthlyIncome());
+    }
+
 }
