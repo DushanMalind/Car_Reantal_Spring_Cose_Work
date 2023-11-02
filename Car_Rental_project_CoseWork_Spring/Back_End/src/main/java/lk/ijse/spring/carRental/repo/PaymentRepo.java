@@ -2,6 +2,7 @@ package lk.ijse.spring.carRental.repo;
 
 import lk.ijse.spring.carRental.entity.Payment;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 /**
  * `@authority` DUSHAN MALINDA
@@ -13,4 +14,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface PaymentRepo extends JpaRepository<Payment,String> {
 
+    @Query(value = "SELECT paymentId FROM Payment ORDER BY paymentId DESC LIMIT 1", nativeQuery = true)
+    String generatePaymentId();
 }
