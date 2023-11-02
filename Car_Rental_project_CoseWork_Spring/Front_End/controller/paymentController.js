@@ -35,3 +35,19 @@ $("#rentFee").keyup(function (event) {
     $("#errorRentFee").text("Check this field whether correct !");
   }
 });
+
+
+
+$("#driverFee").keyup(function (event) {
+  let driverFee = $("#driverFee").val();
+  if (regExPrice.test(driverFee)) {
+    $("#driverFee").css('border', '2px solid #31d2f2');
+    $("#errorDriverFee").text("");
+    if (event.key == "Enter") {
+      $("#loseDamageWaiverPayment").focus();
+    }
+  } else {
+    $("#driverFee").css('border', '2px solid red');
+    $("#errorDriverFee").text("Check this field whether correct !");
+  }
+});
