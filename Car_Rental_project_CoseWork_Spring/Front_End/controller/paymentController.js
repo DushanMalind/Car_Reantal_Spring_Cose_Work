@@ -190,3 +190,71 @@ function loadReservationsIds() {
     }
   });
 }
+
+
+$("#rentalId").change(function () {
+  let rentId = $("#rentalId option:selected").text();
+  $("#loseDamageWaiverPayment").val(0);
+  $("#reserveCarId").empty();
+  $("#reserveCarId").append($("<option></option>").attr("value", 0).text("Select ID"));
+  console.log(rentId);
+  $.ajax({
+    url: baseURLForReserveDetails + "reserve/" + rentId,
+    method: "GET",
+    success: function (response) {
+      for (let i = 0; i < response.data.reserveDetails.length; i++) {
+        if ($("#rentalId option:selected").text() == response.data.reserveDetails[i].reserveId) {
+          $("#reserveCarId").append($("<option></option>").attr("value", i + 1).text(response.data.reserveDetails[i].carId));
+          $("#loseDamageWaiverPayment").val(response.data.reserveDetails[i].loseDamageWaiverPayment);
+          $("#rentDriverId").val(response.data.reserveDetails[i].driverId);
+        } else {
+          $("#reserveCarId").append($("<option></option>").attr("value", 0).text("Select ID"));
+          $("#loseDamageWaiverPayment").val("0");
+          $("#rentDriverId").val("0");
+        }
+      }
+    },
+    error: function (ob) {
+    }
+  });
+
+});
+
+
+$("#reducedLoseDamageWaiverPayment").val("0");
+$("#priceForTravelledExtraKm").val("0");
+
+$("#carHarmOrNot").change(function () {
+
+  if ($("#carHarmOrNot option:selected").text() == "None") {
+
+    $("#reducedLoseDamageWaiverPayment").val("0");
+
+  } else if ($("#carHarmOrNot option:selected").text() == "Harm") {
+    let reduce_price = $("#loseDamageWaiverPayment").val();
+    $("#reducedLoseDamageWaiverPayment").val(reduce_price);
+
+  } else if ($("#carHarmOrNot option:selected").text() == "Not Harm") {
+    $("#reducedLoseDamageWaiverPayment").val("0");
+  }
+});
+
+
+$("#reserveCarId").change(function () {
+  let newCarId = $("#reserveCarId option:selected").text();
+  $("#pricePerExKm").val("0");
+  $.ajax({
+    url: baseURLForReserveDetails + "car/" + newCarId,
+    method: "GET",
+    success: function (response) {
+
+      console.log(response.data.pricePerExtraKM);
+      $("#pricePerExKm").val(response.data.pricePerExtraKM);
+
+    },
+    error: function (ob) {
+      $("#pricePerExKm").val("0");
+    }
+  });
+
+});
