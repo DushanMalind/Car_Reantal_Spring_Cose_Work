@@ -436,7 +436,7 @@ function updateCutomer(){
     password:$("#registerPassword").val(),
   }
 
-  var cusDetails={
+  var cusDetailsUpdate={
     customerId:$("#generateCusId").text(),
     users:user,
     registeredDate:today.toString(),
@@ -453,7 +453,7 @@ function updateCutomer(){
     url:basUrl+"customer/update",
     method:"PUT",
     contentType:"application/json",
-    data: JSON.stringify(cusDetails),
+    data: JSON.stringify(cusDetailsUpdate),
     success:function (resp) {
       if (resp.message==200){
         registerUser(user);
@@ -468,6 +468,50 @@ function updateCutomer(){
   });
 }
 
+
+
+$("#btnSignInUpdate").click(function () {
+/*  if ($("#nameSignIn").val()=="" || $("#emailSignIn").val()=="" || $("#nicSignIn").val()=="" ||
+    $("#addressSignIn").val()=="" || $("#contactSignIn").val()=="" || $("#drivingLicenseSignIn").val()=="" ||
+    $("#registerUsername").val()=="" || $("#registerPassword").val()=="") {
+    /!*alert("Please Fill All Fields");*!/
+    swal({
+      title: "Please Fill All Fields",
+      text: "message!",
+      type: "warning",
+      showCancelButtonClass: "btn-primary",
+      confirmButtonClass: "btn-danger",
+    });
+
+  }else {
+    if ($("#upLoadImage").get(0).files.length ===0){
+      alert("Please Input Fields Image Upload");
+    }else {
+      if ($("#errorUserName").text() !=="" && $("#errorEmail").text() !=="" && $("#errorNIC").text() !=="" &&
+        $("#errorAddress").text() !=="" && $("#errorContact").text() !=="" && $("#errorDriven").text() !=="" &&
+        $("#errorUsername").text() !=="" && $("#errorPassword").text() !=="") {
+        alert("Check All Input Fields");
+      }else {
+        $("#btnSignInUpdate").prop("disabled",false);
+        updateCutomer();
+        uploadCustomerImages();
+        loadAllCustomer();
+        swal({
+          title: "Successfully Update Customer",
+          text: "message!",
+          type: "success",
+          showCancelButtonClass: "btn-primary",
+          confirmButtonClass: "btn-danger",
+        });
+      }
+    }
+  }*/
+  updateCutomer();
+  setTextFieldValues();
+  loadAllCustomer();
+});
+
+loadAllCustomer();
 function clearTextFields(){
   generateUserIds();
   $("#nameSignIn").val("");
@@ -481,6 +525,19 @@ function clearTextFields(){
   $("#upLoadImage").val("");
 }
 
+
+function setTextFieldValues(name,email,nic,address,contact,drivingLicense,username,password,image){
+  $("#nameSignIn").val(name);
+  $("#emailSignIn").val(email);
+  $("#nicSignIn").val(nic);
+  $("#addressSignIn").val(address);
+  $("#contactSignIn").val(contact);
+  $("#drivingLicenseSignIn").val(drivingLicense);
+  $("#registerUsername").val(username);
+  $("#registerPassword").val(password);
+  $("#upLoadImage").val(image);
+
+}
 
 function loadAllCustomer() {
 
@@ -499,6 +556,7 @@ function loadAllCustomer() {
                                 </div></td> </tr>`;
         $("#tblCustomers tbody").append(raw);
       }
+      setTextFieldValues(response.data[0].customerName,response.data[0].customerEmail,response.data[0].customerNIC,response.data[0].customerAddress,response.data[0].customerContact,response.data[0].customerDrivingLicenseId,response.data[0].users.username,response.data[0].users.password);
     },
     error: function (error) {
       alert(JSON.parse(error.responseText).message);
