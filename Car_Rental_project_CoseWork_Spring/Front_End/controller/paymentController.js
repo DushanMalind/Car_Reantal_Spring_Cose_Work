@@ -20,3 +20,18 @@ $("#paymentDate").keyup(function (event) {
   }
 });
 
+
+
+$("#rentFee").keyup(function (event) {
+  let rentFee = $("#rentFee").val();
+  if (regExPrice.test(rentFee)) {
+    $("#rentFee").css('border', '2px solid #31d2f2');
+    $("#errorRentFee").text("");
+    if (event.key == "Enter") {
+      $("#driverFee").focus();
+    }
+  } else {
+    $("#rentFee").css('border', '2px solid red');
+    $("#errorRentFee").text("Check this field whether correct !");
+  }
+});
