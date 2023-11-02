@@ -329,4 +329,35 @@ function gotoMainPage() {
   $("#Reservation").css('display','none');
 }
 
+$("#registerPage").css('display', 'none');
 
+$("#btnUpdateCustomer").click(function (){
+  $("#registerPage").css('display', 'block');
+  $("#nav_bar").css('display', 'none');
+  $("#BookingPage").css('display', 'none');
+  $('#RegisterPage').css('display', 'none');
+  $('#RegisterDriver').css('display', 'none');
+  $('#logInCustomer').css('display', 'none');
+  $('#logInDriver').css('display', 'none');
+  $('#logInAdmin').css('display', 'none');
+  $('#ForgotPasswordPage').css('display', 'none');
+  $('#admin_screen').css('display', 'none');
+  $("#CustomerDashBoard").css('display', 'none');
+  $("#moreSpace").css('display', 'none');
+});
+
+
+$("#btnCustomerCancel").click(function (){
+  $("#nav_bar").css('display', 'none');
+  $("#BookingPage").css('display', 'Block');
+  $('#RegisterPage').css('display', 'none');
+  $("#registerPage").css('display', 'none');
+  $('#RegisterDriver').css('display', 'none');
+  $('#logInCustomer').css('display', 'none');
+  $('#logInDriver').css('display', 'none');
+  $('#logInAdmin').css('display', 'none');
+  $('#ForgotPasswordPage').css('display', 'none');
+  $('#admin_screen').css('display', 'none');
+  $("#CustomerDashBoard").css('display', 'none');
+  $("#moreSpace").css('display', 'none');
+});
