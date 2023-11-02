@@ -37,5 +37,7 @@ public interface PaymentRepo extends JpaRepository<Payment,String> {
     @Query(value = "SELECT COALESCE(SUM(fullPayment), 0) FROM Payment WHERE YEAR(paymentDate) = YEAR(CURDATE()) AND MONTH(paymentDate) = MONTH(CURDATE())", nativeQuery = true)
     double monthlyIncome();
 
+    @Query(value = "SELECT COALESCE(SUM(fullPayment), 0) FROM Payment WHERE YEAR(paymentDate) = YEAR(CURDATE())", nativeQuery = true)
+    double yearlyIncome();
 
 }
