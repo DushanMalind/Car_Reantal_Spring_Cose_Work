@@ -117,3 +117,57 @@ function generatePaymentIds() {
 }
 
 
+/*$("#calculateFullIncome").click(function () {
+  $("#tblPayment tbody > tr").off("click");
+
+  let text = "Do you want to make this payment ?";
+
+  if (confirm(text) == true) {
+    if ($("#rentalId").val() == "" || $("#reserveCarId").val() == "" || $("#paymentDate").val() == "" || $("#rentFee").val() == "" || $("#driverFee").val() == "" || $("#extraKm").val() == "" || $("#loseDamageWaiverPayment").val() == "" || $("#priceForTravelledExtraKm").val() == "" ||
+      $("#reducedLoseDamageWaiverPayment").val() == "" || $("#travelledDistance").val() == "" || $("#carHarmOrNot option:selected").val() == "") {
+      alert("All Fields Are Required !");
+    } else {
+      if ($("#errorPaymentDate").text() != "" || $("#errorRentFee").text() != "" || $("#errorDriverFee").text() != "" || $("#errorDamagePayment").text() != "" || $("#errorReduceDamagePayment").text() != "" || $("#errorTravelledDistance").text() != "" ||
+        $("#errorTravelledExtraKM").text() != "" || $("#errorPriceExtraKM").text() != "") {
+        alert("Check Input Fields Whether Correct !");
+      } else {
+
+        calculateIncome();
+
+
+      }
+    }
+  } else {
+
+  }
+});*/
+
+$("#calculateFullIncome").click(function () {
+  $("#tblPayment tbody > tr").off("click");
+
+  let text = "Do you want to make this payment ?";
+
+  Swal.fire({
+    title: 'Confirmation',
+    text: text,
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Yes',
+    cancelButtonText: 'No'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      if ($("#rentalId").val() == "" || $("#reserveCarId").val() == "" || $("#paymentDate").val() == "" || $("#rentFee").val() == "" || $("#driverFee").val() == "" || $("#extraKm").val() == "" || $("#loseDamageWaiverPayment").val() == "" || $("#priceForTravelledExtraKm").val() == "" ||
+        $("#reducedLoseDamageWaiverPayment").val() == "" || $("#travelledDistance").val() == "" || $("#carHarmOrNot option:selected").val() == "") {
+        Swal.fire('Error', 'All Fields Are Required!', 'error');
+      } else {
+        if ($("#errorPaymentDate").text() != "" || $("#errorRentFee").text() != "" || $("#errorDriverFee").text() != "" || $("#errorDamagePayment").text() != "" || $("#errorReduceDamagePayment").text() != "" || $("#errorTravelledDistance").text() != "" ||
+          $("#errorTravelledExtraKM").text() != "" || $("#errorPriceExtraKM").text() != "") {
+          Swal.fire('Error', 'Check Input Fields Whether Correct!', 'error');
+        } else {
+          calculateIncome();
+        }
+      }
+    }
+  });
+});
+
