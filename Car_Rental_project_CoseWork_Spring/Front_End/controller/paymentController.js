@@ -66,3 +66,18 @@ $("#travelledDistance").keyup(function (event) {
     $("#errorTravelledDistance").text("Check this field whether correct !");
   }
 });
+
+
+$("#extraKm").keyup(function (event) {
+  let extra = $("#extraKm").val();
+  if (regExDistance.test(extra)) {
+    $("#extraKm").css('border', '2px solid #31d2f2');
+    $("#errorTravelledExtraKM").text("");
+    if (event.key == "Enter") {
+      $("#priceForTravelledExtraKm").focus();
+    }
+  } else {
+    $("#extraKm").css('border', '2px solid red');
+    $("#errorTravelledExtraKM").text("Check this field whether correct !");
+  }
+});
