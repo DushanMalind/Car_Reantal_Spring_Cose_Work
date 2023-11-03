@@ -132,7 +132,7 @@ function generateDriverIds() {
 
 
 
-$("#btnAddNewDriver").click(function () {
+/*$("#btnAddNewDriver").click(function () {
   $("#tblDriver tbody > tr").off("click");
 
 
@@ -163,7 +163,26 @@ $("#btnAddNewDriver").click(function () {
       }
     }
 
+});*/
+
+$("#btnAddNewDriver").click(function () {
+  $("#tblDriver tbody > tr").off("click");
+
+  if ($("#driverUsername").val() == "" || $("#driverPassword").val() == "" || $("#driverName").val() == "" || $("#driverAddress").val() == "" ||
+    $("#driverAge").val() == "" || $("#driverContact").val() == "" || $("#driverReleaseOrNot option:selected").val() == "") {
+    Swal.fire('Warning', 'Please Fill All Fields', 'warning');
+  } else {
+    if ($("#errorDriverUsername").text() != "" || $("#errorDName").text() != "" || $("#errorDPassword").text() != "" || $("#errorDAddress").text() != "" ||
+      $("#errorDAge").text() != "" || $("#errorDContact").text() != "") {
+      alert("Check Input Fields Whether Correct !");
+    } else {
+      addNewDriver();
+
+      Swal.fire('Success', 'Successfully Register Driver Details', 'success');
+    }
+  }
 });
+
 
 function registerUser1(users){
   var user={

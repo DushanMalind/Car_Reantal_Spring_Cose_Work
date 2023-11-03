@@ -158,7 +158,7 @@ function generateVehicleIds() {
 }
 
 
-function saveCar() {
+/*function saveCar() {
   var newCarData = {
     carId: $("#carId").val(),
     registrationNo: $("#registrationNo").val(),
@@ -202,7 +202,49 @@ function saveCar() {
       });
     }
   });
+}*/
+
+
+function saveCar() {
+  var newCarData = {
+    carId: $("#carId").val(),
+    registrationNo: $("#registrationNo").val(),
+    colour: $("#colour option:selected").text(),
+    brand: $("#brand option:selected").text(),
+    type: $("#type option:selected").text(),
+    fuelType: $("#fuelType option:selected").text(),
+    transmissionType: $("#transmissionType option:selected").text(),
+    noOfPassengers: $("#noOfPassengers").val(),
+    freeKmForDay: $("#freeKMPerDay").val(),
+    freeKmForMonth: $("#freeKMPerMonth").val(),
+    pricePerExtraKM: $("#priceForExtraKM").val(),
+    dailyRatePrice: $("#dailyRatePrice").val(),
+    monthlyRatePrice: $("#monthlyRatePrice").val(),
+    totalDistanceTraveled: $("#totalDistanceTravelled").val(),
+    availableOrNot: $("#availableOrNot option:selected").text(),
+    damageOrNot: $("#damageOrNot option:selected").text(),
+    underMaintainOrNot: $("#underMaintainOrNot option:selected").text(),
+    fontViewImage: $('#uploadFrontView')[0].files[0].name,
+    backViewImage: $('#uploadBackView')[0].files[0].name,
+    sideViewImage: $('#uploadSideView')[0].files[0].name,
+    interiorViewImage: $('#uploadInteriorView')[0].files[0].name,
+  };
+
+  $.ajax({
+    url: baseUrl + "car",
+    method: "POST",
+    contentType: "application/json",
+    data: JSON.stringify(newCarData),
+    success: function (response) {
+      if (response.code == 200) {
+        loadAllCars();
+        clearFieldsFromCarPage();
+      }
+      Swal.fire('Success', 'Successfully Register Car Details', 'success');
+    },
+  });
 }
+
 
 
 function uploadCarImages() {
@@ -278,20 +320,20 @@ function loadAllCars() {
 
 /* <img src="http://localhost:8081/Back_End_war/uploads/${responseKey.fontViewImage}" width="50px" height="50px" alt="Front View Image" class="rounded-circle"></td><td>*/
 /*loadAllCars();*/
-$("#btnAddNewCar").click(function () {
+/*$("#btnAddNewCar").click(function () {
   $("#tblCars tbody > tr").off('click');
 
-  /*swal({
+  /!*swal({
     title: "Are you sure? Add Ths Car Details",
     text: "Once Added, You will not be able to recover this Car Details!",
     type: "success",
     showCancelButtonClass: "btn-danger",
     confirmButtonClass: "btn-success",
-  });*/
+  });*!/
 
   let text = "Are you sure? Add Ths Car Details";
 
-  /* if (confirm() == true) {*/
+  /!* if (confirm() == true) {*!/
   if ($("#brand option:selected").val() == "" || $("#colour option:selected").val() == "" || $("#type option:selected").val() == "" ||
     $("#fuelType option:selected").val() == "" || $("#registrationNo").val() == "" || $("#noOfPassengers").val() == "" ||
     $("#transmissionType option:selected").val() == "" || $("#dailyRatePrice").val() == "" || $("#monthlyRatePrice").val() == "" ||
@@ -330,9 +372,41 @@ $("#btnAddNewCar").click(function () {
 
   }
 
-  /* }*/
+  /!* }*!/
 
+});*/
+
+$("#btnAddNewCar").click(function () {
+  $("#tblCars tbody > tr").off('click');
+
+  let text = "Are you sure? Add This Car Details";
+
+  if ($("#brand option:selected").val() == "" || $("#colour option:selected").val() == "" || $("#type option:selected").val() == "" ||
+    $("#fuelType option:selected").val() == "" || $("#registrationNo").val() == "" || $("#noOfPassengers").val() == "" ||
+    $("#transmissionType option:selected").val() == "" || $("#dailyRatePrice").val() == "" || $("#monthlyRatePrice").val() == "" ||
+    $("#freeKMPerDay").val() == "" || $("#freeKMPerMonth").val() == "" || $("#priceForExtraKM").val() == "" || $("#damageOrNot option:selected").val() == "" ||
+    $("#underMaintainOrNot option:selected").val() == "" || $("#totalDistanceTravelled").val() == "" || $("#availableOrNot option:selected").val() == "") {
+
+    Swal.fire('Warning', 'Please Fill All Fields', 'warning');
+  } else {
+    if ($("#errorRegNo").text() != "" || $("#errorPassengers").text() != "" || $("#errorDailyRate").text() != "" || $("#errorMonthlyRate").text() != "" ||
+      $("#errorFeeKMDay").text() != "" || $("#errorFreeKMMonth").text() != "" || $("#errorExtraKMPrice").text() != "" || $("#errorTotalDistance").text() != "") {
+
+      alert("Check Input Fields Whether Correct !");
+    } else {
+      if ($('#uploadFrontView').get(0).files.length === 0 || $('#uploadBackView').get(0).files.length === 0 || $('#uploadSideView').get(0).files.length === 0 || $('#uploadInteriorView').get(0).files.length === 0) {
+
+        alert("No Images Inserted !");
+      } else {
+        isExistsRegistrationNumber();
+        uploadCarImages();
+
+        Swal.fire('Success', 'Successfully Register Car Details', 'success');
+      }
+    }
+  }
 });
+
 
 
 function isExistsRegistrationNumber() {
