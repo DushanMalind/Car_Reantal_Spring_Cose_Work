@@ -355,6 +355,7 @@ function isExistsRegistrationNumber() {
 }
 
 var tblClickRow=-1;
+/*
 function BindRowClickEvent() {
   $("#tblCars tbody > tr").click(function () {
 
@@ -409,9 +410,67 @@ function BindRowClickEvent() {
 
   });
 }
+*/
+
+var tblClickRow = -1;
+
+function BindRowClickEvent() {
+  $("#tblCars tbody > tr").click(function () {
+    tblClickRow = $(this);
+
+    Swal.fire({
+      title: "Do you want to Edit cars ?",
+      text: "message!",
+      icon: "info",
+      showCancelButton: true,
+      confirmButtonText: "Yes",
+      cancelButtonText: "No",
+      confirmButtonClass: "btn-success",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        $('#CarManagePage').css('transform', 'scale(1)');
+
+        var carId = $.trim(tblClickRow.children(':nth-child(1)').text());
+        var regNo = $.trim(tblClickRow.children(':nth-child(5)').text());
+        var passengers = $.trim(tblClickRow.children(':nth-child(8)').text());
+        var dailyRate = $.trim(tblClickRow.children(':nth-child(9)').text());
+        var monthlyRate = $.trim(tblClickRow.children(':nth-child(10)').text());
+        var freeKMDay = $.trim(tblClickRow.children(':nth-child(11)').text());
+        var freeKmMonth = $.trim(tblClickRow.children(':nth-child(12)').text());
+        var extraKm = $.trim(tblClickRow.children(':nth-child(13)').text());
+        var totalDistance = $.trim(tblClickRow.children(':nth-child(17)').text());
+
+        $("#brand").append($("<option selected></option>").attr("value", 14).text($.trim(tblClickRow.children(':nth-child(2)').text())));
+        $("#colour").append($("<option selected></option>").attr("value", 11).text($.trim(tblClickRow.children(':nth-child(3)').text())));
+        $("#type").append($("<option selected></option>").attr("value", 4).text($.trim(tblClickRow.children(':nth-child(4)').text())));
+        $("#transmissionType").append($("<option selected></option>").attr("value", 3).text($.trim(tblClickRow.children(':nth-child(7)').text())));
+        $("#fuelType").append($("<option selected></option>").attr("value", 3).text($.trim(tblClickRow.children(':nth-child(6)').text())));
+        $("#availableOrNot").append($("<option selected></option>").attr("value", 3).text($.trim(tblClickRow.children(':nth-child(14)').text())));
+        $("#damageOrNot").append($("<option selected></option>").attr("value", 3).text($.trim(tblClickRow.children(':nth-child(15)').text())));
+        $("#underMaintainOrNot").append($("<option selected></option>").attr("value", 3).text($.trim(tblClickRow.children(':nth-child(16)').text())));
+
+        $("#carId").val(carId);
+        $("#registrationNo").val(regNo);
+        $("#noOfPassengers").val(passengers);
+        $("#dailyRatePrice").val(dailyRate);
+        $("#monthlyRatePrice").val(monthlyRate);
+        $("#freeKMPerDay").val(freeKMDay);
+        $("#freeKMPerMonth").val(freeKmMonth);
+        $("#priceForExtraKM").val(extraKm);
+        $("#totalDistanceTravelled").val(totalDistance);
+        $("#transmissionType option:selected").val($.trim(tblClickRow.children(':nth-child(7)').text()));
+        $("#uploadFrontView").val('');
+        $("#uploadBackView").val('');
+        $("#uploadSideView").val('');
+        $("#uploadInteriorView").val('');
+      }
+    });
+  });
+}
 
 
-function updateCar() {
+
+/*function updateCar() {
   var carDetails = {
     carId: $("#carId").val(),
     registrationNo:$("#registrationNo").val(),
@@ -459,29 +518,74 @@ function updateCar() {
       alert(JSON.parse(error.responseText).message);
     }
   });
+}*/
+
+function updateCar() {
+  var carDetails = {
+    carId: $("#carId").val(),
+    registrationNo: $("#registrationNo").val(),
+    colour: $("#colour option:selected").text(),
+    brand: $("#brand option:selected").text(),
+    type: $("#type option:selected").text(),
+    fuelType: $("#fuelType option:selected").text(),
+    transmissionType: $("#transmissionType option:selected").text(),
+    noOfPassengers: $("#noOfPassengers").val(),
+    freeKmForDay: $("#freeKMPerDay").val(),
+    freeKmForMonth: $("#freeKMPerMonth").val(),
+    pricePerExtraKM: $("#priceForExtraKM").val(),
+    dailyRatePrice: $("#dailyRatePrice").val(),
+    monthlyRatePrice: $("#monthlyRatePrice").val(),
+    totalDistanceTraveled: $("#totalDistanceTravelled").val(),
+    availableOrNot: $("#availableOrNot option:selected").text(),
+    damageOrNot: $("#damageOrNot option:selected").text(),
+    underMaintainOrNot: $("#underMaintainOrNot option:selected").text(),
+    fontViewImage: $('#uploadFrontView')[0].files[0].name,
+    backViewImage: $('#uploadBackView')[0].files[0].name,
+    sideViewImage: $('#uploadSideView')[0].files[0].name,
+    interiorViewImage: $('#uploadInteriorView')[0].files[0].name,
+  };
+
+  $.ajax({
+    url: baseUrl + "car",
+    method: "PUT",
+    contentType: "application/json",
+    data: JSON.stringify(carDetails),
+    success: function (response) {
+      if (response.code == 200) {
+        Swal.fire('Success', $("#carId").val() + " " + response.message, 'success');
+      }
+      clearFieldsFromCarPage();
+      loadAllCars();
+      Swal.fire('Success', 'Successfully Update Car Details', 'success');
+    },
+    error: function (error) {
+      Swal.fire('Error', JSON.parse(error.responseText).message, 'error');
+    },
+  });
 }
 
 
 
-$("#btnUpdateCar").click(function () {
+
+/*$("#btnUpdateCar").click(function () {
   let text = "Do you want to update this cars ?";
 
- /* if (confirm(text) == true) {*/
+ /!* if (confirm(text) == true) {*!/
 
- /* swal({
+ /!* swal({
     title: "Do you want to update this cars ?",
     text: "message!",
     type: "info",
     showCancelButtonClass: "btn-primary",
     confirmButtonClass: "btn-success",
-  });*/
+  });*!/
 
     if ($("#brand option:selected").val() == "" || $("#colour option:selected").val() == "" || $("#type option:selected").val() == "" ||
       $("#fuelType option:selected").val() == "" || $("#registrationNo").val() == "" || $("#noOfPassengers").val() == "" ||
       $("#transmissionType option:selected").val() == "" || $("#dailyRatePrice").val() == "" || $("#monthlyRatePrice").val() == "" ||
       $("#freeKMPerDay").val() == "" || $("#freeKMPerMonth").val() == "" || $("#priceForExtraKM").val() == "" || $("#damageOrNot option:selected").val() == "" ||
       $("#underMaintainOrNot option:selected").val() == "" || $("#totalDistanceTravelled").val() == "" ||  $("#availableOrNot option:selected").val() == ""){
-      /*alert("All Fields Are Required !");*/
+      /!*alert("All Fields Are Required !");*!/
       swal({
         title: "Please Fill All Fields",
         text: "message!",
@@ -510,8 +614,48 @@ $("#btnUpdateCar").click(function () {
       }
 
     }
+  /!*}else {}*!/
+});*/
+
+
+$("#btnUpdateCar").click(function () {
+  let text = "Do you want to update this cars ?";
+
+  /* if (confirm(text) == true) { */
+
+  /* swal({
+    title: "Do you want to update this cars ?",
+    text: "message!",
+    type: "info",
+    showCancelButtonClass: "btn-primary",
+    confirmButtonClass: "btn-success",
+  }); */
+
+  if ($("#brand option:selected").val() == "" || $("#colour option:selected").val() == "" || $("#type option:selected").val() == "" ||
+    $("#fuelType option:selected").val() == "" || $("#registrationNo").val() == "" || $("#noOfPassengers").val() == "" ||
+    $("#transmissionType option:selected").val() == "" || $("#dailyRatePrice").val() == "" || $("#monthlyRatePrice").val() == "" ||
+    $("#freeKMPerDay").val() == "" || $("#freeKMPerMonth").val() == "" || $("#priceForExtraKM").val() == "" || $("#damageOrNot option:selected").val() == "" ||
+    $("#underMaintainOrNot option:selected").val() == "" || $("#totalDistanceTravelled").val() == "" || $("#availableOrNot option:selected").val() == "") {
+    /*alert("All Fields Are Required !");*/
+    Swal.fire('Warning', 'Please Fill All Fields', 'warning');
+  } else {
+    if ($("#errorRegNo").text() != "" || $("#errorPassengers").text() != "" || $("#errorDailyRate").text() != "" || $("#errorMonthlyRate").text() != "" ||
+      $("#errorFeeKMDay").text() != "" || $("#errorFreeKMMonth").text() != "" || $("#errorExtraKMPrice").text() != "" || $("#errorTotalDistance").text() != "") {
+      alert("Check Input Fields Whether Correct !");
+    } else {
+      if ($('#uploadFrontView').get(0).files.length === 0 || $('#uploadBackView').get(0).files.length === 0 || $('#uploadSideView').get(0).files.length === 0 || $('#uploadInteriorView').get(0).files.length === 0) {
+        alert("No Images Inserted !");
+      } else {
+        updateCar();
+        uploadCarImages();
+        Swal.fire('Success', 'Successfully Update Car Details', 'success');
+      }
+    }
+  }
+
   /*}else {}*/
 });
+
 
 
 function clearCarUpdateFields() {

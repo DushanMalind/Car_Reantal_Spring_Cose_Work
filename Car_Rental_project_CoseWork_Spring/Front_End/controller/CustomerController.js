@@ -590,3 +590,8 @@ function loadAllCustomer() {
   });
 
 }
+
+
+$("#btnCancel").click(function (){
+  clearTextFields();
+});
